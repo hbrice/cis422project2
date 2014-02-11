@@ -1,1 +1,0 @@
-web: gunicorn lunarshift.wsgi
