@@ -14,6 +14,7 @@ Documentation for the site is organized into a few different sections below:
 * :ref:`dev-docs`
 * :ref:`design-docs`
 * :ref:`about-docs`
+* :ref:`contr-report-docs`
 
 .. _site-docs:
 
@@ -60,3 +61,14 @@ About lunarshift
    :maxdepth: 2
 
    Developers
+
+.. _contr-report-docs:
+
+Contribute
+----------
+
+.. toctree::
+   :maxdepth: 2
+
+  - Issue Tracker: github.com/hbrice/cis422/issues
+	- Source Code: github.com/hbrice/cis422
