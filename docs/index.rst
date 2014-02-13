@@ -10,8 +10,8 @@ lunarshift provides a convenient and efficient user interface for managers and e
 
 Feel free to report `issues`_ and view our `source`_
 
-.. issues: github.com/hbrice/cis422/issues
-.. source: github.com/hbrice/cis422
+.. _issues: github.com/hbrice/cis422/issues
+.. _source: github.com/hbrice/cis422
 
 Documentation for the site is organized into a few different sections below:
 
