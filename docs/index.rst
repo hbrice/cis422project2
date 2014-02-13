@@ -58,13 +58,5 @@ About lunarshift
 
 .. toctree::
    :maxdepth: 2
-   
+
    Developers
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
