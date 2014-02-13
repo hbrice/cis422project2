@@ -9,13 +9,15 @@ Welcome to lunarshift's documentation!
 lunarshift provides a convenient and efficient user interface for managers and employees to coordinate work shift schedules effortlessly. 
 
 Documentation for the site is organized into a few different sections below:
+
 * :ref:`site-docs`
 * :ref:`dev-docs`
 * :ref:`design-docs`
 * :ref:`about-docs`
 
 .. _site-docs:
-User Documentation:
+
+User Documentation
 -------------------
 
 .. toctree::
@@ -26,7 +28,8 @@ User Documentation:
    support
    faq
 
-.. _dev_docs:
+.. _dev-docs:
+
 Developer Documentation
 -----------------------
 
@@ -36,5 +39,11 @@ Developer Documentation
    install
    architecture
    tests
+   
+Indices and tables
+==================
 
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
 
