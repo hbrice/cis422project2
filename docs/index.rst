@@ -72,5 +72,5 @@ About lunarshift
 Contribute
 ----------
 
-  - Issue Tracker: github.com/hbrice/cis422/issues
-	- Source Code: github.com/hbrice/cis422
+- Issue Tracker: github.com/hbrice/cis422/issues
+- Source Code: github.com/hbrice/cis422
