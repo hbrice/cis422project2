@@ -1,4 +1,4 @@
-cis422project2
+lunarshift
 ==============
 
-Repo for our second project.
+Check out user/dev documentation at: http://lunarshift.readthedocs.org/
