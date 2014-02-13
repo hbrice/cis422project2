@@ -39,7 +39,28 @@ Developer Documentation
    install
    architecture
    tests
+
+.. _design-docs:
+
+Designer Documentation
+----------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   Layout
+   Theme
+
+.. _about-docs:
+
+About lunarshift
+----------------
+
+.. toctree::
+   :maxdepth: 2
    
+   Developers
+
 Indices and tables
 ==================
 
