@@ -67,8 +67,5 @@ About lunarshift
 Contribute
 ----------
 
-.. toctree::
-   :maxdepth: 2
-
   - Issue Tracker: github.com/hbrice/cis422/issues
 	- Source Code: github.com/hbrice/cis422
