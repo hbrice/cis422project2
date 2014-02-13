@@ -85,17 +85,17 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/LunarShift.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/lunarshift.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/LunarShift.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/lunarshift.qhc"
 
 devhelp:
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/LunarShift"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/LunarShift"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/lunarshift"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/lunarshift"
 	@echo "# devhelp"
 
 epub:
