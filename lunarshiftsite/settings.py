@@ -72,7 +72,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False # changed for DATETIME_FORMAT TO OVERRIDE
 
 USE_TZ = True
 
@@ -102,3 +102,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+# Date Time Settings
+DATE_FORMAT = 'd/m/Y' #02/19/2014
+TIME_FORMAT = 'H:i' # Hours and Minutes in military time
+DATETIME_FORMAT = 'd/m/Y H:i' #02/19/2014 19:49 # Military Time
