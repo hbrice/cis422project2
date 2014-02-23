@@ -7,15 +7,16 @@ from django.contrib.auth.models import User
 class Employee(models.Model):
 	company = models.CharField(max_length=100)
 	user = models.ForeignKey(User, unique=True)
-	availableTimes = Schedule
+	#availableTimes = Schedule
 
 class Manager(models.Model):
+	employee = models.ForeignKey(Employee)
 	company = models.CharField(max_length=100)
 	user = models.ForeignKey(User, unique=True)
 
 
-class Schedule(models.Model):
+#class Schedule(models.Model):
 	#matrix = [[0 for x in xrange(24)] for x in xrange(7)] 
 
-class Schedules(models.Model):
+#class Schedules(models.Model):
 	
