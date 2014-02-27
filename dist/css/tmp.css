@@ -1,0 +1,27 @@
+.table th.header-center {
+	text-align: center;
+}
+
+.table tbody>tr>td.text-align
+{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table tbody>tr>td.vert-align
+{
+    vertical-align: middle;
+}
+
+.well {
+  margin-bottom: 0px;
+}
+
+.table-no-border>thead>tr>th, 
+.table-no-border>tbody>tr>th, 
+.table-no-border>tfoot>tr>th, 
+.table-no-border>thead>tr>td, 
+.table-no-border>tbody>tr>td, 
+.table-no-border>tfoot>tr>td {
+  border-top: none; 
+}
