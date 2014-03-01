@@ -8,6 +8,7 @@ Employee Inherits from User:
 2. Add and remove available dates from the list of available time.
 """
 class Employee(models.Model):
+	manager = models.ForeignKey(Manager)
 	company = models.CharField(max_length=100)
 	user = models.ForeignKey(User, unique=True)
         
@@ -17,8 +18,7 @@ class Employee(models.Model):
         #Removes the DateTimeRange object at position index of the list of available times.
         def removeTime(rng):
 
-class Manager(models.Model):
-	employee = models.ForeignKey(Employee)
+class Manager(models.Model):	
 	company = models.CharField(max_length=100)
 	user = models.ForeignKey(User, unique=True)
 
