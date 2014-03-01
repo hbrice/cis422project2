@@ -24,13 +24,19 @@ class Manager(models.Model):
 
 '''class Schedules(models.Model):
 	userID = models.ForeignKey(User, unique=True)
-	start = DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
-	end = DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
+	start = models.DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
+	end = models.DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
 	scheduleID = models.IntegerField(default=0)
 
 class Availability(models.Model):
 	userID = models.ForeignKey(User, unique=True)
+<<<<<<< HEAD
 	start = DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
 	end = DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
 	isAvailable = models.BooleanField(initial=True)'''
+=======
+	start = models.DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
+	end = models.DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
+	isAvailable = models.BooleanField(initial=True)
+>>>>>>> c7951f14f046a67b27bfb7820ed498945a73607e
 
