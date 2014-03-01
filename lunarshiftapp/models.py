@@ -12,17 +12,17 @@ class Employee(models.Model):
 	company = models.CharField(max_length=100)
 	user = models.ForeignKey(User, unique=True)
         
-        #Adds the DateTimeRange object to the list previously created by the Employee __init__ method.
+        '''#Adds the DateTimeRange object to the list previously created by the Employee __init__ method.
         def addTime(rng):
 
         #Removes the DateTimeRange object at position index of the list of available times.
-        def removeTime(rng):
+        def removeTime(rng):'''
 
 class Manager(models.Model):	
 	company = models.CharField(max_length=100)
 	user = models.ForeignKey(User, unique=True)
 
-class Schedules(models.Model):
+'''class Schedules(models.Model):
 	userID = models.ForeignKey(User, unique=True)
 	start = DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
 	end = DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
@@ -32,5 +32,5 @@ class Availability(models.Model):
 	userID = models.ForeignKey(User, unique=True)
 	start = DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
 	end = DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
-	isAvailable = models.BooleanField(initial=True)
+	isAvailable = models.BooleanField(initial=True)'''
 
