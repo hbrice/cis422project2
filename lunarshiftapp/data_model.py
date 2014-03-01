@@ -84,5 +84,41 @@ class Manager:
 		clearSchedules()
 	
 	
+class Availability:
+	def __init__(self):
+		"""
+			initialize the 2 dimensional array of booleans
+		"""
+		
+	def addTime(self, times):
+		"""
+			DateTimeRange times: range to be added to availability
+		"""
+		
+	def removeTime(self, times):
+		"""
+			DateTimeRange times: range of times to be removed from availability
+		"""
+		
+	def isAvailable(self, times):
+		"""
+			DateTimeRange times: range of times to compare against availability
+			returns whether all time in times is available
+		"""
 
 
+class Schedule:
+
+	def __init__(self):
+		"""
+			Initializes shifts being the association between employees and times
+		"""
+		
+	def addShift(self, employee, times):
+		"""
+			Employee employee: employee to add to shift
+			DateTimeRange times: time employee will be sheduled
+			
+			add an association of employees and times to shifts
+			#TODO up to the implementer maybe a tuple containing the association object.
+		"""
