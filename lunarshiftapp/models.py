@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django import forms
 
 """
 Employee Inherits from User:
@@ -23,13 +24,13 @@ class Manager(models.Model):
 
 class Schedules(models.Model):
 	userID = models.ForeignKey(User, unique=True)
-	start = models.CharField(max_length=6) #format HR:DAY
-	end = models.CharField(max_length=6) #format HR:DAY
+	start = DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
+	end = DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
 	scheduleID = models.IntegerField(default=0)
 
 class Availability(models.Model):
 	userID = models.ForeignKey(User, unique=True)
-	start = models.CharField(max_length=6) #format HR:DAY
-	end = models.CharField(max_length=6) #format HR:DAY
+	start = DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
+	end = DateTimeField('%m/%d/%Y %H:%M') #format '10/25/2014 13:00'
 	isAvailable = models.BooleanField(initial=True)
 
