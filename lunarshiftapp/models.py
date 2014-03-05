@@ -23,7 +23,7 @@ class Availibity(models.Model):
 	user = models.ForeignKey(User)
 	AvailibleDay = models.CharField(max_length=2, choices=AVAIL_DAY_CHOICES)
 	start_time = models.TimeField('Start Time')
-	end_time = modeles.TimeField('End Time')
+	end_time = models.TimeField('End Time')
 	
 class Schedule(models.Model):
 	user = models.ForeignKey(User)
