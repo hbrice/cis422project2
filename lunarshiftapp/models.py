@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils import timezone
 
 MONDAY = 'M'
 TUESDAY = 'T'
@@ -31,4 +30,4 @@ class Schedule(models.Model):
 	AvailibleDay = models.CharField(max_length=2, choices=AVAIL_DAY_CHOICES)
 	start_time = models.TimeField('Start Time')
 	end_time = models.TimeField('End Time')
-	monthForSched = DateField(auto_now_add=True)
+	monthForSched = models.DateField('month created', auto_now_add=True)
