@@ -23,7 +23,7 @@ class Employee(models.Model):
 		name = self.user.first_name + ' ' + self.user.last_name
 		work = name + ' works for ' + self.company + ' and is a Manager ' + str(self.isManager)
 		avail =  ' and has set there availibity ' + str(self.setAvailibity)
-		output = name + '\n' + work + '\n' + avail
+		output = work + '\n' + avail
 		return output
 
 class Availibity(models.Model):
