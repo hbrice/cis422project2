@@ -19,6 +19,13 @@ class Employee(models.Model):
 	isManager = models.BooleanField(default=False)
 	setAvailibity = models.BooleanField(default=False)
 
+	def  __unicode__(self):
+		name = self.user.first_name + ' ' + self.user.last_name
+		work = name + ' works for ' + self.company + ' and is a Manager ' + self.isManager
+		avail =  ' and has set there availibity ' + self.setAvailibity
+		output = name + '\n' + work + '\n' + avail
+		return output
+		
 class Availibity(models.Model):
 	user = models.ForeignKey(User)
 	AvailibleDay = models.CharField(max_length=2, choices=AVAIL_DAY_CHOICES)
