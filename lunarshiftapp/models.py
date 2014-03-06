@@ -47,4 +47,4 @@ class Schedule(models.Model):
 	def __unicode__(self):
 		name = self.user.first_name + ' ' + self.user.last_name
 		avail = ' is availible ' + self.AvailibleDay + ' at ' + str(self.start_time) + ' to ' + str(self.end_time)
-		month = ' for the month ' + str(self.monthForSched)
+		month = ' for the month ' + self.monthForSched
