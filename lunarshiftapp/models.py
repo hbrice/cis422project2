@@ -31,7 +31,12 @@ class Availibity(models.Model):
 	AvailibleDay = models.CharField(max_length=2, choices=AVAIL_DAY_CHOICES)
 	start_time = models.TimeField('Start Time')
 	end_time = models.TimeField('End Time')
-	
+
+	def __unicode__(self):
+		name = self.user.first_name + ' ' + self.user.last_name
+		avail = ' is availible ' + self.AvailibleDay + ' at ' + self.start_time + ' to ' + self.end_time
+		return name + avail
+
 class Schedule(models.Model):
 	user = models.ForeignKey(User)
 	AvailibleDay = models.CharField(max_length=2, choices=AVAIL_DAY_CHOICES)
