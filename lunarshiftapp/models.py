@@ -34,7 +34,7 @@ class Availibity(models.Model):
 
 	def __unicode__(self):
 		name = self.user.first_name + ' ' + self.user.last_name
-		avail = ' is availible ' + self.AvailibleDay + ' at ' + self.start_time + ' to ' + self.end_time
+		avail = ' is availible ' + self.AvailibleDay + ' at ' + str(self.start_time) + ' to ' + str(self.end_time)
 		return name + avail
 
 class Schedule(models.Model):
