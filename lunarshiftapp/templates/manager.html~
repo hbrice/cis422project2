@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>lunarshift</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/navbar-fixed-top.css" rel="stylesheet">
+    <link href="css/tmp.css" rel="stylesheet">
+    <link href="font-awesome-4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="jQRangeSlider/css/iThing.css" type="text/css"/>
+    <link href="BootstrapDatePaginator/bower_components/bootstrap-datepicker/css/datepicker.css" rel="stylesheet">    
+    <link href='BootstrapDatePaginator/css/bootstrap-datepaginator.css'  rel='stylesheet'/>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->    
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand">
+            <span class="fa-stack">
+              <i class="fa fa-rocket fa-stack-1x"></i>
+              <i class="fa fa-moon-o fa-stack-2x"></i>
+            </span> lunarshift
+          </div>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">
+              <span class="fa-stack">
+                <i class="fa fa-home fa-stack-1x fa-2x"></i>
+              </span> Home</a></li>
+            <li><a href="about.html">
+              <span class="fa-stack">
+                <i class="fa fa-info-circle fa-2x"></i>
+              </span> About</a></li>
+            <li><a href="contact.html">
+              <span class="fa-stack">
+                <i class="fa fa-envelope fa-stack-1x fa-2x"></i>
+              </span> Contact</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#signout">
+              <span class="fa-stack">
+                <i class="fa fa-sign-out fa-stack-1x fa-2x"></i>
+              </span> Sign Out</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="page-header">
+        <h1>Charles Everett <small>Company Inc.</small></h1>
+      </div>
+
+      <div id="content">
+        <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+          <li class="active"><a href="#availability" data-toggle="tab"><i class="fa fa-clock-o"></i> Availability</a></li>
+          <li><a href="#employees" data-toggle="tab"><i class="fa fa-users"></i> Employees</a></li>
+          <li><a href="#schedule" data-toggle="tab"><i class="fa fa-calendar"></i> Schedule</a></li>
+          <li><a href="#alert" data-toggle="tab"><i class="fa fa-exclamation-triangle"></i> Alerts <span class="badge">4</span></a></li>
+        </ul>
+        
+        <div id="my-tab-content" class="tab-content">
+          <div class="tab-pane active" id="availability">
+            <br>
+            <p class="lead">Specify the hours you want covered here!</p>
+            <div class="panel panel-info">
+              <div class="panel-heading clearfix">
+                <button type="button" class="btn btn-danger pull-right"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
+                <h3 class="panel-title">
+                  Monday
+                </h3>
+              </div>
+              <div class="panel-body">
+                <div class="well well-lg">
+                  <div class="row">
+                    <div class="col-md-1 pull-right">
+                    <button type="button" class="close pull-right" aria-hidden="true">&times;</button>
+                    </div>
+                  </div>
+                    <div id="slider"></div>
+                </div>
+                <br>
+                <div class="btn-group pull-right">
+                  <button type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i></button>
+                  <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-info">
+              <div class="panel-heading clearfix">
+                <button type="button" class="btn btn-danger pull-right"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
+                <h3 class="panel-title">
+                  Tuesday
+                </h3>
+              </div>
+              <div class="panel-body">
+                <div class="well well-lg">
+                  <div class="row">
+                    <div class="col-md-1 pull-right">
+                    <button type="button" class="close pull-right" aria-hidden="true">&times;</button>
+                    </div>
+                  </div>
+                    <div id="slider2"></div>
+                </div>
+                <br>
+                <div class="btn-group pull-right">
+                  <button type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i></button>
+                  <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></button>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg">Add Day</button>
+          </div>
+          <div class="tab-pane" id="schedule">
+            <br>
+            <p class="lead">Here's the work schedule!</p>
+            <div id="paginator"></div>
+            <table class="table table-no-border">
+              <th><h3>Employee</h3></th>
+              <th><h3>Time</h3></th>
+              <th><h3>Hours</h3></th>
+              <tr>
+                <td><div class="well well-sm">Lucas Rondenet</div></td>
+                <td><div class="well well-sm">8:00 - 10:00pm</div></td>
+                <td><div class="well well-sm">2 hrs</div></td>
+              </tr>
+              <tr>
+                <td><div class="well well-sm">Rob Cardwell</div></td>
+                <td><div class="well well-sm">2:00 - 9:00pm</div></td>
+                <td><div class="well well-sm">7 hrs</div></td>
+              </tr>
+            </table>
+          </div>
+          <div class="tab-pane" id="employees">
+            <br>
+            <p class="lead">Here's a list of your employees!</p>
+            <table class="table table-no-border">
+              <th><h3>Name</h3></th>
+              <th><h3>Email</h3></th>
+              <th class="header-center"><h3>Available</h3></th>
+              <th class="header-center"><h3>Schedule</h3></th>
+              <tr>
+                <td><div class="well well-sm">Lucas Rondenet</div></td>
+                <td><div class="well well-sm">lucas@gmail.com</div></td>
+                <td class="text-align"><div class="well well-sm"><i class="fa fa-thumbs-o-up"></i></div></td>
+                <td class="text-align"><div class="well well-sm"><input type="checkbox"></div></td>
+                <td class="vert-align"><button type="button" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i> Deactivate</button></td>
+              </tr>
+              <tr>
+                <td><div class="well well-sm">Rob Cardwell</div></td>
+                <td><div class="well well-sm">rob@gmail.com</div></td>
+                <td class="text-align"><div class="well well-sm"><i class="fa fa-thumbs-o-down"></i></div></td>
+                <td class="text-align"><div class="well well-sm"><input type="checkbox"></div></td>
+                <td class="vert-align"><button type="button" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i> Deactivate</button></td>
+              </tr>
+            </table>
+            <button type="button" class="btn btn-primary btn-lg">Activate Employee</button>
+          </div>
+          <div class="tab-pane" id="alert">
+            <br>
+            <p class="lead">You have four alerts!</p>
+            <div class="alert alert-success">This is an alert specifying success
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            </div>
+            <div class="alert alert-info">This is an alert specifying info
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            </div>
+            <div class="alert alert-warning">This is an alert specifying warning
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            </div>
+            <div class="alert alert-danger">This is an alert specifying danger
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+ 
+         
+    </div> 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="jQRangeSlider/jQAllRangeSliders-min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="BootstrapDatePaginator/bower_components/moment/moment.js"></script>
+    <script src="BootstrapDatePaginator/bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="BootstrapDatePaginator/js/bootstrap-datepaginator.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+          $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+              $('#paginator').datepaginator();
+          });
+
+          $('#myPopover').popover();
+
+          function TwoDigits(val){
+            if (val == 0) {
+              return "12:00 AM";
+            } else if (val < 12){
+              return "0" + val + ":00 AM";
+            } else if (val == 12) {
+              return "12:00 PM"
+            } else {
+              return val - 12 + ":00 PM";
+            }
+          }
+
+          $("#slider").dateRangeSlider({
+            step:{hours: 1},
+            bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 23, 0, 0)},
+            defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 18)},
+            formatter: function(value){
+              var hours = value.getHours(),
+              minutes = value.getMinutes();
+              return TwoDigits(hours);
+            }
+          });
+
+          $("#slider2").dateRangeSlider({
+            step:{hours: 1},
+            bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 23, 0, 0)},
+            defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 18)},
+            formatter: function(value){
+              var hours = value.getHours(),
+              minutes = value.getMinutes();
+              return TwoDigits(hours);
+            }
+          });
+      });
+      </script> 
+    
+  </body>
+</html>
