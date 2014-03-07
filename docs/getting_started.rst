@@ -15,7 +15,9 @@ LunarShift is designed so there is no installation needed. It is simply run on a
 -----------------
 Getting Started
 -----------------
+
 1. Open chrome web browser application.
+----------------------------------------
     Chrome: only web browser to fully support LunarShift.
     If you do not have chrome installed then you will need to install it:
 	A. Install Chrome
