@@ -19,20 +19,20 @@ Getting Started
 1. Open chrome web browser application.
     Chrome: only web browser to fully support LunarShift.
     If you do not have chrome installed then you will need to install it:
+	 
+	Install Chrome:
+    Open a web brower and type 'https://www.google.com/intl/en/chrome/browser/' in the url bar. 
+    .. image:: images/google_1.png
 
-(1) Install Chrome
-        Open a web brower and type 'https://www.google.com/intl/en/chrome/browser/' in the url bar. 
-        .. image:: images/google_1.png
-
-        Click the 'Download Chrome' button on that page.
+    Click the 'Download Chrome' button on that page.
         
-        Accept the terms and conditions on the popup window. 
+    Accept the terms and conditions on the popup window. 
         
-        Open the googlechrome.dmg with the default mounter, and select 'OK'.
+    Open the googlechrome.dmg with the default mounter, and select 'OK'.
         
-        The dmg file will drag the chrome icon into the applications folder. 
+    The dmg file will drag the chrome icon into the applications folder. 
         
-        Launch google chrome web browser application. Now you are ready to log into LunarShift.
+    Launch google chrome web browser application. Now you are ready to log into LunarShift.
         
 #. Log onto LunarShift website. 
     Type "http://lunarshift.herokuapp.com/" in the browser bar.
