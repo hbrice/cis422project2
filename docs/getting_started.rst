@@ -16,21 +16,27 @@ LunarShift is designed so there is no installation needed. It is simply run on a
 Contents:
 ---------
 
+~~~~~~~~~~~~~~~~~
 Getting Started
-=================
+~~~~~~~~~~~~~~~~~
 
++++++++++++++
 Open Browser
-----------------
++++++++++++++
 
+''''''''''''''''''''''
 Install Google Chrome
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+''''''''''''''''''''''
 
+++++++++++++++
 Visit Site
----------------
+++++++++++++++
 
+~~~~~~~~~~~~~~~~~
 Using LunarShift
-===================
+~~~~~~~~~~~~~~~~~
 
++++++++++++++++++++++
 Login to LunarShift
--------------------
++++++++++++++++++++++
 
