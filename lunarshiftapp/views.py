@@ -6,7 +6,8 @@ from django.http import HttpResponse
 from models import Employee
 
 def index(request):
-	return HttpResponse("This is where the signup page will be...")
+	#return HttpResponse("This is where the signup page will be...")
+	return render(request,'login.html')
 
 '''
 This will break code since url aren't defined yet...to do later
