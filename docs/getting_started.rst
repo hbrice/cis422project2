@@ -16,14 +16,54 @@ LunarShift is designed so there is no installation needed. It is simply run on a
 Contents:
 ---------
 
-1. Getting Started
+Getting Started
 ===============
-1.1 Open Browser
+
+Open Browser
 ----------------
-1.1.2 Install Google Chrome
+
+Install Google Chrome
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-1.2 Visit Site
+
+Visit Site
 ---------------
 
- 2. Using LunarShift
- ===================
+Using LunarShift
+===================
+
+Login to LunarShift
+-------------------
+
+Manager login: 
+~~~~~~~~~~~~~~
+
+View schedule
+^^^^^^^^^^^^^
+
+Build a schedule
+^^^^^^^^^^^^^^^^^
+
+Set hours that need to be covered
+*********************************
+
+Add/ Remove employees from schedule
+***********************************
+
+View Employee availability
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+View past schedules
+^^^^^^^^^^^^^^^^^^^^
+
+Deactivate/Activate an employee
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+            2.1.2    Employee login:
+                2.1.2.1 View current schedule
+                2.1.2.2 Set available hours
+                2.1.2.3 View past schedule
+     3. FAQ
+        3.1 Questions for Admin Use: 
+            3.1.1 What if the employee hasn't set their schedule yet, what will it display?
+        3.2 Questions for Employee Use:
+            3.2.1 How do I create my login info?    
