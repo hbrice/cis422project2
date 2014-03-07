@@ -12,13 +12,11 @@ System Requirements:
 
 LunarShift is designed so there is no installation needed. It is simply run on a website. Thus, the user must have access to the internet. LunarShift is currently only supported fully on Google Chrome, so installation for Google Chrome is specified below if it is not already installed on your machine.
 
----------
 Contents:
----------
 
-~~~~~~~~~~~~~~~~~
+-----------------
 Getting Started
-~~~~~~~~~~~~~~~~~
+-----------------
     1.1 Open chrome web browser application.
     Chrome: only web browser to fully support LunarShift.
     If you do not have chrome installed then you will need to install it:
@@ -50,9 +48,9 @@ Install Google Chrome
 Visit Site
 ++++++++++++++
 
-~~~~~~~~~~~~~~~~~
+-----------------
 Using LunarShift
-~~~~~~~~~~~~~~~~~
+-----------------
 
 +++++++++++++++++++++
 Login to LunarShift
@@ -75,3 +73,8 @@ Launch google chrome web browser application. Now you are ready to log into Luna
         
 1.2 Log onto LunarShift website. 
 Type "http://lunarshift.herokuapp.com/" in the browser bar.
+
+
+-----------------
+FAQ
+-----------------
