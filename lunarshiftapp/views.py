@@ -6,7 +6,13 @@ from django.http import HttpResponse
 from models import Employee
 
 def index(request):
-	return HttpResponse("Hello, world. You're at the lunarshiftapp index.")
-    #latest_question_list = 
-    #context = 
-    #return render(request, 'polls/index.html', context)
+	return HttpResponse("This is where the signup page will be...")
+
+'''
+This will break code since url aren't defined yet...to do later
+def employee(request, user_id):
+	return HttpResponse("This is where the employee page will be for " % employee_id)
+
+def mananger(request, user_id):
+	return HttpResponse("This is where the manager page will be for " % employee_id))'''
+    
