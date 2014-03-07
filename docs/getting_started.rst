@@ -21,6 +21,8 @@ Getting Started
     If you do not have chrome installed then you will need to install it:
 	 
 	Install Chrome:
+	+++++++++++++++
+    
     Open a web brower and type 'https://www.google.com/intl/en/chrome/browser/' in the url bar. 
     .. image:: images/google_1.png
 
