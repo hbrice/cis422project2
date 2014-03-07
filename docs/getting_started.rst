@@ -17,10 +17,10 @@ Getting Started
 -----------------
 
 1. Open chrome web browser application.
-----------------------------------------
     Chrome: only web browser to fully support LunarShift.
     If you do not have chrome installed then you will need to install it:
-	A. Install Chrome
+
+(1) Install Chrome
         Open a web brower and type 'https://www.google.com/intl/en/chrome/browser/' in the url bar. 
         .. image:: images/google_1.png
 
