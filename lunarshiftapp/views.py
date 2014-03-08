@@ -14,7 +14,7 @@ def index(request, auth_form=None, user_form=None):
 
 def login_view(request):
 	if request.method == 'POST':
-		email = request.POST['email']
+		username = request.POST['username']
 		password = request.POST['password']
 		user = authenticate(username=username, password=password)
 		if user is not None:
