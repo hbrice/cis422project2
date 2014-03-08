@@ -21,7 +21,7 @@ def login_view(request):
 			if user.is_active:
 				login(request, user)
 				# redirect to user page...successful login
-				tmp = email + " " + password		
+				tmp = username + " " + password		
 				return HttpResponse("login worked!")
 			else:
 				# return a disabled account error message
