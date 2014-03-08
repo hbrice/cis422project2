@@ -22,7 +22,7 @@ def login_view(request):
 				login(request, user)
 				# redirect to user page...successful login
 				tmp = username + " " + password		
-				return HttpResponse("login worked!")
+				return HttpResponse(tmp)
 			else:
 				# return a disabled account error message
 				return HttpResponse("Error: disabled account")
