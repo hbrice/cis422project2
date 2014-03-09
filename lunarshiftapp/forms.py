@@ -24,6 +24,9 @@ class UserCreateForm(UserCreationForm):
 		model = User
 
 class AuthenticateForm(AuthenticationForm):
+	"""	
+		used to check the credentials of the user at login with the database.
+	"""
 	email = forms.CharField(widget=forms.widgets.TextInput(attrs={'placeholder': 'email'}))
 	password = forms.CharField(widget=forms.widgets.PasswordInput(attrs={'placeholder': 'Password'}))
 
