@@ -28,18 +28,18 @@ class Employee(models.Model):
 		output = work + '\n' + avail
 		return output
 		
-	#The following fuctions are only applicable if Employee Manager
+	#The following functions are only applicable if Employee is a Manager
 	def selectEmployee(self, emp):
 		"""
 			Employee emp: Employee to select
 		"""
-		computeSchedules()
+		clearSchedules()
 		
 	def unselectEmployee(self, emp):
 		"""
 			Employee emp: Employee to deselect
 		"""
-		computeSchedules()
+		clearSchedules()
 	def activateEmployee(self, emp):
 		"""
 			Employee emp: Employee to activate
@@ -54,12 +54,12 @@ class Employee(models.Model):
 		"""
 			DateTimeRange times: times to add to coverage
 		"""
-		computeSchedules()
+		clearSchedules()
 	def removeCoverage(self, times):
 		"""
 			DateTimeRange times: times to remove from coverage
 		"""
-		computeSchedules()
+		clearSchedules()
 	def clearSchedules(self):
 		"""
 			removes list of potential schedules and clears the best schedule
