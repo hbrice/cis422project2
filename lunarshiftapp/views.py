@@ -21,8 +21,12 @@ def login_view(request):
 			if user.is_active:
 				login(request, user)
 				# redirect to user page...successful login
-				tmp = username + " " + password		
-				return HttpResponse("login worked!")
+				u = User.objects.get(username=username)
+				e = Employee.objects.get(user=u)
+				if e.isManager:
+					return HttpResponse("This page is for managers...")
+				else:
+					return HttpResponse("This page is for employees...")
 			else:
 				# return a disabled account error message
 				return HttpResponse("Error: disabled account")
@@ -30,5 +34,8 @@ def login_view(request):
 			# invalid username/ password
 			return HttpResponse("username or password is incorrect")
 		
-def home_view(request, employee_type, user_id):
-	pass
+def home_view(request, employee_type, username):
+	if (employee_type == 'manager'):
+		return HttpResponse('you are a manager')
+	else:
+		return HttpResponse('You are a employee')
