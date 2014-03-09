@@ -1,4 +1,4 @@
-from lunarshiftapp.models import Employee, Availibity, Schedule
+from models import Employee, Availibity, Schedule
 from datetime import datetime
 
 #The following functions are only applicable if Employee is a Manager
@@ -17,53 +17,60 @@ def activateEmployee(self, emp):
 	"""
 		Employee emp: Employee to activate
 	"""
+	pass
 
 def deactivateEmployee(self, emp):
 	"""
 		Employee emp: Employee to deactivate
 	"""
+	pass
 	
 def addCoverage(self, times):
 	"""
 		DateTimeRange times: times to add to coverage
 	"""
 	clearSchedules()
+	
 def removeCoverage(self, times):
 	"""
 		DateTimeRange times: times to remove from coverage
 	"""
 	clearSchedules()
+	
 def clearSchedules(self):
 	"""
 		removes list of potential schedules and clears the best schedule
 	"""
-	self.bestSchedule = None
-	self.potentialSchedules = []
+	pass
 		
 		
 		
 #Availability
 def __init__(self):
-		"""
-			initialize the 2 dimensional array of booleans
-		"""
-		
+	"""
+		initialize the 2 dimensional array of booleans
+	"""
+	pass
+	
 def addTime(self, times):
 	"""
 		DateTimeRange times: range to be added to availability
 	"""
+	pass
 	
 def removeTime(self, times):
 	"""
 		DateTimeRange times: range of times to be removed from availability
 	"""
+	pass
 	
 def isAvailable(self, times):
 	"""
 		DateTimeRange times: range of times to compare against availability
 		returns whether all time in times is available
 	"""
-		
+	pass
+	
 #Schedule
 def addShift(self, employee, times):
 	"""
@@ -73,7 +80,7 @@ def addShift(self, employee, times):
 		add an association of employees and times to shifts
 		#TODO up to the implementer maybe a tuple containing the association object.
 	"""
-		
+	pass
 #
 class DateTimeRange:
 	def __init__(self, sYear,sMonth,sDay,sHour,eYear,eMonth,eDay,eHour):
@@ -95,6 +102,7 @@ class DateTimeRange:
 		diff = diff.total_seconds() / 3600 # seconds / 3600 ==> hours
 		
 		while(diff > 0):
-			hours.append(hours--)
+			hours.append(hours)
+			hours -= 1
 		
 		return hours
