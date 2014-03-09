@@ -22,7 +22,7 @@ def login_view(request):
 				login(request, user)
 				# redirect to user page...successful login
 				tmp = username + " " + password		
-				return HttpResponse(tmp)
+				return HttpResponse("login worked!")
 			else:
 				# return a disabled account error message
 				return HttpResponse("Error: disabled account")
@@ -30,13 +30,5 @@ def login_view(request):
 			# invalid username/ password
 			return HttpResponse("username or password is incorrect")
 		
-	
-
-'''
-This will break code since url aren't defined yet...to do later
-def employee(request, user_id):
-	return HttpResponse("This is where the employee page will be for " % employee_id)
-
-def mananger(request, user_id):
-	return HttpResponse("This is where the manager page will be for " % employee_id))'''
-    
+def home_view(request, emplyoee_type, user_id):
+	pass
