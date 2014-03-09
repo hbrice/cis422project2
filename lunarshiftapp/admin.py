@@ -1,3 +1,6 @@
 from django.contrib import admin
+from lunarshiftapp.models import Employee, Availibity, Schedule
 
-# Register your models here.
+admin.site.register(Employee)
+admin.site.register(Availibity)
+admin.site.register(Schedule)
