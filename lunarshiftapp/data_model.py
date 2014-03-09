@@ -9,6 +9,7 @@ class DateTimeRange:
 			DateTimeRange otherRng: other DateTimeRange
 			returns bool whether self and other are disjoint
 		"""
+		return ((self.start < otherRng.start) and (self.end < otherRng.start)) or ((otherRng.start < self.start) and (otherRng.end < self.start))
 		
 	def hours(self):
 		"""
