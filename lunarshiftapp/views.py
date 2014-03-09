@@ -22,11 +22,14 @@ def login_view(request):
 				login(request, user)
 				# redirect to user page...successful login
 				u = User.objects.get(username=username)
-				e = Employee.objects.get(user=u)
-				if e.isManager:
-					return HttpResponse("This page is for managers...")
-				else:
-					return HttpResponse("This page is for employees...")
+				try:
+					e = Employee.objects.get(user=u)
+					if e.isManager:
+						return HttpResponse("This page is for managers...")
+					else:
+						return HttpResponse("This page is for employees...")
+				except self.DoesNotExist:
+					return HttpResponse("This user is not assigned as an employee to a company")
 			else:
 				# return a disabled account error message
 				return HttpResponse("Error: disabled account")
