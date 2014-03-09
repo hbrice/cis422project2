@@ -14,6 +14,14 @@ class DateTimeRange:
 		"""
 			returns a list of consequtive hours between start and end
 		"""
+		hours = []
+		diff = end - start
+		diff = diff.total_seconds() / 3600 # seconds / 3600 ==> hours
+		
+		while(diff > 0):
+			hours.append(hours--)
+		
+		return hours
 		
 	
 class Employee:
