@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from lunarshiftapp.models import Employee, Availibity, Schedule
+from django.core.exceptions import ObjectDoesNotExist
 
 # mainly for testing routing using
 from django.http import HttpResponse
@@ -22,11 +23,14 @@ def login_view(request):
 				login(request, user)
 				# redirect to user page...successful login
 				u = User.objects.get(username=username)
-				e = Employee.objects.get(user=u)
-				if e.isManager:
-					return HttpResponse("This page is for managers...")
-				else:
-					return HttpResponse("This page is for employees...")
+				try:
+					e = Employee.objects.get(user=u)
+					if e.isManager:
+						return HttpResponse("This page is for managers...")
+					else:
+						return HttpResponse("This page is for employees...")
+				except ObjectDoesNotExist:
+					return HttpResponse("This user is not assigned as an employee to a company")
 			else:
 				# return a disabled account error message
 				return HttpResponse("Error: disabled account")
