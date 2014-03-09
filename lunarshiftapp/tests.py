@@ -1,8 +1,26 @@
 from django.test import TestCase
 
-import lunarshiftapp.models  #uhh not sure about these
-import lunarshiftapp.data_models
+
+from lunarshiftapp.models import Employee
+from lunarshiftapp.models import Availibity
+from lunarshiftapp.models import Schedule
+
 # Create your tests here.
+
+class EmployeeTestCase(TestCase):
+    def setUp(self):
+        Employee.objects.create(user="alice", company="macrosloft", isManager=False, setAvailibility = True)
+        Employee.objects.create(user="bob", company="macrosloft", isManager=True, setAvailibility = True)
+        Employee.objects.create(user="phil", company="macrosloft", isManager=False, setAvailibility = False)
+
+class AvailibityTestCase(TestCase):
+    def setUp(self):
+        Availibity.objects.create(user="alice", AvailibleDay = 'M', start_time = "1:00" end_time = "5:00")
+        
+class ScheduleTestCase(TestCase):
+    def setUp(self):
+        print "placeholder"
+
 """
 Example:
 
@@ -20,12 +38,3 @@ class AnimalTestCase(TestCase):
         self.assertEqual(cat.speak(), 'The cat says "meow"')
 """
 
-"""
-class EmployeeTestCase(TestCase):
-    def setUp(self):
-        Employee.objects.create(user="alice", company="macrosloft", isManager=False, setAvailibility = True)
-        Employee.objects.create(user="bob", company="macrosloft", isManager=True, setAvailibility = True)
-        Employee.objects.create(user="phil", company="macrosloft", isManager=False, setAvailibility = False)
-
-    def test_isDisjoint(self):
-"""        
