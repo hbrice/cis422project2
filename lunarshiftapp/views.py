@@ -27,10 +27,10 @@ def login_view(request):
 					e = Employee.objects.get(user=u)
 					if e.isManager:
 						# return HttpResponse("This page is for managers...")
-						return render(request, "/mananger/" + username)
+						return render(request, 'base.html', "/mananger/" + username)
 					else:
 						# return HttpResponse("This page is for employees...")
-						return render(request, "/employee/" + username)
+						return render(request, 'base.html', "/employee/" + username)
 				except ObjectDoesNotExist:
 					return HttpResponse("This user is not assigned as an employee to a company")
 			else:
