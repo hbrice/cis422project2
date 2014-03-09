@@ -30,5 +30,5 @@ def login_view(request):
 			# invalid username/ password
 			return HttpResponse("username or password is incorrect")
 		
-def home_view(request, emplyoee_type, user_id):
+def home_view(request, employee_type, user_id):
 	pass
