@@ -2,18 +2,22 @@
 
 {% block content %}
 
+    <!-- ***** Display Employee Contact Information  ***** -->
     <div class="container">
       <div class="page-header">
         <h1>John Doe <small>Company Inc.</small></h1>
       </div>
 
+      <!-- ***** Begin: Employee Nav Bar  ***** -->
       <div id="content">
         <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
           <li class="active"><a href="#availability" data-toggle="tab"><i class="fa fa-clock-o"></i> Availability</a></li>
           <li><a href="#schedule" data-toggle="tab"><i class="fa fa-calendar"></i> Schedule</a></li>
           <li><a href="#alert" data-toggle="tab"><i class="fa fa-exclamation-triangle"></i> Alerts <span class="badge">4</span></a></li>
-        </ul>
-        
+        </ul>        
+        <!-- ***** End: Employee Nav Bar  ***** -->
+
+        <!-- ***** Begin: Employee Set Available Time  ***** -->
         <div id="my-tab-content" class="tab-content">
           <div class="tab-pane active" id="availability">
             <br>
@@ -51,12 +55,14 @@
               </div>
             </div>
 
-
             <button type="button" class="btn btn-primary btn-lg">Add Day</button>
             <!--<a class="btn btn-danger" id="myPopover" href="#" data-toggle="popover" data-placement="bottom" data-html="true" data-original-title="Fast Editing" data-content="<div> This <b>is</b> your div content</div>"><i class="fa fa-bolt fa-lg"></i></a>-->
             
           </div>
-          
+          <!-- ***** END: Employee Set Available Time  ***** -->
+
+
+          <!-- ***** Begin: Employee view Schedule  ***** -->
           <div class="tab-pane" id="schedule">
             <br>
             <p class="lead">Here's your work schedule!</p>
@@ -75,7 +81,9 @@
               </tr>
             </table>
           </div>
+          <!-- ***** End: Employee view Schedule  ***** -->
 
+          <!-- ***** Begin: Employee view Alerts  ***** -->
           <div class="tab-pane" id="alert">
             <br>
             <p class="lead">You have four alerts!</p>
@@ -94,7 +102,8 @@
           </div>
         </div>
       </div>
- 
+      <!-- ***** End: Employee view Alerts  ***** -->
+
  
          
     </div> 
