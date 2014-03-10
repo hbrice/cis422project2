@@ -15,16 +15,21 @@ AVAIL_DAY_CHOICES = ((MONDAY, 'M'),
 
 class Employee(models.Model):
 	"""
-		Documentation Please....
+		user: django user field consisting of a username and password.
+		company: String holding company name
+		isManager: bool flag for manager identification.
+		setAvailaibility: bool flag if availability has been added for a user.
 	"""
 	user = models.ForeignKey(User, unique=True)
 	company = models.CharField(max_length=100)
 	isManager = models.BooleanField(default=False)
 	setAvailibity = models.BooleanField(default=False)
-
+	
+	
+		
 	def  __unicode__(self):
 		"""
-		Documentation Please....
+		logic describing how an Employee object will be represented as a string.
 		"""
 		name = self.user.first_name + ' ' + self.user.last_name
 		work = name + ' works for ' + self.company + ' and is a Manager ' + str(self.isManager)
@@ -34,7 +39,10 @@ class Employee(models.Model):
 
 class Availibity(models.Model):
 	"""
-		Documentation Please....
+		user: user associated with the availability entry
+		AvailableDay: max 2 character string for day abbreviation
+		start_time: The start of the availability
+		end_time: The end of the availability
 	"""
 	user = models.ForeignKey(User)
 	AvailibleDay = models.CharField(max_length=2, choices=AVAIL_DAY_CHOICES)
@@ -43,7 +51,7 @@ class Availibity(models.Model):
 
 	def __unicode__(self):
 		"""
-		Documentation Please....
+		String representation of Availability
 		"""
 		name = self.user.first_name + ' ' + self.user.last_name
 		avail = ' is availible ' + self.AvailibleDay + ' at ' + str(self.start_time) + ' to ' + str(self.end_time)
@@ -54,7 +62,11 @@ class Availibity(models.Model):
 
 class Schedule(models.Model):
 	"""
-		Documentation Please....
+		user: the user associated with a schedule.
+		AvailableDay
+		start_time
+		end_time
+		monthForSched
 	"""
 	user = models.ForeignKey(User)
 	AvailibleDay = models.CharField(max_length=2, choices=AVAIL_DAY_CHOICES)
