@@ -37,6 +37,9 @@ def login_view(request):
 		else:
 			# invalid username/ password
 			return HttpResponse("username or password is incorrect")
+
+def signout_view(request):
+	pass
 		
 def home_view(request, employee_type, username):
 	u = User.objects.get(username=username)
