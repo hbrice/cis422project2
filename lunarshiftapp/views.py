@@ -49,17 +49,15 @@ def home_view(request, employee_type, username):
 	context = {'name': e.user.first_name + " " + e.user.last_name, 'company': e.company}
 	if (employee_type == "manager"):
 		if e.isManager:
-			#return HttpResponse('you are a manager')
-
 			scheduled = []
 			for i in Employee.objects.filter(isManager=False):
 				tmp = Schedule.objects.filter(user__username=i.user.username)
 				if len(tmp) > 0:
 					scheduled.append(i.user.username)
-			#return HttpResponse(scheduled)
+
 			context = {'name': e.user.first_name + " " + e.user.last_name, 
 									'company': e.company, 'employees': Employee.objects.filter(isManager=False),
-									'scheduled': scheduled}
+									'scheduled': scheduled, 'hoursToCover': Schedule.objects.filter(user__username=e.user.username)}
 			return render(request, 'manager.html', context)
 	else:
 		if e.isManager == False:
