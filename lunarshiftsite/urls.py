@@ -13,4 +13,5 @@ urlpatterns = patterns('',
 		url(r'^login$', 'lunarshiftapp.views.login_view'),
 		url(r'^(?P<employee_type>manager|employee)/(?P<username>\w{0,30})/$', 'lunarshiftapp.views.home_view'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^(?P<employee_type>manager|employee)/(?P<username>\w{0,30})/about$', 'lunarshiftapp.views.about_view'),
 )
