@@ -117,7 +117,7 @@
                 {% endif %}
 
                
-                {% if employee.user.username == scheduled[0] %}
+                {% if employee.user.username in scheduled %}
                   <td class="text-align"><div class="well well-sm"><input type="checkbox" checked></div></td>
                 {% else %}
                   <td class="text-align"><div class="well well-sm"><input type="checkbox"></div></td>
