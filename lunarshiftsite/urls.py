@@ -15,5 +15,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'.*about.html', 'lunarshiftapp.views.about_view'),
     url(r'.*contact.html', 'lunarshiftapp.views.contact_view'),
-    url(r'.*index.html', 'lunarshiftapp.views.index'),
+    #url(r'.*index.html', 'lunarshiftapp.views.index'),
 )
