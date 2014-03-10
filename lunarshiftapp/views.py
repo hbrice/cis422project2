@@ -43,7 +43,7 @@ def signout_view(request):
 	logout(request)
 	return redirect("/")
 
-@login_required(redirect_field_name="/")	
+@login_required(redirect_field_name="/signup")	
 def home_view(request, employee_type, username):
 	u = User.objects.get(username=username)
 	e = Employee.objects.get(user=u)
