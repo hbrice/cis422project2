@@ -50,3 +50,10 @@ def home_view(request, employee_type, username):
 		if e.isManager == False:
 			#return HttpResponse('You are a employee')
 			return render(request, 'base.html', context)
+
+def about_view(request):
+	return render(request, 'about.html')
+
+def contact_view(request):
+	return render(request, 'contact.html')
+
