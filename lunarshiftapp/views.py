@@ -45,7 +45,7 @@ def signout_view(request):
 
 @login_required(login_url='/')	
 def home_view(request, employee_type, username):
-	e = Employee.objects.get(user__username='username')
+	e = Employee.objects.get(user__username=username)
 	context = {'name': e.user.first_name + " " + e.user.last_name, 'company': e.company}
 	if (employee_type == "manager"):
 		if e.isManager:
