@@ -39,7 +39,9 @@ def login_view(request):
 			return HttpResponse("username or password is incorrect")
 
 def signout_view(request):
-	pass
+	logout(request)
+	return redirect("/")
+
 		
 def home_view(request, employee_type, username):
 	u = User.objects.get(username=username)
