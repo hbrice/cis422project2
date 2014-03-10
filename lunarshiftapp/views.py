@@ -27,7 +27,7 @@ def login_view(request):
 				try:
 					e = Employee.objects.get(user=u)
 					if e.isManager:
-						return redirect("/mananger/" + username)
+						return redirect("/manager/" + username)
 					else:
 						return redirect("/employee/" + username)
 				except ObjectDoesNotExist:
