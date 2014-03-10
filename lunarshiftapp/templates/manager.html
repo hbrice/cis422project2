@@ -116,11 +116,13 @@
                   <td class="text-align"><div class="well well-sm"><i class="fa fa-thumbs-o-down"></i></div></td>
                 {% endif %}
 
-                {% for sched in schedule %}
-                  {% if employee.user.username == sched.user.username %}
-                    <td class="text-align"><div class="well well-sm"><input type="checkbox" checked></div></td>
-                  {% endif %}
-                {% endfor %}
+               
+                {% if employee.user.username in scheduled %}
+                  <td class="text-align"><div class="well well-sm"><input type="checkbox" checked></div></td>
+                {% else %}
+                  <td class="text-align"><div class="well well-sm"><input type="checkbox"></div></td>
+                {% endif %}
+               
                 <td class="vert-align"><button type="button" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i> Delete</button></td>
               </tr>
               {% endfor %}
