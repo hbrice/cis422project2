@@ -21,7 +21,9 @@ class Employee(models.Model):
 	company = models.CharField(max_length=100)
 	isManager = models.BooleanField(default=False)
 	setAvailibity = models.BooleanField(default=False)
-
+	
+	
+		
 	def  __unicode__(self):
 		"""
 		Documentation Please....
