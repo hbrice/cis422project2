@@ -50,7 +50,7 @@ def home_view(request, employee_type, username):
 	if (employee_type == "manager"):
 		if e.isManager:
 			#return HttpResponse('you are a manager')
-			context = {'name': u.first_name + " " + u.last_name, 
+			context = {'name': e.user.first_name + " " + e.user.last_name, 
 									'company': e.company, 'employees': Employee.objects.filter(isManager=False)}
 			return render(request, 'manager.html', context)
 	else:
