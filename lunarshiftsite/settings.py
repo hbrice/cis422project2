@@ -106,3 +106,13 @@ STATICFILES_DIRS = (
 DATE_FORMAT = 'd/m/Y' #02/19/2014
 TIME_FORMAT = 'H:i' # Hours and Minutes in military time
 DATETIME_FORMAT = 'd/m/Y H:i' #02/19/2014 19:49 # Military Time
+
+#testing settings
+import dj_database_url
+
+TEST_DATABASES = {
+    'default': dj_database_url.config(env='TEST_DATABASE_URL')
+}
+
+# replace path below to point to HerokuTestSuiteRunner class
+TEST_RUNNER = 'lunarshiftapp.test_suite_runner'# 'python.path.to.test_suite_runner.HerokuTestSuiteRunner'
