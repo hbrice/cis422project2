@@ -47,5 +47,5 @@ def home_view(request, employee_type, username):
 		if e.isManager:
 			return HttpResponse('you are a manager')
 	else:
-		if !e.isManager:
+		if e.isManager == False:
 			return HttpResponse('You are a employee')
