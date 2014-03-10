@@ -128,7 +128,10 @@
               {% endfor %}
             </table>
             <!-- ***** End: Manager View Availability ***** -->
-            {{ schedule }}
+            {% for sched in schedule %}
+              {{ sched.user.username }}
+            {% endfor %}
+
             <!-- ***** Begin: Manager Activate Employee ***** -->
             <button type="button" class="btn btn-primary btn-lg">Add Employee</button>
             <!-- ***** End: Manager Activate Employee ***** -->
