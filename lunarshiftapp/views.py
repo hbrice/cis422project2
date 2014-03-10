@@ -44,9 +44,9 @@ def home_view(request, employee_type, username):
 	context = {'name': u.first_name + " " + u.last_name, 'company': e.company}
 	if (employee_type == "manager"):
 		if e.isManager:
-			return HttpResponse('you are a manager')
-			#return render(request, 'base.html', context)
+			#return HttpResponse('you are a manager')
+			return render(request, 'base.html', context)
 	else:
 		if e.isManager == False:
-			return HttpResponse('You are a employee')
-			#return render(request, 'base.html', context)
+			#return HttpResponse('You are a employee')
+			return render(request, 'base.html', context)
