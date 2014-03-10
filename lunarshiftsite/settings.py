@@ -107,7 +107,11 @@ DATE_FORMAT = 'd/m/Y' #02/19/2014
 TIME_FORMAT = 'H:i' # Hours and Minutes in military time
 DATETIME_FORMAT = 'd/m/Y H:i' #02/19/2014 19:49 # Military Time
 
+
+
+
 #testing settings
+#http://stackoverflow.com/questions/13705328/how-to-run-django-tests-on-heroku
 import dj_database_url
 
 TEST_DATABASES = {
@@ -115,4 +119,4 @@ TEST_DATABASES = {
 }
 
 # replace path below to point to HerokuTestSuiteRunner class
-TEST_RUNNER = 'lunarshiftapp.test_suite_runner'# 'python.path.to.test_suite_runner.HerokuTestSuiteRunner'
+TEST_RUNNER = 'lunarshiftapp.HerokuTestSuiteRunner'# 'python.path.to.test_suite_runner.HerokuTestSuiteRunner'
