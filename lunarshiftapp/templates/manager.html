@@ -25,6 +25,8 @@
             <br>
             <p class="lead">Specify the hours you want covered here!</p>
             {% for hour in hoursToCover %}
+              <h1>{{ hour.AvailibleDay }}</h1>
+            {% endfor %}
             <div class="panel panel-info">
               <div class="panel-heading clearfix">
                 <button type="button" class="btn btn-danger pull-right"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
@@ -48,7 +50,7 @@
                 </div>
               </div>
             </div>
-            {% endfor %}
+            
             <button type="button" class="btn btn-primary btn-lg">Add Day</button>
           </div>
         
