@@ -40,10 +40,8 @@ def login_view(request):
 			# invalid username/ password
 			return HttpResponse("username or password is incorrect")
 		
-def home_view(request, username):
-	u = User.objects.get(username=username)
-	e = Employee.objects.get(user=u)
-	if (e.isManager):
+def home_view(request, employee_type, username):
+	if (employee_type == "manager"):
 		return HttpResponse('you are a manager')
 	else:
 		return HttpResponse('You are a employee')
