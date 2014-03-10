@@ -39,7 +39,7 @@
                     <button type="button" class="close pull-right" aria-hidden="true">&times;</button>
                     </div>
                   </div>
-                    <div id="slider"></div>
+                    <div id="sliderM"></div>
                 </div>
                 <br>
                 <div class="btn-group pull-right">
@@ -161,17 +161,19 @@
               return val - 12 + ":00 PM";
             }
           }
-
-          $("#slider").dateRangeSlider({
+          {% for hour in hoursToCover %}
+          varName = "#slider" + {{ hour.AvailibleDay }}
+          $(varName).dateRangeSlider({
             step:{hours: 1},
             bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
-            defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 18)},
+            defaultValues: {min: new Date(2013, 0, 1, {{ hour.start_time }}), max: new Date(2013, 0, 1, {{ hour.end_time }})},
             formatter: function(value){
               var hours = value.getHours(),
               minutes = value.getMinutes();
               return TwoDigits(hours);
             }
           });
+          {% endfor %}
       });
       </script> 
     
