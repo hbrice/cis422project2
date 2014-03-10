@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from lunarshiftapp.models import Employee, Availibity, Schedule
 from django.core.exceptions import ObjectDoesNotExist
@@ -42,7 +43,7 @@ def signout_view(request):
 	logout(request)
 	return redirect("/")
 
-		
+@login_required(redirect_field_name="/")	
 def home_view(request, employee_type, username):
 	u = User.objects.get(username=username)
 	e = Employee.objects.get(user=u)
