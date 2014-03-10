@@ -30,7 +30,7 @@
 		
 	</head>
 	<body>
-		<!-- Fixed navbar -->
+		<!-- ***** Fixed navbar ***** -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -47,6 +47,8 @@
             </span> lunarshift
           </div>
         </div>
+
+        <!--  *****  Top-Navigation Bar  *****  -->
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">
@@ -71,7 +73,9 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
+    <!-- ***** END NAVIGATION BAR ***** -->
 
+    <!-- ***** Display Username/Company  ***** -->
     <div class="container">
       <div class="page-header">
         <h1>{{ name }}<small>{{ company }}</small></h1>
@@ -79,6 +83,9 @@
       {% block content %}
       {% endblock %}
     </div>
+
+    <!-- ***** End Display Username/Company  ***** -->
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
