@@ -1,56 +1,47 @@
-from models import Employee, Availibity, Schedule
-from datetime import datetime
+from lunarshiftapp.models import Employee, Availibity, Schedule
+from datetime import time
+
+MONDAY = lunarshiftapp.models.MONDAY
+TUESDAY = lunarshiftapp.models.TUESDAY
+WEDNESDAY = lunarshiftapp.models.WEDNESDAY
+THURSDAY = lunarshiftapp.models.THURSDAY
+FRIDAY = lunarshiftapp.models.FRIDAY
+SATURDAY = lunarshiftapp.models.SATURDAY
+SUNDAY = lunarshiftapp.models.SUNDAY
+
 
 #The following functions are only applicable if Employee is a Manager
-def selectEmployee(self, emp):
+def addEmployee(self, usrName, pw, cmpny, manager=False):
 	"""
-		Employee emp: Employee to select
+	usrName: string to add as the username
+	pw: string signifying the password
+	cmpny: string to add a company to an employee
 	"""
-	clearSchedules()
+	u = User(username=usrName, password=pw)
+	u.save()
+	emp = Employee(user=u, company=cmpny, isManager=manager)
+	emp.save()
 	
-def unselectEmployee(self, emp):
+def removeEmployee(self, usrName):
 	"""
-		Employee emp: Employee to deselect
+	usrName an employees username who will be removed from the database.
 	"""
-	clearSchedules()
-def activateEmployee(self, emp):
-	"""
-		Employee emp: Employee to activate
-	"""
-	pass
-
-def deactivateEmployee(self, emp):
-	"""
-		Employee emp: Employee to deactivate
-	"""
-	pass
+	Employee.objects.get(username=usrName).delete()
 	
 def addCoverage(self, times):
 	"""
 		DateTimeRange times: times to add to coverage
 	"""
-	clearSchedules()
+	
 	
 def removeCoverage(self, times):
 	"""
 		DateTimeRange times: times to remove from coverage
 	"""
-	clearSchedules()
-	
-def clearSchedules(self):
-	"""
-		removes list of potential schedules and clears the best schedule
-	"""
-	pass
 		
 		
 		
 #Availability
-def __init__(self):
-	"""
-		initialize the 2 dimensional array of booleans
-	"""
-	pass
 	
 def addTime(self, times):
 	"""
@@ -83,26 +74,25 @@ def addShift(self, employee, times):
 	pass
 #
 class DateTimeRange:
-	def __init__(self, sYear,sMonth,sDay,sHour,eYear,eMonth,eDay,eHour):
-		start = datetime(sYear,sMonth,sDay,sHour)
-		end = datetime(eYear,eMonth,eDay,eHour)
+	def __init__(self, day, start, end):
+		"""
+			day is a string as defined above for the day.
+			start and end can be either integers(representing hours) or time objects.
+			creates tuple self.time (day, start, end)
+		"""
+		startTime = datetime.time(start)
+		endTime = datetime.time(end)
+		self.time = (day,startTime,endTime)
+	
 	def isDisjoint(self, otherRng):
 		"""
 			DateTimeRange otherRng: other DateTimeRange
 			returns bool whether self and other are disjoint
 		"""
-		return ((self.start < otherRng.start) and (self.end < otherRng.start)) or ((otherRng.start < self.start) and (otherRng.end < self.start))
+		return self.time[0] != otherRng.time[0] or ((self.time[1] < otherRng.time[1]) and (self.time[2] < otherRng.time[1])) or ((otherRng.time[1] < self.time[1]) and (otherRng.time[2] < self.time[1]))
 		
 	def hours(self):
 		"""
-			returns a list of consequtive hours between start and end
+			returns a list of consecutive hours between start and end
 		"""
-		hours = []
-		diff = end - start
-		diff = diff.total_seconds() / 3600 # seconds / 3600 ==> hours
-		
-		while(diff > 0):
-			hours.append(hours)
-			hours -= 1
-		
-		return hours
+		return List(range(self.time[1].hour,self.time[2].hour + 1))
