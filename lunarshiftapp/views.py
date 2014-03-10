@@ -41,7 +41,7 @@ def login_view(request):
 def home_view(request, employee_type, username):
 	u = User.objects.get(username=username)
 	e = Employee.objects.get(user=u)
-	context = {'name': u.first_name + " " u.last_name, 'company': e.company}
+	context = {'name': u.first_name + " " + u.last_name, 'company': e.company}
 	if (employee_type == "manager"):
 		if e.isManager:
 			return HttpResponse('you are a manager')
