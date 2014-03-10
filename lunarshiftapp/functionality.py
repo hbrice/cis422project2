@@ -1,6 +1,7 @@
 from lunarshiftapp.models import Employee, Availibity, Schedule
 from datetime import time
 
+#probably don't need these anymore.
 MONDAY = lunarshiftapp.models.MONDAY
 TUESDAY = lunarshiftapp.models.TUESDAY
 WEDNESDAY = lunarshiftapp.models.WEDNESDAY
@@ -60,7 +61,7 @@ def isAvailable(self, times):
 		DateTimeRange times: range of times to compare against availability
 		returns whether all time in times is available
 	"""
-	pass
+	
 	
 #Schedule
 def addShift(self, employee, times):
