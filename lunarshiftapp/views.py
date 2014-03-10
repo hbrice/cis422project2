@@ -45,11 +45,11 @@ def home_view(request, employee_type, username):
 	if (employee_type == "manager"):
 		if e.isManager:
 			#return HttpResponse('you are a manager')
-			return render(request, 'base.html', context)
+			return render(request, 'manager.html', context)
 	else:
 		if e.isManager == False:
 			#return HttpResponse('You are a employee')
-			return render(request, 'base.html', context)
+			return render(request, 'employee.html', context)
 
 def about_view(request):
 	return render(request, 'about.html')
