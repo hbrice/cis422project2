@@ -26,10 +26,8 @@ def login_view(request):
 				try:
 					e = Employee.objects.get(user=u)
 					if e.isManager:
-						# return HttpResponse("This page is for managers...")
 						return redirect("/mananger/" + username)
 					else:
-						# return HttpResponse("This page is for employees...")
 						return redirect("/employee/" + username)
 				except ObjectDoesNotExist:
 					return HttpResponse("This user is not assigned as an employee to a company")
@@ -43,9 +41,12 @@ def login_view(request):
 def home_view(request, employee_type, username):
 	u = User.objects.get(username=username)
 	e = Employee.objects.get(user=u)
+	context = {'name': u.first_name + " " u.last_name, 'company': e.company}
 	if (employee_type == "manager"):
 		if e.isManager:
-			return HttpResponse('you are a manager')
+			#return HttpResponse('you are a manager')
+			return render(request, 'base.html', context)
 	else:
 		if e.isManager == False:
-			return HttpResponse('You are a employee')
+			#return HttpResponse('You are a employee')
+			return render(request, 'base.html', context)
