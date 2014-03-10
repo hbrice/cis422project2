@@ -56,7 +56,7 @@ def home_view(request, employee_type, username):
 				tmp = Schedule.objects.filter(user__username=i.user.username)
 				if len(tmp) > 0:
 					scheduled.append(i.user.username)
-			return HttpResponse(scheduled)
+			#return HttpResponse(scheduled)
 			context = {'name': e.user.first_name + " " + e.user.last_name, 
 									'company': e.company, 'employees': Employee.objects.filter(isManager=False),
 									'scheduled': scheduled}
