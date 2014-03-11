@@ -177,6 +177,7 @@
               return val - 12 + ":00 PM";
             }
           }
+
           {% for i in hoursToCover %}
           $("#slider{{ i.AvailibleDay }}").dateRangeSlider({
             step:{hours: 1},
@@ -188,6 +189,10 @@
               return TwoDigits(hours);
             }
           });
+          $("#slider{{ i.AvailibleDay }}").bind("valuesChanged", function(e, data){
+            console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
+          });
+
           document.getElementById("{{ i.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ i.AvailibleDay }}")
           {% endfor %}
       });
