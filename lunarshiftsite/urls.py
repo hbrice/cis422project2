@@ -21,5 +21,4 @@ urlpatterns = patterns('',
     url(r'.*contact.html', 'lunarshiftapp.views.contact_view'),
     url(r'.*submit_Availability', 'lunarshiftapp.views.submitAvailability'),
     url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
-
 )
