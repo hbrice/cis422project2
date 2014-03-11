@@ -72,7 +72,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'lunarshiftsite.urls'
 
 WSGI_APPLICATION = 'lunarshiftsite.wsgi.application'
 
