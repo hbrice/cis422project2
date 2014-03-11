@@ -75,9 +75,10 @@ def home_view(request, employee_type, username):
 			#return HttpResponse('You are a employee')
 			#c = {}
 			#c.update(csrf(request))
-			context = {'scheduledHours': Schedule.objects.filter(user__username=e.user.username),
-                                   'days': ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']}
-			return render_to_response('employee.html', context, context_instance=RequestContext(request))
+			context = RequestContext(request)
+			context["scheduledHours"] = Schedule.objects.filter(user__username=e.user.username)
+                        context["days"] = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+			return render_to_response('employee.html', context)
 
 def about_view(request):
 	return render(request, 'about.html')
