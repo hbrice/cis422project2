@@ -27,7 +27,7 @@
             {% for hour in hoursToCover %}
             <div class="panel panel-info">
               <div class="panel-heading clearfix">
-                <button type="button" name="deleteButtonFor{{ hour.AvailibleDay }}" class="btn btn-danger pull-right"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
+                <button type="button" action="/delete" name="deleteButtonFor{{ hour.AvailibleDay }}" class="btn btn-danger pull-right"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
                 <h3 class="panel-title" id="{{ hour.AvailibleDay }}"></h3>
               </div>
               <div class="panel-body">

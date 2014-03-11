@@ -72,3 +72,6 @@ def about_view(request):
 def contact_view(request):
 	return render(request, 'contact.html')
 
+def delete_view(request):
+	return HttpResponse("Delete button pressed...")
+
