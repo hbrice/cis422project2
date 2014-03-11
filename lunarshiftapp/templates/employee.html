@@ -146,7 +146,7 @@ $(function() {
       var csrftoken = $.cookie('csrftoken'); 
 
     alert(csrftoken);
-        $.ajaxSetup({  
+        /*$.ajaxSetup({  
             beforeSend: function(xhr, settings) {  
                 if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {  
                     // Send the token to same-origin, relative URLs only.  
@@ -170,7 +170,7 @@ $(function() {
 				complete:function(response){alert(response);},
 				error:function (xhr, textStatus, thrownError){alert(textStatus);}
                 });*/
-                return false;   
+             //   return false;   
             });  
   
         });  
