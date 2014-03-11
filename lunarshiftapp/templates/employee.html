@@ -138,7 +138,10 @@ function sameOrigin(url) {
           
         !(/^(\/\/|http:|https:).*/.test(url));  
 }
-    
+    var csrftoken = $.cookie('csrftoken'); 
+
+    alert(csrftoken);
+   
 $(function() {  
   
             $("#jsSubmitAvailability").submit(function(event){  
