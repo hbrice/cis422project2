@@ -72,8 +72,8 @@ def home_view(request, employee_type, username):
 			return render(request, 'manager.html', context)
 	else:
 		if e.isManager == False:
-			if request.method=="POST":
-				available=Availibity(user=e.user,AvailibleDay='M',start_time='16:18:50',end_time='16:18:51')
+			if request.method=="POST" and request.is_ajax():
+				available=Availibity(user=e.user,AvailibleDay='T',start_time='16:18:50',end_time='16:18:51')
 				available.save()
 				return HttpResponse('It worked!')
 		
