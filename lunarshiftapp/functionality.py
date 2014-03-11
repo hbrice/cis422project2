@@ -1,3 +1,4 @@
+import models
 from models import Employee, Availibity, Schedule
 from datetime import time
 
