@@ -107,8 +107,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript">
    $(document).ready(function() {
-       $('jsSubmitAvailability').submit(function(event){
-       event.preventDefault();
+       $('#jsSubmitAvailability').submit(function(event){
+        window.prompt("sometext","defaultText");
+	event.preventDefault();
             $.ajax({
                  type:'POST',
                  url:'/submit_Availability/',
