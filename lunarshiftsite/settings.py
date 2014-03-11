@@ -24,6 +24,28 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+    'django.template.loaders.eggs.Loader',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages'
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'dajaxice.finders.DajaxiceFinder',
+)
+
 ALLOWED_HOSTS = []
 
 
@@ -37,6 +59,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'lunarshiftapp',
+    'dajaxice'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -101,7 +124,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-
+'''
+I'm not sure why this is here...going to comment it out for now to test if its using the db or test db
 # Date Time Settings
 DATE_FORMAT = 'd/m/Y' #02/19/2014
 TIME_FORMAT = 'H:i' # Hours and Minutes in military time
@@ -120,3 +144,4 @@ TEST_DATABASES = {
 
 # replace path below to point to HerokuTestSuiteRunner class
 TEST_RUNNER = 'lunarshiftsite.test_suite_runner' # python.path.to.test_suite_runner.HerokuTestSuiteRunner'
+'''
