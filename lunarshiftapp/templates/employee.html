@@ -106,15 +106,39 @@
     <!-- Placed at the end of the document so the pages load faster -->
 
     <script type="text/javascript">
+	$.ajaxSetup({ 
+     	beforeSend: function(xhr, settings) {
+         function getCookie(name) {
+             var cookieValue = null;
+             if (document.cookie && document.cookie != '') {
+                 var cookies = document.cookie.split(';');
+                 for (var i = 0; i < cookies.length; i++) {
+                     var cookie = jQuery.trim(cookies[i]);
+                     // Does this cookie string begin with the name we want?
+                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                     break;
+                 }
+             }
+         }
+         return cookieValue;
+         }
+
 	   $(document).ready(function() {
 	       $('#jsSubmitAvailability').submit(function(event){
 		event.preventDefault();
 		window.Alert("sometext","defaultText");
 
-	   $.ajaxSetup({
-	 	 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
-	   });
+	  // $.ajaxSetup({
+	 //	 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+	  // });
 
+         if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+             // Only send the token to relative URLs i.e. locally.
+             xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+         }
+     } 
+});
             $.ajax({
                  type:'POST',
                  url:'/submit_Availability/',
