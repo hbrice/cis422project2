@@ -189,8 +189,24 @@
               return TwoDigits(hours);
             }
           });
-          $("#slider{{ i.AvailibleDay }}").bind("valuesChanged", function(e, data){
+
+          $("#slider{{ i.AvailibleDay }}").bind("userValuesChanged", function(e, data){
             console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
+            $.ajax({
+              type: "POST",
+              url: "update/slider{{ i.AvailibleDay }}",
+              data: {
+                csrfmiddlewaretoken: document.getElementByName('csrfmiddlewaretoken')[0].value,
+                newStartTime = data.values.min,
+                newEndTime = data.values.max,
+              },
+              succes: function(data) {
+                alert("congratulations");
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }
+            });
           });
 
           document.getElementById("{{ i.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ i.AvailibleDay }}")
