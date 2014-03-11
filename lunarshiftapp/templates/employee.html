@@ -111,14 +111,14 @@
        event.preventDefault();
             $.ajax({
                  type:'POST',
-                 url:'/submit_Availability2/',
+                 url:'/submit_Availability/',
                  data: {
                         'sunStart': $('#sliderSunday').val() // from form
 			'sunEnd': $('#sliderSunday').val() // from form
                         },
-                 success: function(){
-                     $('#returnMessage').html("<h2>Contact Form Submitted!</h2>") 
-                    }
+		        success:function(response){},
+		        complete:function(){},
+		        error:function (xhr, textStatus, thrownError){}
 		return false;
        });
 
