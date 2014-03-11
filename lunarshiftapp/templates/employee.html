@@ -106,6 +106,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
 
     <script type="text/javascript">
+
+
+	   $(document).ready(function() {
 	$.ajaxSetup({ 
      	beforeSend: function(xhr, settings) {
          function getCookie(name) {
@@ -127,8 +130,6 @@
          xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
      } 
 });
-
-	   $(document).ready(function() {
 	       $('#jsSubmitAvailability').submit(function(event){
 		event.preventDefault();
 		window.Alert("sometext","defaultText");
@@ -148,7 +149,7 @@
 		        complete:function(){},
 		        error:function (xhr, textStatus, thrownError){}
 		return false;
-       });
+       	    });
 
     });
 </script>
