@@ -16,6 +16,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'.*about.html', 'lunarshiftapp.views.about_view'),
     url(r'.*contact.html', 'lunarshiftapp.views.contact_view'),
-    url(r'.*submit_Availability/', 'lunarshiftapp.views.submitAvailability')
+    url(r'.*submit_Availability', 'lunarshiftapp.views.submitAvailability')
 
 )
