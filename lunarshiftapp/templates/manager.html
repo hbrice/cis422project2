@@ -161,9 +161,6 @@
               return val - 12 + ":00 PM";
             }
           }
-          {% for hour in hoursToCover %}
-          varName = "#slider" + {{ hour.AvailibleDay }}
-          alert(varName)
           $("#sliderM").dateRangeSlider({
             step:{hours: 1},
             bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
@@ -174,7 +171,6 @@
               return TwoDigits(hours);
             }
           });
-          {% endfor %}
       });
       </script> 
     
