@@ -37,7 +37,13 @@
             </div>
             {% endfor %}
 
-	    
+	    <form method='post' id ='test'>
+     <input type="hidden" value="video34" />
+    <input type='submit' value='Test button'/>
+
+    <div id = 'message'>Initial text</div>
+
+</form>
 	    <!--<button type="button" class="btn btn-primary btn-lg">Update Availability</button>--->
 	    <form method='post' id='jsSubmitAvailability'>
 		{% csrf_token %}
@@ -105,6 +111,27 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">
+   $(document).ready(function() {
+       $("#test").submit(function(event){
+       event.preventDefault();
+window.prompt("sometext","defaultText");
+            $.ajax({
+                 type:"POST",
+                 url:"/edit_favorites/",
+                 data: {
+                        'video': $('#test').val() // from form
+                        },
+                 success: function(){
+                     $('#message').html("<h2>Contact Form Submitted!</h2>") 
+                    }
+            });
+            return false;
+       });
+
+    });
+</script>
+
     <script type="text/javascript">
    $(document).ready(function() {
        $('#jsSubmitAvailability').submit(function(event){
