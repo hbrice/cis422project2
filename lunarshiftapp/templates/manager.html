@@ -29,7 +29,7 @@
               <div class="panel-heading clearfix">
                 <button type="button" class="btn btn-danger pull-right"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
                 <h3 class="panel-title">
-                  {{ hour.AvailibleDay }}
+                  <script type="text/javascript">alert(convertSymbolToDay({{ hour.AvailibleDay }}))</script>
                 </h3>
               </div>
               <div class="panel-body">
@@ -109,6 +109,7 @@
 
             <!-- ***** Begin: Manager Activate Employee ***** -->
             <button type="button" class="btn btn-primary btn-lg">Add Employee</button>
+            <button type="button" class="btn btn-primary btn-lg">Create Schedule</button>
             <!-- ***** End: Manager Activate Employee ***** -->
           </div>
 
@@ -150,6 +151,24 @@
 
           $('#myPopover').popover();
 
+          function  convertSymbolToDay(day) {
+            if (day == 'M') {
+              return 'Monday'
+            } else if (day == 'T') {
+              return 'Tuesday'
+            } else if (day == 'W') {
+              return 'Wednesday'
+            } else if (day == 'TH') {
+              return 'Thursday'
+            } else if (day == 'F') {
+              return 'Friday'
+            } else if (day == 'S') {
+              return 'Saturday'
+            } else {
+              return 'Sunday';
+            }
+          }
+
           function TwoDigits(val){
             if (val == 0) {
               return "12:00 AM";
@@ -161,16 +180,18 @@
               return val - 12 + ":00 PM";
             }
           }
-          $("#sliderM").dateRangeSlider({
+          {% for i in hoursToCover %}
+          $("#slider{{ i.AvailibleDay }}").dateRangeSlider({
             step:{hours: 1},
             bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
-            defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 17)},
+            defaultValues: {min: new Date(2013, 0, 1, {{ i.start_time.hour }}), max: new Date(2013, 0, 1, {{ i.end_time.hour }})},
             formatter: function(value){
               var hours = value.getHours(),
               minutes = value.getMinutes();
               return TwoDigits(hours);
             }
           });
+          {% endfor %}
       });
       </script> 
     
