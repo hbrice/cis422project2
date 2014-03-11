@@ -126,7 +126,7 @@
             }
           }
 	  {% for day in days %}
-          $("slider{{ day }}").dateRangeSlider({
+          $("#slider{{ day }}").dateRangeSlider({
             step:{hours: 1},
             bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
            
