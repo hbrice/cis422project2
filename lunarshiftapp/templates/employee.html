@@ -113,20 +113,20 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript">
    $(document).ready(function() {
-       $("#test").submit(function(event){
+       $("#jsSubmitAvailability").submit(function(event){
        event.preventDefault();
 window.prompt("sometext","defaultText");
             $.ajax({
-                 type:"POST",
-                 url:"/edit_favorites/",
+                 type:'POST',
+                 url:'/submit_Availability/',
                  data: {
-                        'video': $('#test').val() // from form
+                        'sunStart': $('#sliderSunday').val() // from form
+			'sunEnd': $('#sliderSunday').val() // from form
                         },
-                 success: function(){
-                     $('#message').html("<h2>Contact Form Submitted!</h2>") 
-                    }
-            });
-            return false;
+		        success:function(response){},
+		        complete:function(){},
+		        error:function (xhr, textStatus, thrownError){}
+		return false;
        });
 
     });

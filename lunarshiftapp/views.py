@@ -18,7 +18,7 @@ def submitAvailability(request):
 		sunEnd = request.POST['sunEnd']
 	else:
 		returnMessage = "Not AJAX"
-	return HttpResponse(returnMessage='test')
+	return HttpResponse(returnMessage)
 
 def index(request, auth_form=None, user_form=None):
 	return render(request,'login.html')
