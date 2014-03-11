@@ -1,14 +1,25 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from lunarshiftapp.models import Employee, Availibity, Schedule
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.context_processors import csrf
 
 # mainly for testing routing using
 from django.http import HttpResponse
 
 # Create your views here.
+
+def submitAvailability(request):
+	if request.is_ajax():
+		returnMessage = "Yes, AJAX!"
+		sunStart = request.POST['sunStart']
+		sunEnd = request.POST['sunEnd']
+	else:
+		returnMessage = "Not AJAX"
+	return HttpResponse(returnMessage)
+
 def index(request, auth_form=None, user_form=None):
 	return render(request,'login.html')
 	# This was for testing
@@ -61,9 +72,18 @@ def home_view(request, employee_type, username):
 			return render(request, 'manager.html', context)
 	else:
 		if e.isManager == False:
+			if request.method=="POST" and request.is_ajax():
+				available=Availibity(user=e.user,AvailibleDay='T',start_time='16:18:50',end_time='16:18:51')
+				available.save()
+				return HttpResponse('It worked!')
+		
 			#return HttpResponse('You are a employee')
-			context = {'scheduledHours': Schedule.objects.filter(user__username=e.user.username),
-                                   'days': ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']}
+			c = {}
+			#c.update(csrf(request))
+			#context = csrf(request)
+			context["scheduledHours"] = Schedule.objects.filter(user__username=e.user.username)
+                        context["days"] = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+			#return render_to_response('employee.html', context)
 			return render(request, 'employee.html', context)
 
 def about_view(request):

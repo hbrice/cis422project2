@@ -37,8 +37,12 @@
             </div>
             {% endfor %}
 
-	    <button type="button" class="btn btn-primary btn-lg">Update Availability</button>
-
+	    <!--<button type="button" class="btn btn-primary btn-lg">Update Availability</button>--->
+	    <form method='post' id='jsSubmitAvailability'>
+		{% csrf_token %}
+		<input type="submit" value="Update Availability"/>
+		<div id = 'returnMessage'>Initial text</div>
+            </form>
             <!--<a class="btn btn-danger" id="myPopover" href="#" data-toggle="popover" data-placement="bottom" data-html="true" data-original-title="Fast Editing" data-content="<div> This <b>is</b> your div content</div>"><i class="fa fa-bolt fa-lg"></i></a>-->
             
           </div>
@@ -103,12 +107,13 @@
 
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
-          $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
               $('#paginator').datepaginator();
           });
 
           $('#myPopover').popover();
-         
+
+
           function TwoDigits(val){
             if (val == 0) {
               return "12:00 AM";
