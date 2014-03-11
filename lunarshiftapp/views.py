@@ -72,14 +72,18 @@ def home_view(request, employee_type, username):
 			return render(request, 'manager.html', context)
 	else:
 		if e.isManager == False:
+			if request.method=="POST" and request.is_ajax():
+				available=Availibity(user='schmidtj',AvailibleDay='M',start_time='16:18:50',end_time='16:18:51')
+				available.save()
+		
 			#return HttpResponse('You are a employee')
 			#c = {}
 			#c.update(csrf(request))
-			context = csrf(request)
-			context["scheduledHours"] = Schedule.objects.filter(user__username=e.user.username)
-                        context["days"] = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+			#context = csrf(request)
+			#context["scheduledHours"] = Schedule.objects.filter(user__username=e.user.username)
+                        #context["days"] = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
 			#return render_to_response('employee.html', context)
-			return render_to_response('employee.html', context)
+			return render(request, 'employee.html', context)
 
 def about_view(request):
 	return render(request, 'about.html')
