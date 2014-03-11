@@ -105,7 +105,72 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 
-
+    <script type="text/javascript">
+function getCookie(name) {  
+    var cookieValue = null;  
+    if (document.cookie && document.cookie != '') {  
+        var cookies = document.cookie.split(';');  
+        for (var i = 0; i < cookies.length; i++) {  
+            var cookie = jQuery.trim(cookies[i]);  
+              
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {  
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));  
+                break;  
+            }  
+        }  
+    }  
+    return cookieValue;  
+}  
+  
+function csrfSafeMethod(method) {  
+      
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));  
+}  
+function sameOrigin(url) {  
+      
+    var host = document.location.host; // host + port  
+    var protocol = document.location.protocol;  
+    var sr_origin = '//' + host;  
+    var origin = protocol + sr_origin;  
+      
+    return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||  
+        (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||  
+          
+        !(/^(\/\/|http:|https:).*/.test(url));  
+}
+    $(function() {  
+  
+            $("#jsSubmitAvailability").submit(function(event){  
+  
+                event.preventDefault(); 
+ 
+                $.ajax({  
+                 type:'POST',
+                 url:'/submit_Availability/',
+		         data: {
+		                'sunStart': $('#sliderSunday').val() // from form
+				'sunEnd': $('#sliderSunday').val() // from form
+		                },
+				success:function(response){},
+				complete:function(){},
+				error:function (xhr, textStatus, thrownError){}
+                });  
+                return false;   
+            });  
+  
+        });  
+        $.ajaxSetup({  
+            beforeSend: function(xhr, settings) {  
+                if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {  
+                    // Send the token to same-origin, relative URLs only.  
+                    // Send the token only if the method warrants CSRF protection  
+                    // Using the CSRFToken value acquired earlier  
+  
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);  
+                }  
+            }  
+        });
+</script>
 
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
