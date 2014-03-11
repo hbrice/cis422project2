@@ -142,18 +142,18 @@ function sameOrigin(url) {
   
             $("#jsSubmitAvailability").submit(function(event){  
   
-                event.preventDefault(); 
- 		alert("HELLO!");
+                //event.preventDefault(); 
+ 		//alert("HELLO!");
                 *$.ajax({  
                  type:'POST',
-                 url:'',
+                 url:'submit_Availability',
 		         data: {
 		                'sunStart': $('#sliderSunday').val() // from form
 				'sunEnd': $('#sliderSunday').val() // from form
 		                },
-				success:function(response){},
-				complete:function(){},
-				error:function (xhr, textStatus, thrownError){}
+				success:function(response){alert(response);},
+				complete:function(response){alert(response);},
+				error:function (xhr, textStatus, thrownError){alert(textStatus);}
                 });
                 return false;   
             });  
