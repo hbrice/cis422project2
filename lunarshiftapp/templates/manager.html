@@ -197,8 +197,8 @@
               url: "update/slider{{ i.AvailibleDay }}",
               data: {
                 csrfmiddlewaretoken: document.getElementByName('csrfmiddlewaretoken')[0].value,
-                newStartTime = data.values.min,
-                newEndTime = data.values.max,
+                newStartTime: data.values.min,
+                newEndTime: data.values.max,
               },
               succes: function(data) {
                 alert("congratulations");
