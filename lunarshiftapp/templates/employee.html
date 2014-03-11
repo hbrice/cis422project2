@@ -39,7 +39,11 @@
 
 	    
 	    <!--<button type="button" class="btn btn-primary btn-lg">Update Availability</button>--->
-
+	    <form method='post' id='jsSubmitAvailability'>
+		{% csrf_token %}
+		<input type="submit" value="Update Availability"/>
+		<div id = 'returnMessage'>Initial text</div>
+            </form>
             <!--<a class="btn btn-danger" id="myPopover" href="#" data-toggle="popover" data-placement="bottom" data-html="true" data-original-title="Fast Editing" data-content="<div> This <b>is</b> your div content</div>"><i class="fa fa-bolt fa-lg"></i></a>-->
             
           </div>
@@ -104,17 +108,11 @@
 
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
-          $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-              $('#paginator').datepaginator();
-          });
-
-          $('#myPopover').popover();
-         
-	$("#jsSubmitAvailability").submit(function(event){
+	$('#jsSubmitAvailability').submit(function(event){
        	    event.preventDefault();
             $.ajax({
-                 type:"POST",
-                 url:"/submit_Availability/",
+                 type:'POST',
+                 url:'/submit_Availability/',
                  data: {
                         'sunStart': $('#sliderSunday').val() // from form
 			'sunEnd': $('#sliderSunday').val() // from form
@@ -124,7 +122,13 @@
                     }
 		return false;
             });
-            
+
+
+          $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+              $('#paginator').datepaginator();
+          });
+
+          $('#myPopover').popover();
 
 
           function TwoDigits(val){
