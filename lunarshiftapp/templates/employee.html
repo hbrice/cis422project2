@@ -71,13 +71,12 @@
             <table class="table table-no-border">
               <th><h3>Time</h3></th>
               <th><h3>Hours</h3></th>
+	      {% for hour in scheduledHours %}
               <tr>
-                <td><div class="well well-sm">8:00 - 10:00pm</div></td>
+                <td><div class="well well-sm">{{ hour }}</div></td>
                 <td><div class="well well-sm">2 hrs</div></td>
               </tr>
-              <tr>
-                <td><div class="well well-sm">2:00 - 9:00pm</div></td>
-                <td><div class="well well-sm">7 hrs</div></td>
+	      {% endfor %}
               </tr>
             </table>
           </div>
