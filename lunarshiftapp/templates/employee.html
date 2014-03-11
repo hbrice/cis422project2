@@ -109,17 +109,22 @@
 	   $(document).ready(function() {
 	       $('#jsSubmitAvailability').submit(function(event){
 		event.preventDefault();
-		window.prompt("sometext","defaultText");
-       //     $.ajax({
-         //        type:'POST',
-           //      url:'/submit_Availability/',
-             //    data: {
-               ///         'sunStart': $('#sliderSunday').val() // from form
-		//	'sunEnd': $('#sliderSunday').val() // from form
-                  ///      },
-		     ///   success:function(response){},
-		        //complete:function(){},
-		        //error:function (xhr, textStatus, thrownError){}
+		window.Alert("sometext","defaultText");
+
+	   $.ajaxSetup({
+	 	 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+	   });
+
+            $.ajax({
+                 type:'POST',
+                 url:'/submit_Availability/',
+                 data: {
+                        'sunStart': $('#sliderSunday').val() // from form
+			'sunEnd': $('#sliderSunday').val() // from form
+                        },
+		        success:function(response){},
+		        complete:function(){},
+		        error:function (xhr, textStatus, thrownError){}
 		return false;
        });
 
