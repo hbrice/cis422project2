@@ -142,10 +142,10 @@ function sameOrigin(url) {
    
 $(function() {  
   
-            $("jsSubmitAvailability").submit(function(event){  
-      var csrftoken = $.cookie('csrftoken'); 
+            $("#jsSubmitAvailability").submit(function(event){  
+     /// var csrftoken = $.cookie('csrftoken'); 
 
-    alert(csrftoken);
+    alert("l);
         /*$.ajaxSetup({  
             beforeSend: function(xhr, settings) {  
                 if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {  
