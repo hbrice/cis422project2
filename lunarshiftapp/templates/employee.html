@@ -135,8 +135,8 @@ window.prompt("sometext","defaultText");
     <script type="text/javascript">
    $(document).ready(function() {
        $('#jsSubmitAvailability').submit(function(event){
-        window.prompt("sometext","defaultText");
 	event.preventDefault();
+        window.prompt("sometext","defaultText");
             $.ajax({
                  type:'POST',
                  url:'/submit_Availability/',
