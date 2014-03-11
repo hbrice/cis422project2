@@ -28,9 +28,7 @@
             <div class="panel panel-info">
               <div class="panel-heading clearfix">
                 <button type="button" class="btn btn-danger pull-right"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
-                <h3 class="panel-title">
-                  <script type="text/javascript">alert(convertSymbolToDay({{ hour.AvailibleDay }}))</script>
-                </h3>
+                <h3 class="panel-title" id="{{ hour.AvailibleDay }}"></h3>
               </div>
               <div class="panel-body">
                 <div class="well well-lg">
@@ -191,6 +189,7 @@
               return TwoDigits(hours);
             }
           });
+          document.getElementById("{{ i.AvailibleDay }}").innerHTML=convertSymbolToDay({{ i.AvailibleDay }})
           {% endfor %}
       });
       </script> 
