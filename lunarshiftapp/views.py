@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -9,6 +9,16 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
 
 # Create your views here.
+
+def submitAvailability(request):
+	if request.is_ajax():
+		returnMessage = "Yes, AJAX!"
+		sunStart = request.POST['sunStart']
+		sunEnd = request.POST['sunEnd']
+	else:
+		returnMessage = "Not AJAX"
+	return HttpResponse(returnMessage)
+
 def index(request, auth_form=None, user_form=None):
 	return render(request,'login.html')
 	# This was for testing

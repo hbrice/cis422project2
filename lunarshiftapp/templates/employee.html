@@ -37,8 +37,12 @@
             </div>
             {% endfor %}
 
-	    <button type="button" class="btn btn-primary btn-lg">Update Availability</button>
-
+	    
+	    <!--<button type="button" class="btn btn-primary btn-lg">Update Availability</button>--->
+	    <form method='post' id='jsSubmitAvailability'>
+		<input type="submit" value="Update Availability"/>
+		<div id = 'returnMessage'>Initial text</div>
+            </form>
             <!--<a class="btn btn-danger" id="myPopover" href="#" data-toggle="popover" data-placement="bottom" data-html="true" data-original-title="Fast Editing" data-content="<div> This <b>is</b> your div content</div>"><i class="fa fa-bolt fa-lg"></i></a>-->
             
           </div>
@@ -109,6 +113,22 @@
 
           $('#myPopover').popover();
          
+	$("#jsSubmitAvailability").submit(function(event){
+       	    event.preventDefault();
+            $.ajax({
+                 type:"POST",
+                 url:"/submit_Availability/",
+                 data: {
+                        'sunStart': $('#sliderSunday').val() // from form
+			'sunEnd': $('#sliderSunday').val() // from form
+                        },
+                 success: function(){
+                     $('#message').html("<h2>Contact Form Submitted!</h2>") 
+                    }
+            });
+            return false;
+
+
           function TwoDigits(val){
             if (val == 0) {
               return "12:00 AM";
