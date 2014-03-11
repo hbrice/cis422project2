@@ -119,4 +119,4 @@ TEST_DATABASES = {
 }
 
 # replace path below to point to HerokuTestSuiteRunner class
-TEST_RUNNER = 'lunarshiftsite.test_suite_runner' # python.path.to.test_suite_runner.HerokuTestSuiteRunner'
+TEST_RUNNER = 'test_suite_runner' # python.path.to.test_suite_runner.HerokuTestSuiteRunner'
