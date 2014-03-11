@@ -138,14 +138,14 @@ function sameOrigin(url) {
           
         !(/^(\/\/|http:|https:).*/.test(url));  
 }
-    var csrftoken = $.cookie('csrftoken'); 
 
-    alert(csrftoken);
    
 $(function() {  
   
             $("#jsSubmitAvailability").submit(function(event){  
-  
+      var csrftoken = $.cookie('csrftoken'); 
+
+    alert(csrftoken);
         $.ajaxSetup({  
             beforeSend: function(xhr, settings) {  
                 if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {  
