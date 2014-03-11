@@ -1,14 +1,14 @@
-from lunarshiftapp.models import Employee, Availibity, Schedule
+from models import Employee, Availibity, Schedule
 from datetime import time
 
 #probably don't need these anymore.
-MONDAY = lunarshiftapp.models.MONDAY
-TUESDAY = lunarshiftapp.models.TUESDAY
-WEDNESDAY = lunarshiftapp.models.WEDNESDAY
-THURSDAY = lunarshiftapp.models.THURSDAY
-FRIDAY = lunarshiftapp.models.FRIDAY
-SATURDAY = lunarshiftapp.models.SATURDAY
-SUNDAY = lunarshiftapp.models.SUNDAY
+MONDAY = models.MONDAY
+TUESDAY = models.TUESDAY
+WEDNESDAY = models.WEDNESDAY
+THURSDAY = models.THURSDAY
+FRIDAY = models.FRIDAY
+SATURDAY = models.SATURDAY
+SUNDAY = models.SUNDAY
 
 
 #The following functions are only applicable if Employee is a Manager
