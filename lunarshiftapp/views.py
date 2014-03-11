@@ -77,11 +77,11 @@ def home_view(request, employee_type, username):
 				available.save()
 		
 			#return HttpResponse('You are a employee')
-			#c = {}
+			c = {}
 			#c.update(csrf(request))
 			#context = csrf(request)
-			#context["scheduledHours"] = Schedule.objects.filter(user__username=e.user.username)
-                        #context["days"] = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+			context["scheduledHours"] = Schedule.objects.filter(user__username=e.user.username)
+                        context["days"] = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
 			#return render_to_response('employee.html', context)
 			return render(request, 'employee.html', context)
 
