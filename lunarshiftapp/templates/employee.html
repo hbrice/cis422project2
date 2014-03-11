@@ -22,132 +22,20 @@
           <div class="tab-pane active" id="availability">
             <br>
             <p class="lead">Specify your availability here!</p>
-	    <!--Sunday-->
+	    {% days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday",Saturday"] %}
+            {% for day in days %}
             <div class="panel panel-info">
               <div class="panel-heading clearfix">
-                <h3 class="panel-title">
-                  Sunday
-                </h3>
+                <button type="button" class="btn btn-danger pull-right"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
+                <h3 class="panel-title" id="{{ day }}"></h3>
               </div>
               <div class="panel-body">
                 <div class="well well-lg">
-                  <div class="row">
-                    <div class="col-md-1 pull-right">
-                    </div>
-                  </div>
-                    <div id="sliderSunday"></div>
+                  <div id="slider{{ day }}"></div>
                 </div>
-                <br>
               </div>
             </div>
-	    <!--Monday-->
-            <div class="panel panel-info">
-              <div class="panel-heading clearfix">
-                <h3 class="panel-title">
-                  Monday
-                </h3>
-              </div>
-              <div class="panel-body">
-                <div class="well well-lg">
-                  <div class="row">
-                    <div class="col-md-1 pull-right">
-                    </div>
-                  </div>
-                    <div id="sliderMonday"></div>
-                </div>
-                <br>
-              </div>
-            </div>
-	    <!--Tuesday-->
-            <div class="panel panel-info">
-              <div class="panel-heading clearfix">
-                <h3 class="panel-title">
-                  Tuesday
-                </h3>
-              </div>
-              <div class="panel-body">
-                <div class="well well-lg">
-                  <div class="row">
-                    <div class="col-md-1 pull-right">
-                    </div>
-                  </div>
-                    <div id="sliderTuesday"></div>
-                </div>
-                <br>
-              </div>
-            </div>
-	    <!--Wednesday-->
-            <div class="panel panel-info">
-              <div class="panel-heading clearfix">
-                <h3 class="panel-title">
-                  Wednesday
-                </h3>
-              </div>
-              <div class="panel-body">
-                <div class="well well-lg">
-                  <div class="row">
-                    <div class="col-md-1 pull-right">
-                    </div>
-                  </div>
-                    <div id="sliderWednesday"></div>
-                </div>
-                <br>
-              </div>
-            </div>
-	    <!--Thursday-->
-            <div class="panel panel-info">
-              <div class="panel-heading clearfix">
-                <h3 class="panel-title">
-                  Thursday
-                </h3>
-              </div>
-              <div class="panel-body">
-                <div class="well well-lg">
-                  <div class="row">
-                    <div class="col-md-1 pull-right">
-                    </div>
-                  </div>
-                    <div id="sliderThursday"></div>
-                </div>
-                <br>
-              </div>
-            </div>
-	    <!--Friday-->
-            <div class="panel panel-info">
-              <div class="panel-heading clearfix">
-                <h3 class="panel-title">
-                  Friday
-                </h3>
-              </div>
-              <div class="panel-body">
-                <div class="well well-lg">
-                  <div class="row">
-                    <div class="col-md-1 pull-right">
-                    </div>
-                  </div>
-                    <div id="sliderFriday"></div>
-                </div>
-                <br>
-              </div>
-            </div>
-	    <!--Saturday-->
-            <div class="panel panel-info">
-              <div class="panel-heading clearfix">
-                <h3 class="panel-title">
-                  Saturday
-                </h3>
-              </div>
-              <div class="panel-body">
-                <div class="well well-lg">
-                  <div class="row">
-                    <div class="col-md-1 pull-right">
-                    </div>
-                  </div>
-                    <div id="sliderSaturday"></div>
-                </div>
-                <br>
-              </div>
-            </div>
+            {% endfor %}
 
             <!--<a class="btn btn-danger" id="myPopover" href="#" data-toggle="popover" data-placement="bottom" data-html="true" data-original-title="Fast Editing" data-content="<div> This <b>is</b> your div content</div>"><i class="fa fa-bolt fa-lg"></i></a>-->
             
