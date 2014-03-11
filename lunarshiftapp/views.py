@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from lunarshiftapp.models import Employee, Availibity, Schedule
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.context_processors import csrf
 
 # mainly for testing routing using
 from django.http import HttpResponse
@@ -72,9 +73,11 @@ def home_view(request, employee_type, username):
 	else:
 		if e.isManager == False:
 			#return HttpResponse('You are a employee')
+			c = {}
+			c.update(csrf(request))
 			context = {'scheduledHours': Schedule.objects.filter(user__username=e.user.username),
                                    'days': ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']}
-			return render(request, 'employee.html', context)
+			return render_to_response('employee.html', context, c)
 
 def about_view(request):
 	return render(request, 'about.html')
