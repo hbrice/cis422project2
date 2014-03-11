@@ -151,7 +151,7 @@
 
           function  convertSymbolToDay(day) {
             if (day == "M") {
-              return 'Monday'
+              return "Monday"
             } else if (day == 'T') {
               return 'Tuesday'
             } else if (day == 'W') {
@@ -189,7 +189,7 @@
               return TwoDigits(hours);
             }
           });
-          document.getElementById("{{ i.AvailibleDay }}").innerHTML=convertSymbolToDay({{ i.AvailibleDay }})
+          document.getElementById("{{ i.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ i.AvailibleDay }}")
           {% endfor %}
       });
       </script> 
