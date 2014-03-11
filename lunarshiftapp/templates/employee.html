@@ -25,7 +25,9 @@
             {% for day in days %}
             <div class="panel panel-info">
               <div class="panel-heading clearfix">
-                <h3 class="panel-title" id="{{ day }}">{{ day }}</h3>
+                <h3 class="panel-title" id="{{ day }}">
+		    {{ day }}
+		</h3>
               </div>
               <div class="panel-body">
                 <div class="well well-lg">
@@ -120,7 +122,7 @@
             }
           }
 
-          $("#slider").dateRangeSlider({
+          $("#sliderSunday").dateRangeSlider({
             step:{hours: 1},
             bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 23, 0, 0)},
             defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 18)},
@@ -130,7 +132,57 @@
               return TwoDigits(hours);
             }
           });
-          $("#slider2").dateRangeSlider({
+          $("#sliderMonday").dateRangeSlider({
+            step:{hours: 1},
+            bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 23, 0, 0)},
+            defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 18)},
+            formatter: function(value){
+              var hours = value.getHours(),
+              minutes = value.getMinutes();
+              return TwoDigits(hours);
+            }
+          });
+          $("#sliderTuesday").dateRangeSlider({
+            step:{hours: 1},
+            bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 23, 0, 0)},
+            defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 18)},
+            formatter: function(value){
+              var hours = value.getHours(),
+              minutes = value.getMinutes();
+              return TwoDigits(hours);
+            }
+          });
+          $("#sliderWednesday").dateRangeSlider({
+            step:{hours: 1},
+            bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 23, 0, 0)},
+            defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 18)},
+            formatter: function(value){
+              var hours = value.getHours(),
+              minutes = value.getMinutes();
+              return TwoDigits(hours);
+            }
+          });
+          $("#sliderThursday").dateRangeSlider({
+            step:{hours: 1},
+            bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 23, 0, 0)},
+            defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 18)},
+            formatter: function(value){
+              var hours = value.getHours(),
+              minutes = value.getMinutes();
+              return TwoDigits(hours);
+            }
+          });
+          $("#sliderFriday").dateRangeSlider({
+            step:{hours: 1},
+            bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 23, 0, 0)},
+            defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 18)},
+            formatter: function(value){
+              var hours = value.getHours(),
+              minutes = value.getMinutes();
+              return TwoDigits(hours);
+            }
+          });
+          $("#sliderSaturday").dateRangeSlider({
             step:{hours: 1},
             bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 23, 0, 0)},
             defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 18)},
