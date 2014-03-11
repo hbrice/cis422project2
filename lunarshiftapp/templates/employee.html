@@ -22,40 +22,21 @@
           <div class="tab-pane active" id="availability">
             <br>
             <p class="lead">Specify your availability here!</p>
+	    {% with days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'] %}
+            {% for day in days %}
             <div class="panel panel-info">
               <div class="panel-heading clearfix">
                 <button type="button" class="btn btn-danger pull-right"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
-                <h3 class="panel-title">
-                  Monday
-                </h3>
+                <h3 class="panel-title" id="{{ day }}"></h3>
               </div>
               <div class="panel-body">
                 <div class="well well-lg">
-                  <div class="row">
-                    <div class="col-md-1 pull-right">
-                    <button type="button" class="close pull-right" aria-hidden="true">&times;</button>
-                    </div>
-                  </div>
-                    <div id="slider"></div>
-                </div>
-                <br>
-                <div class="well well-lg">
-                  <div class="row">
-                    <div class="col-md-1 pull-right">
-                    <button type="button" class="close pull-right" aria-hidden="true">&times;</button>
-                    </div>
-                  </div>
-                    <div id="slider2"></div>
-                </div>
-                <br>
-                <div class="btn-group pull-right">
-                  <button type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i></button>
-                  <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></button>
+                  <div id="slider{{ day }}"></div>
                 </div>
               </div>
             </div>
+            {% endfor %}
 
-            <button type="button" class="btn btn-primary btn-lg">Add Day</button>
             <!--<a class="btn btn-danger" id="myPopover" href="#" data-toggle="popover" data-placement="bottom" data-html="true" data-original-title="Fast Editing" data-content="<div> This <b>is</b> your div content</div>"><i class="fa fa-bolt fa-lg"></i></a>-->
             
           </div>
@@ -66,7 +47,8 @@
           <div class="tab-pane" id="schedule">
             <br>
             <p class="lead">Here's your work schedule!</p>
-            <div id="paginator"></div>
+            <!--div id="paginator"></div> -->
+	    <!--{% schedulesHours = Schedule.objects.filter(user__username=e.user.username).filter(monthForSched-->
             <br>
             <table class="table table-no-border">
 	      <th><h3>Days</h3></th>
@@ -76,7 +58,7 @@
               <tr>
 		<td><div class="well well-sm">{{ hour.AvailibleDay }}</div></td>
                 <td><div class="well well-sm">{{ hour.start_time }} - {{ hour.end_time }}</div></td>
-                <td><div class="well well-sm">TODO, delta the hours</div></td>
+                <td><div class="well well-sm">TODO, delta the hours {{ hour.monthForSched }}</div></td>
               </tr>
 	      {% endfor %}
               </tr>
