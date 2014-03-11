@@ -37,13 +37,6 @@
             </div>
             {% endfor %}
 
-	    <form method='post' id ='test'>
-     <input type="hidden" value="video34" />
-    <input type='submit' value='Test button'/>
-
-    <div id = 'message'>Initial text</div>
-
-</form>
 	    <!--<button type="button" class="btn btn-primary btn-lg">Update Availability</button>--->
 	    <form method='post' id='jsSubmitAvailability'>
 		{% csrf_token %}
@@ -113,43 +106,21 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript">
 
-
-   $(document).ready(function() {
-       $("#test").submit(function(event){
-       event.preventDefault();
-window.prompt("sometext","getCookie('csrftoken')");
-//window.prompt("sometext",getCookie('csrftoken'));
-          //  $.ajax({
-             //   type:'POST',
-              //   url:'/submit_Availability/',
-              //   data: {
-               //         'sunStart': $('#sliderSunday').val() // from form
-		//	'sunEnd': $('#sliderSunday').val() // from form
-                //        },
-		 //       success:function(response){},
-		 //       complete:function(){},
-		//        error:function (xhr, textStatus, thrownError){}
-		//return false;
-       //});
-
-    });
-</script>
-
     <script type="text/javascript">
    $(document).ready(function() {
        $('#jsSubmitAvailability').submit(function(event){
 	event.preventDefault();
         window.prompt("sometext","defaultText");
-            $.ajax({
-                 type:'POST',
-                 url:'/submit_Availability/',
-                 data: {
-                        'sunStart': $('#sliderSunday').val() // from form
-			'sunEnd': $('#sliderSunday').val() // from form
-                        },
-		        success:function(response){},
-		        complete:function(){},
-		        error:function (xhr, textStatus, thrownError){}
+       //     $.ajax({
+         //        type:'POST',
+           //      url:'/submit_Availability/',
+             //    data: {
+               ///         'sunStart': $('#sliderSunday').val() // from form
+		//	'sunEnd': $('#sliderSunday').val() // from form
+                  ///      },
+		     ///   success:function(response){},
+		        //complete:function(){},
+		        //error:function (xhr, textStatus, thrownError){}
 		return false;
        });
 
