@@ -62,7 +62,8 @@ def home_view(request, employee_type, username):
 	else:
 		if e.isManager == False:
 			#return HttpResponse('You are a employee')
-			context = {'scheduledHours': Schedule.objects.filter(user__username=e.user.username)}
+			context = {'scheduledHours': Schedule.objects.filter(user__username=e.user.username),
+                                   'days': ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']}
 			return render(request, 'employee.html', context)
 
 def about_view(request):
