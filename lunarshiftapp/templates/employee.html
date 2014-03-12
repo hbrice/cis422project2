@@ -54,8 +54,8 @@
 	      {% for hour in scheduledHours %}
               <tr>
 		<td><div class="well well-sm" id="{{ hour.AvailibleDay }}"></div></td>
-                <td><div class="well well-sm" id="{{ hour.AvailibleDay }}Shift"></div></td>
-                <td><div class="well well-sm" id="{{ hour.AvailibleDay }}Delta"></div></td>
+                <td><div class="well well-sm" id="shift{{ hour.AvailibleDay }}"></div></td>
+                <td><div class="well well-sm" id="delta{{ hour.AvailibleDay }}"></div></td>
               </tr>
 	      {% endfor %}
               </tr>
@@ -155,7 +155,8 @@
 
 	  {% for hour in scheduledHours %}
 		 document.getElementById("{{ hour.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ hour.AvailibleDay }}");
-
+		 var shiftID = "shuft"+"{{ hour.AvailibleDay }}";
+		 alert(shiftID);
 	  {% endfor %}
         });
       </script> 
