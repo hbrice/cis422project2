@@ -192,6 +192,10 @@
             }
           }
 
+          $(".btn").click(function () {
+            alert(this.id);
+          });
+
           $("#submit").click(function() {
             var username = $("#username").val();
             var firstname = $("#firstname").val();
