@@ -44,17 +44,17 @@
           <div class="tab-pane" id="schedule">
             <br>
             <p class="lead">Here's your work schedule!</p>
-            <div id="paginator"></div> 
+<!--            <div id="paginator"></div> -->
 	    <!--{% schedulesHours = Schedule.objects.filter(user__username=e.user.username).filter(monthForSched-->
             <br>
             <table class="table table-no-border">
-	      <th><h3>Days</h3></th>
+	      <th><h3>Day</h3></th>
               <th><h3>Time</h3></th>
               <th><h3>Shift Length</h3></th>
 	      {% for hour in scheduledHours %}
               <tr>
 		<td><div class="well well-sm">{{ hour.AvailibleDay }}</div></td>
-                <td><div class="well well-sm">{{ hour.start_time }} - {{ hour.end_time }}</div></td>
+                <td><div class="well well-sm">{{ hour.start_time }} !!- {{ hour.end_time }}</div></td>
                 <td><div class="well well-sm">TODO, delta the hours {{ hour.monthForSched }}</div></td>
               </tr>
 	      {% endfor %}
