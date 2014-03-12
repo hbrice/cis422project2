@@ -118,6 +118,7 @@
           }
 
 	  function convertTo24(val){
+		alert(val);
 		var result = 0;
 		if(val.substring(val.length-4) == 'p.m.'){
 			result = 12;
@@ -138,7 +139,8 @@
 		 document.getElementById(dayID).innerHTML=convertSymbolToDay("{{ Shift.AvailibleDay }}");		
 		 document.getElementById(shiftID).innerHTML="{{ Shift.start_time }} - {{ Shift.end_time }}";
 		 document.getElementById(deltaID).innerHTML=deltaHours;
-		 alert(convertTo24("{{ hour.start_time }}"));
+		 var time = "{{ hour.start_time }}";
+		 alert(convertTo24(time));
 	  {% endfor %}
 
 	  {% for day in currentAvailability %}
