@@ -24,7 +24,7 @@
             <br>
             <p class="lead">Specify the hours you want covered here!</p>
             {% for hour in hoursToCover %}
-            <div class="panel panel-info">
+            <div id="THIS IS A TEST" class="panel panel-info">
               <div class="panel-heading clearfix">
                 <button type="button" id="{{ hour.AvailibleDay }}" class="btn btn-danger pull-right">
                   <i class="fa fa-trash-o fa-lg"></i> Delete
@@ -194,7 +194,9 @@
 
           $("#availability").on("click", ".btn-danger", function(e) {
             var day = this.id;
-            $.ajax({
+            var id = $(this).closest("div").attr("id");
+            alert(id);
+            /*$.ajax({
               type: "POST",
               url: "/deleteDayToCover",
               data: {
@@ -204,7 +206,7 @@
               error: function(xhr, textStatus, errorThrown) {
                 alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
               }
-            });
+            });*/
           });
 
           $("#submit").click(function() {
