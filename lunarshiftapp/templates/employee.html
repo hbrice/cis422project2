@@ -155,7 +155,9 @@
 
 	  {% for hour in scheduledHours %}
 		 document.getElementById("{{ hour.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ hour.AvailibleDay }}");
-
+		
+		var deltaHours = 10 - 8;		
+		document.getElementById("{{ hour.AvailibleDay }}Delta").innerHTML=deltaHours);
 	  {% endfor %}
         });
       </script> 
