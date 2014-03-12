@@ -113,6 +113,24 @@
           $('#myPopover').popover();
 
 
+          function  convertSymbolToDay(day) {
+            if (day == 'M') {
+              return 'Monday'
+            } else if (day == 'T') {
+              return 'Tuesday'
+            } else if (day == 'W') {
+              return 'Wednesday'
+            } else if (day == 'TH') {
+              return 'Thursday'
+            } else if (day == 'F') {
+              return 'Friday'
+            } else if (day == 'S') {
+              return 'Saturday'
+            } else {
+              return 'Sunday';
+            }
+          }
+
           function TwoDigits(val){
             if (val == 0) {
               return "12:00 AM";
@@ -136,7 +154,7 @@
               return TwoDigits(hours);
             }
           });
-		//document.getElementById("{{ day.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ day.AvailibleDay }}");
+		document.getElementById("{{ day.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ day.AvailibleDay }}");
 	  {% endfor %}
         });
       </script> 
