@@ -191,6 +191,7 @@
               url: "/updateslider",
               data: {
                 csrfmiddlewaretoken: '{{ csrf_token }}',
+                username: "{{ username }}"
                 day: "{{ i.AvailibleDay }}",
                 newStartTime: data.values.min.getHours(),
                 newEndTime: data.values.max.getHours(),

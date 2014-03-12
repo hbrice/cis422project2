@@ -58,6 +58,7 @@ def home_view(request, employee_type, username):
 					scheduled.append(i.user.username)
 
 			context = {'name': e.user.first_name + " " + e.user.last_name, 
+									'username': e.user.username,
 									'company': e.company, 'employees': Employee.objects.filter(isManager=False),
 									'scheduled': scheduled, 'hoursToCover': Availibity.objects.filter(user__username=e.user.username)}
 			return render(request, 'manager.html', context)
@@ -93,7 +94,7 @@ def updateSlider_view(request):
 		startTime = request.POST['newStartTime']
 		endTime = request.POST['newEndTime']
 		# user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
-		return HttpResponse("IT FUCKING WORKS! " + day + " " + startTime + " " + endTime)
+		return HttpResponse("IT FUCKING WORKS! " + username + " " + day + " " + startTime + " " + endTime)
 
 def submitAvailability_view(request):
 	if request.method == 'POST' and request.is_ajax():
