@@ -96,3 +96,7 @@ def contact_view(request):
 def delete_view(request):
 	return HttpResponse("Delete button pressed...")
 
+def updateSlider_view(request):
+	if request.method == 'POST' and request.is_ajax():
+		return("IT FUCKING WORKS!")
+

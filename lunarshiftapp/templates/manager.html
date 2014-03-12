@@ -183,14 +183,15 @@
               return TwoDigits(hours);
             }
           });
-          
+
           $("#slider{{ i.AvailibleDay }}").bind("userValuesChanged", function(e, data){
             console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
             $.ajax({
               type: "POST",
-              url: "update/slider{{ i.AvailibleDay }}",
+              url: "/updateslider",
               data: {
                 csrfmiddlewaretoken: '{{ csrf_token }}',
+                day: "{{ i.AvailibleDay }}",
                 newStartTime: data.values.min,
                 newEndTime: data.values.max,
               },
