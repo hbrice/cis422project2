@@ -229,6 +229,7 @@
          $('#delete').click(function(){
             var id = $(this).closest("tr").attr("id");
             alert(id);
+            $(this).disabled = true;
           });
 
           {% for i in hoursToCover %}
