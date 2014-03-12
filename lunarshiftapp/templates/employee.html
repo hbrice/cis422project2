@@ -118,7 +118,6 @@
           }
 
 	  function convertTo24(val){
-		alert(val);
 		var result = 0;
 		if(val.substring(val.length-4) == 'p.m.'){
 			result = 12;
@@ -127,7 +126,6 @@
 		if(time.substring(1,2) == ':'){
 			time = time.substring(0,1)
 		}
-		console.log("result: " + result + +"time: " + time + "val:" + val);
 		return parseInt(time)+result;
 	  }
 
@@ -136,7 +134,7 @@
 		var end = convertTo24("{{ Shift.end_time }}");
 		var delta = end - start;
 		if(delta == 1){
-			return delta + "hour;
+			return delta + "hour";
 		}
 		return delta + "hours";
 	  }
@@ -146,7 +144,6 @@
 		 var shiftID = "shift{{ Shift.AvailibleDay }}";
 		 var deltaID = "delta{{ Shift.AvailibleDay }}";
 		 var delta = deltaHours();
-		alert(delta);
 		 document.getElementById(dayID).innerHTML=convertSymbolToDay("{{ Shift.AvailibleDay }}");		
 		 document.getElementById(shiftID).innerHTML="{{ Shift.start_time }} - {{ Shift.end_time }}";
 		 document.getElementById(deltaID).innerHTML=delta;
