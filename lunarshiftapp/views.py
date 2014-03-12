@@ -89,6 +89,7 @@ def delete_view(request):
 
 def updateSlider_view(request):
 	if request.method == 'POST' and request.is_ajax():
+		user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
 		return HttpResponse("IT FUCKING WORKS!")
 
 def submitAvailability_view(request):
