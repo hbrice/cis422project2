@@ -153,8 +153,8 @@
 		document.getElementById("{{ day.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ day.AvailibleDay }}");
 	  {% endfor %}
 
-	  {% for shifts in scheduledHours %}
-		 document.getElementById("{{ shifts.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ shifts.AvailibleDay }}");
+	  {% for hour in scheduledHours %}
+		 document.getElementById("{{ hour.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ hour.AvailibleDay }}");
 	  {% endfor %}
         });
       </script> 
