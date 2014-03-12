@@ -183,7 +183,7 @@
               return TwoDigits(hours);
             }
           });
-          {% endfor %}
+          
           $("#slider{{ i.AvailibleDay }}").bind("userValuesChanged", function(e, data){
             console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
             $.ajax({
@@ -201,7 +201,7 @@
           });
 
           document.getElementById("{{ i.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ i.AvailibleDay }}");
-          
+          {% endfor %}
       });
       </script> 
     
