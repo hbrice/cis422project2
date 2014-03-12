@@ -155,8 +155,11 @@
 
 	  {% for hour in scheduledHours %}
 		 document.getElementById("{{ hour.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ hour.AvailibleDay }}");
-		 var shiftID = "shift"+"{{ hour.AvailibleDay }}";
-		document.getElementById(shiftID).innerHTML="{{ hour.start_time }}";
+		 var shiftID = "shift{{ hour.AvailibleDay }}";
+		 var deltaID = "delta{{ hour.AvailibleDay }}";
+		 var deltaHours = "{{ hour.start_time }}" - "{{ hour.end_time }}";		
+		document.getElementById(shiftID).innerHTML="{{ hour.start_time }} - {{ hour.end_time }}";
+		document.getElementById(deltaID).innerHTML=deltaHours);
 		 alert(shiftID);
 	  {% endfor %}
         });
