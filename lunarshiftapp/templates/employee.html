@@ -138,7 +138,7 @@
 		      data: {
 		        csrfmiddlewaretoken: '{{ csrf_token }}',
 		        username: "{{ username }}",
-		        day: "{{ i.AvailibleDay }}",
+		        day: "{{ day.AvailibleDay }}",
 		        newStartTime: data.values.min.getHours(),
 		        newEndTime: data.values.max.getHours(),
 		      },
