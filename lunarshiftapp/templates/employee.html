@@ -156,7 +156,7 @@
 	  {% for hour in scheduledHours %}
 		 document.getElementById("{{ hour.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ hour.AvailibleDay }}");
 		
-		var deltaHours = {{ hour.start_time }} - {{ hour.end_time }};		
+		var deltaHours = 10 - 8;		
 		document.getElementById("{{ hour.AvailibleDay }}Delta").innerHTML=deltaHours);
 	  {% endfor %}
         });
