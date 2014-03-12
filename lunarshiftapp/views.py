@@ -76,7 +76,7 @@ def home_view(request, employee_type, username):
 			context["scheduledHours"] = Schedule.objects.filter(user__username=e.user.username)
                         context["days"] = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
 			context["currentAvailability"] = Availibity.objects.filter(user__username=e.user.username)		
-			context["username"] = e.user.username			
+			context["username"] = e.user			
 			#return render_to_response('employee.html', context)
 			return render(request, 'employee.html', context)
 
@@ -104,7 +104,7 @@ def submitAvailability_view(request):
 		username = request.POST['username']
 		startTime = request.POST['newStartTime']
 		endTime = request.POST['newEndTime']
-		availability = Availibity.objects.get(user=username,AvailibleDay=day)
+		availability = Availibity.objects.get(user__username=username,AvailibleDay=day)
 		availability.start_time = startTime
 		availability.end_time = endTime
 		availability.save()
