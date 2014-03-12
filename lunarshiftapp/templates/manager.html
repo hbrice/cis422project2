@@ -226,9 +226,10 @@
             });
           });
 
-         $("#delete").click(function(){
+         $('input[type=button]').click(function(){
             var bid = this.id; // button ID 
             var trid = $(this).closest('tr').attr('id'); // table row ID 
+            alert(trid);
           });
 
           {% for i in hoursToCover %}
