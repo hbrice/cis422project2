@@ -103,8 +103,12 @@ def submitAvailability_view(request):
 		day = request.POST['day']
 		newStartTime = request.POST['newStartTime']
 		newEndTime = request.POST['newEndTime']
-	else:
-		returnMessage = "Not AJAX"
-	return HttpResponse(day + " " + newStartTime + " " + newEndTime + " " )
+		userName = request.POST['username']
+		
+		availability = Availibity.objects.get(user=userName,AvailibleDay=day)
+		availability.start_time = newStartTime
+		availability.end_time = newEndTime
+		availability.save()
+		return HttpResponse(day + " " + newStartTime + " " + newEndTime + " " )
 
 

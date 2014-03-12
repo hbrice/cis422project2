@@ -66,26 +66,8 @@
 	  
           <!-- ***** End: Employee view Schedule  ***** -->
 
-          <!-- ***** Begin: Employee view Alerts  ***** -->
-          <div class="tab-pane" id="alert">
-            <br>
-            <p class="lead">You have four alerts!</p>
-            <div class="alert alert-success">This is an alert specifying success
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            </div>
-            <div class="alert alert-info">This is an alert specifying info
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            </div>
-            <div class="alert alert-warning">This is an alert specifying warning
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            </div>
-            <div class="alert alert-danger">This is an alert specifying danger
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            </div>
-          </div>
         </div>
       </div>
-      <!-- ***** End: Employee view Alerts  ***** -->
 
  
          
@@ -155,7 +137,8 @@
 		      url: "/submit_Availability",
 		      data: {
 		        csrfmiddlewaretoken: '{{ csrf_token }}',
-		        day: "{{ day.AvailibleDay }}",
+		        username: "{{ username }}",
+		        day: "{{ i.AvailibleDay }}",
 		        newStartTime: data.values.min.getHours(),
 		        newEndTime: data.values.max.getHours(),
 		      },
