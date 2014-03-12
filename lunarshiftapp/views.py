@@ -81,7 +81,7 @@ def home_view(request, employee_type, username):
 			return render(request, 'employee.html', context)
 
 def addEmployee(request):
-	if request.method == 'POST':
+	if request.method == 'POST' and request.is_ajax():
 		username = request.POST['username']
 		firstname = request.POST['firstname']
 		lastname = request.POST['lastname']
@@ -98,6 +98,9 @@ def addEmployee(request):
 		newE = Employee(user=u, company=e.company)
 		newE.save()
 		return HttpResponse()
+
+def deleteEmployee(request):
+	pass
 
 def about_view(request):
 	return render(request, 'about.html')
