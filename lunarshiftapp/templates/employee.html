@@ -154,7 +154,8 @@
 	  {% endfor %}
 
 	  {% for hour in scheduledHours %}
-
+		 document.getElementById("{{ hour.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ hour.AvailibleDay }}");
+		document.getElementById("{{ hour.AvailibleDay }}Shift").innerHTML={{ hour.start_time }} + "-" + {{ hour.end_time }});				
 	  {% endfor %}
         });
       </script> 
