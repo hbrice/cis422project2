@@ -95,8 +95,13 @@ def updateSlider_view(request):
 		username = request.POST['username']
 		startTime = request.POST['newStartTime']
 		endTime = request.POST['newEndTime']
+		newAv = Availibity.objects.get(user__username=username, AvailibleDay=day)
+		newAv.start_time = str(startTime) + ":00"
+		newAv.end_time = str(endTime) + ":00"
+		newAv.save()
+		return HttpResponse("")
 		# user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
-		return HttpResponse("IT FUCKING WORKS! " + username + " " + day + " " + startTime + " " + endTime)
+		#return HttpResponse("IT FUCKING WORKS! " + username + " " + day + " " + startTime + " " + endTime)
 
 def submitAvailability_view(request):
 	if request.method == 'POST' and request.is_ajax():
