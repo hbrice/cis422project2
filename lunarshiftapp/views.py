@@ -104,7 +104,6 @@ def submitAvailability_view(request):
 		username = request.POST['username']
 		startTime = request.POST['newStartTime']
 		endTime = request.POST['newEndTime']
-		availability = Availibity.objects.get(user__username=username)
 		
 		return HttpResponse( username + " " + day + " " + startTime + " " + endTime)
 		
