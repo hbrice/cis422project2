@@ -95,8 +95,7 @@
             <!-- ***** End: Manager View Availability ***** -->
 
             <!-- ***** Begin: Manager Activate Employee ***** -->
-            <p><button type="button" class="btn btn-primary btn-lg">Add Employee</button></p>
-            <p><button type="button" class="btn btn-primary btn-lg">Create Schedule</button></p>
+            <button id="addEmployee" type="button" class="btn btn-primary btn-lg">Add Employee</button>
             <!-- ***** End: Manager Activate Employee ***** -->
           </div>
         </div>
@@ -145,6 +144,10 @@
               return val - 12 + ":00 PM";
             }
           }
+
+          $("#addEmployee").click(function () {
+            alert("Employee button clicked!");
+          });
 
           {% for i in hoursToCover %}
           $("#slider{{ i.AvailibleDay }}").dateRangeSlider({
