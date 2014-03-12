@@ -228,12 +228,11 @@
           $("#employeeTable").on("click", ".btn", function(e) {
             var id = $(this).closest("tr").attr("id");
             var tr = $(this).closest("tr");
-            //tr.css("background-color","#FF3700");
             tr.fadeOut(400, function(){
               tr.remove();
             });
             //alert(id);
-            return false;
+            //return false;
           });
 
 
