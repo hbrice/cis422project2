@@ -100,11 +100,11 @@ def updateSlider_view(request):
 def submitAvailability_view(request):
 	if request.method == 'POST' and request.is_ajax():
 		day = request.POST['day']
+		username = request.POST['username']
 		newStartTime = request.POST['newStartTime']
 		newEndTime = request.POST['newEndTime']
-		username = request.POST['username']
 		
 
-		return HttpResponse(username + " " + day + " " + newStartTime + " " + newEndTime + " " )
+		return HttpResponse("test:" + username + " " + day + " " + newStartTime + " " + newEndTime + " " )
 
 
