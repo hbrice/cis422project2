@@ -53,7 +53,7 @@
               <th><h3>Shift Length</h3></th>
 	      {% for hour in scheduledHours %}
               <tr>
-		<td><div class="well well-sm" id="{{ hour.AvailibleDay }}"></div></td>
+		<td><div class="well well-sm" id="day{{ hour.AvailibleDay }}"></div></td>
                 <td><div class="well well-sm" id="shift{{ hour.AvailibleDay }}"></div></td>
                 <td><div class="well well-sm" id="delta{{ hour.AvailibleDay }}"></div></td>
               </tr>
@@ -117,6 +117,17 @@
             }
           }
 
+	  {% for hour in scheduledHours %}
+		 var dayID = "day{{ hour.AvailibleDay }}";		 
+		 var shiftID = "shift{{ hour.AvailibleDay }}";
+		 var deltaID = "delta{{ hour.AvailibleDay }}";
+		 var deltaHours = "{{ hour.start_time }}" - "{{ hour.end_time }}";
+		 document.getElementById(dayID).innerHTML=convertSymbolToDay("{{ hour.AvailibleDay }}");		
+		 document.getElementById(shiftID).innerHTML="{{ hour.start_time }} - {{ hour.end_time }}";
+		 document.getElementById(deltaID).innerHTML=deltaHours;
+		 alert("{{ hour.start_time }}");
+	  {% endfor %}
+
 	  {% for day in currentAvailability %}
 		  $("#slider{{ day.AvailibleDay }}").dateRangeSlider({
 		    step:{hours: 1},
@@ -153,15 +164,7 @@
 		document.getElementById("{{ day.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ day.AvailibleDay }}");
 	  {% endfor %}
 
-	  {% for hour in scheduledHours %}
-		 document.getElementById("{{ hour.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ hour.AvailibleDay }}");
-		 var shiftID = "shift{{ hour.AvailibleDay }}";
-		 var deltaID = "delta{{ hour.AvailibleDay }}";
-		 var deltaHours = "{{ hour.start_time }}" - "{{ hour.end_time }}";		
-		document.getElementById(shiftID).innerHTML="{{ hour.start_time }} - {{ hour.end_time }}";
-		document.getElementById(deltaID).innerHTML=deltaHours;
-		 alert("{{ hour.start_time }}");
-	  {% endfor %}
+
         });
       </script> 
 {% endblock %}
