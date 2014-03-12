@@ -231,8 +231,20 @@
             tr.fadeOut(400, function(){
               tr.remove();
             });
-            //alert(id);
-            //return false;
+            $.ajax({
+              type: "POST",
+              url: "/deleteEmployee",
+              data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                username: id,
+              },
+              success: function(data) {
+                alert("congratulations");
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }
+            }); 
           });
 
 
