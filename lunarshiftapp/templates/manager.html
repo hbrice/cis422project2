@@ -194,18 +194,17 @@
 
           $("#availability").on("click", ".btn-danger", function(e) {
             var day = this.id;
-            alert(this.id);
-            /*$.ajax({
+            $.ajax({
               type: "POST",
               url: "/deleteDayToCover",
               data: {
                 csrfmiddlewaretoken: '{{ csrf_token }}',
-                day: username, 
+                day: day, 
               },
               error: function(xhr, textStatus, errorThrown) {
                 alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
               }
-            });*/
+            });
           });
 
           $("#submit").click(function() {

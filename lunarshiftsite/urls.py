@@ -19,4 +19,5 @@ urlpatterns = patterns('',
     url(r'^updateslider$', 'lunarshiftapp.views.updateAvailibility'),
     url(r'^addEmployee$', 'lunarshiftapp.views.addEmployee'),
     url(r'^deleteEmployee$', 'lunarshiftapp.views.deleteEmployee'),
+    url(r'^deleteDayToCover$', 'lunarshiftapp.views.deleteDayToCover'),
 )

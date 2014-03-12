@@ -101,7 +101,12 @@ def deleteEmployee(request):
 	return HttpResponse()
 
 def deleteDayToCover(request):
-	pass
+	if request.method == 'POST' and request.is_ajax():
+		day = request.POST['day']
+		manager = Employee.objects.get(isManager=True)
+		a = Availibity.objects.get(user__username=manager.user.username, AvailibleDay=day)
+		a.delete()
+		return HttpResponse()
 
 def about_view(request):
 	return render(request, 'about.html')
