@@ -194,8 +194,11 @@
 
           $("#availability").on("click", ".btn-danger", function(e) {
             var day = this.id;
-            var id = $(this).parent().parent().attr("id");
-            alert(id);
+            var panel = $(this).parent().parent();
+            //alert(id);
+            panel.fadeOut(400, function(){
+              panel.remove();
+            });
             /*$.ajax({
               type: "POST",
               url: "/deleteDayToCover",
