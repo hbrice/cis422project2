@@ -226,7 +226,7 @@
             });
           });
 
-         $('#delete').click(function(){
+         $('#delete').live(function(){
             var bid = this.id; // button ID 
             var trid = $(this).closest('tr').attr('id'); // table row ID 
             alert(trid);
