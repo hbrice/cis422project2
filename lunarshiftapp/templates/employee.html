@@ -129,9 +129,7 @@
 		return parseInt(time)+result;
 	  }
 
-	  function deltaHours(){
-		var start = convertTo24("{{ Shift.start_time }}");
-		var end = convertTo24("{{ Shift.end_time }}");
+	  function deltaHours(start, end){
 		var delta = end - start;
 		if(delta == 1){
 			return delta + "hour";
@@ -143,7 +141,7 @@
 		 var dayID = "day{{ Shift.AvailibleDay }}";		 
 		 var shiftID = "shift{{ Shift.AvailibleDay }}";
 		 var deltaID = "delta{{ Shift.AvailibleDay }}";
-		 var delta = deltaHours();
+		 var delta = deltaHours(convertTo24("{{ Shift.start_time }}"), convertTo24("{{ Shift.end_time }}"));
 		 document.getElementById(dayID).innerHTML=convertSymbolToDay("{{ Shift.AvailibleDay }}");		
 		 document.getElementById(shiftID).innerHTML="{{ Shift.start_time }} - {{ Shift.end_time }}";
 		 document.getElementById(deltaID).innerHTML=delta;
