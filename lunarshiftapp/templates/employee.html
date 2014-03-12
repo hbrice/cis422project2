@@ -152,7 +152,7 @@
 
 		document.getElementById("{{ day.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ day.AvailibleDay }}");
 	  {% endfor %}
-	var deltaHours = "10";
+
 	  {% for hour in scheduledHours %}
 		 document.getElementById("{{ hour.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ hour.AvailibleDay }}");	
 		document.getElementById("{{ hour.AvailibleDay }}Delta").innerHTML="10");
