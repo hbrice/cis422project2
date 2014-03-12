@@ -117,15 +117,28 @@
             }
           }
 
-	  {% for hour in scheduledHours %}
-		 var dayID = "day{{ hour.AvailibleDay }}";		 
-		 var shiftID = "shift{{ hour.AvailibleDay }}";
-		 var deltaID = "delta{{ hour.AvailibleDay }}";
-		 var deltaHours = "{{ hour.start_time }}" - "{{ hour.end_time }}";
-		 document.getElementById(dayID).innerHTML=convertSymbolToDay("{{ hour.AvailibleDay }}");		
-		 document.getElementById(shiftID).innerHTML="{{ hour.start_time }} - {{ hour.end_time }}";
+	  function convertTo24(val){
+		var result = 0;
+		if(val.substring(val.length-4) == 'p.m.'){
+			result = 12;
+		}
+		var time = val.substring(0,2);
+		if(time.substring(1,2) == ':'){
+			time = time.substring(0,1)
+		}
+		console.log("result: " + result + +"time: " + time + "val:" + val);
+		return parseInt(time)+result;
+	  }
+
+	  {% for Shift in scheduledHours %}
+		 var dayID = "day{{ Shift.AvailibleDay }}";		 
+		 var shiftID = "shift{{ Shift.AvailibleDay }}";
+		 var deltaID = "delta{{ Shift.AvailibleDay }}";
+		 var deltaHours = "{{ Shift.start_time }}" - "{{ Shift.end_time }}";
+		 document.getElementById(dayID).innerHTML=convertSymbolToDay("{{ Shift.AvailibleDay }}");		
+		 document.getElementById(shiftID).innerHTML="{{ Shift.start_time }} - {{ Shift.end_time }}";
 		 document.getElementById(deltaID).innerHTML=deltaHours;
-		 alert("{{ hour.start_time }}");
+		 alert(convertTo24("{{ hour.start_time }}"));
 	  {% endfor %}
 
 	  {% for day in currentAvailability %}
