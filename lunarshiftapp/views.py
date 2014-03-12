@@ -100,7 +100,13 @@ def addEmployee(request):
 		return HttpResponse()
 
 def deleteEmployee(request):
-	pass
+	if request.method == 'POST' and request.is_ajax():
+		username = request.POST['username']
+		e = Employee.objects.get(user__username=username)
+		u = User.objects.get(username=username)
+		e.delete()
+		u.delete()
+	return HttpResponse()
 
 def about_view(request):
 	return render(request, 'about.html')

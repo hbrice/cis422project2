@@ -70,7 +70,7 @@
             <p class="lead">Here's a list of your employees!</p>
             <table id="employeeTable" class="table table-no-border">
               <th><h3>Name</h3></th>
-              <th><h3>Email</h3></th>
+              <th><h3>Username</h3></th>
               <th class="header-center"><h3>Available</h3></th>
               <th class="header-center"><h3>Schedule</h3></th>
               {% for employee in employees %}
@@ -246,8 +246,6 @@
               }
             }); 
           });
-
-
 
           {% for i in hoursToCover %}
           $("#slider{{ i.AvailibleDay }}").dateRangeSlider({
