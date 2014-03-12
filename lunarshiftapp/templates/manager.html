@@ -50,14 +50,14 @@
               <th><h3>Employee</h3></th>
               <th><h3>Time</h3></th>
               <th><h3>Hours</h3></th>
+              {% for sched in schedules %}
               <tr>
-                {% for sched in schedules %}
                 <td><div class="well well-sm">{{ sched.AvailibleDay }}</div></td>
                 <td><div class="well well-sm">{{ sched.user.first_name }} {{ sched.user.last_name }}</div></td>
                 <td><div class="well well-sm">{{ sched.start_time }} - {{ sched.end_time }}</div></td>
                 <td><div class="well well-sm">2 hrs</div></td>
-                {% endfor %}
               </tr>
+              {% endfor %}
             </table>
           </div>
           <!-- ***** End: Manager View Schedule  ***** -->
