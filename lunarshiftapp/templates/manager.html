@@ -26,12 +26,14 @@
             {% for hour in hoursToCover %}
             <div class="panel panel-info">
               <div class="panel-heading clearfix">
-                <button type="button" class="btn btn-danger pull-right"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
+                <button type="button" id="{{ hour.get_AvailibleDay_display }}" class="btn btn-danger pull-right" onclick="delete()">
+                  <i class="fa fa-trash-o fa-lg"></i> Delete
+                </button>
                 <h3 class="panel-title">{{ hour.get_AvailibleDay_display }}</h3>
               </div>
               <div class="panel-body">
                 <div class="well well-lg">
-                  <div class="timeslider" id="slider{{ hour.AvailibleDay }}"></div>
+                  <div id="slider{{ hour.AvailibleDay }}"></div>
                 </div>
               </div>
             </div>
@@ -190,6 +192,10 @@
             }
           }
 
+          function delete () {
+            alert("delete");
+          }
+
           $("#submit").click(function() {
             var username = $("#username").val();
             var firstname = $("#firstname").val();
@@ -217,10 +223,6 @@
                 alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
               }
             });
-          });
-
-          $(".timeslider").click(function() {
-            alert("timeslider delete clicked");
           });
 
           $("#employeeTable").on("click", ".btn", function(e) {
