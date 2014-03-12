@@ -17,4 +17,5 @@ urlpatterns = patterns('',
     url(r'.*about.html', 'lunarshiftapp.views.about_view'),
     url(r'.*contact.html', 'lunarshiftapp.views.contact_view'),
     url(r'.*submit_Availability', 'lunarshiftapp.views.submitAvailability'),
+    url(r'^updateslider$', 'lunarshiftapp.views.updateSlider_view'),
 )
