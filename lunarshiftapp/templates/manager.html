@@ -88,7 +88,7 @@
                   <td class="text-align"><div class="well well-sm"><input type="checkbox"></div></td>
                 {% endif %}
                
-                <td class="vert-align"><button type="button" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i> Delete</button></td>
+                <td class="vert-align"><button id="delete" type="button" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i> Delete</button></td>
               </tr>
               {% endfor %}
             </table>
@@ -224,7 +224,11 @@
                 alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
               }
             });
+          });
 
+          $("#delete").click(function (argument) {
+            var id = $(this).closest('tr').attr('id');
+            alert(id);
           });
 
           {% for i in hoursToCover %}
