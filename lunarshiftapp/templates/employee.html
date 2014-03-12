@@ -22,16 +22,16 @@
           <div class="tab-pane active" id="availability">
             <br>
             <p class="lead">Specify your availability here!</p>
-            {% for day in days %}
+            {% for day in currentAvailability %}
             <div class="panel panel-info">
               <div class="panel-heading clearfix">
                 <h3 class="panel-title" id="{{ day }}">
-		    {{ day }}
+		    {{ day.AvailibleDay }}
 		</h3>
               </div>
               <div class="panel-body">
                 <div class="well well-lg">
-                  <div id="slider{{ day }}"></div>
+                  <div id="slider{{ day.AvailibleDay }}"></div>
                 </div>
               </div>
             </div>
@@ -127,7 +127,7 @@
           }
 
 	  {% for day in currentAvailability %}
-          $("#slider{{ day }}").dateRangeSlider({
+          $("#slider{{ day.AvailibleDay }}").dateRangeSlider({
             step:{hours: 1},
             bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
            
@@ -138,8 +138,8 @@
               return TwoDigits(hours);
             }
           });
+
 	  {% endfor %}
-\
         });
       </script> 
 {% endblock %}
