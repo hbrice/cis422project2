@@ -194,7 +194,7 @@
 
           $("#availability").on("click", ".btn-danger", function(e) {
             var day = this.id;
-            var id = $(this).closest("div").attr("id");
+            var id = $(this).parent().parent().attr("id");
             alert(id);
             /*$.ajax({
               type: "POST",
