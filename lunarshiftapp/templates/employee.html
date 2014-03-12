@@ -146,6 +146,7 @@
 		 var shiftID = "shift{{ Shift.AvailibleDay }}";
 		 var deltaID = "delta{{ Shift.AvailibleDay }}";
 		 var delta = deltaHours();
+		alert(delta);
 		 document.getElementById(dayID).innerHTML=convertSymbolToDay("{{ Shift.AvailibleDay }}");		
 		 document.getElementById(shiftID).innerHTML="{{ Shift.start_time }} - {{ Shift.end_time }}";
 		 document.getElementById(deltaID).innerHTML=delta;
