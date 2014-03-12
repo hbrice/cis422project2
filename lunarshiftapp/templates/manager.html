@@ -26,7 +26,7 @@
             {% for hour in hoursToCover %}
             <div class="panel panel-info">
               <div class="panel-heading clearfix">
-                <button type="button" id="{{ hour.get_AvailibleDay_display }}" class="btn btn-danger pull-right">
+                <button type="button" id="{{ hour.AvailibleDay }}" class="btn btn-danger pull-right">
                   <i class="fa fa-trash-o fa-lg"></i> Delete
                 </button>
                 <h3 class="panel-title">{{ hour.get_AvailibleDay_display }}</h3>
@@ -193,7 +193,19 @@
           }
 
           $("#availability").on("click", ".btn-danger", function(e) {
+            var day = this.id;
             alert(this.id);
+            /*$.ajax({
+              type: "POST",
+              url: "/deleteDayToCover",
+              data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                day: username, 
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }
+            });*/
           });
 
           $("#submit").click(function() {

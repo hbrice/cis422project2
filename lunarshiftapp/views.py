@@ -100,6 +100,9 @@ def deleteEmployee(request):
 		u.delete()
 	return HttpResponse()
 
+def deleteDayToCover(request):
+	pass
+
 def about_view(request):
 	return render(request, 'about.html')
 
