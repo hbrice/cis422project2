@@ -226,10 +226,9 @@
             });
           });
 
-         $('#delete').on('click', function(){
-            var bid = this.id; // button ID 
-            var trid = $(this).closest('tr').attr('id'); // table row ID 
-            alert(trid);
+         $("#employeeTable").on("click","input[type='button']",function(){
+            var id = $(this).closest('table').attr('id');
+            alert(id);
           });
 
           {% for i in hoursToCover %}
