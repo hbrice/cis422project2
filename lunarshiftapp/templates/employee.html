@@ -133,7 +133,7 @@
 		    console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
 		    $.ajax({
 		      type: "POST",
-		      url: "/submit_Availability",
+		      url: "/updateslider",
 		      data: {
 		        csrfmiddlewaretoken: '{{ csrf_token }}',
 		        username: "{{ username }}",

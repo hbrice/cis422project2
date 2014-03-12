@@ -89,7 +89,7 @@ def contact_view(request):
 def delete_view(request):
 	return HttpResponse("Delete button pressed...")
 
-def updateSlider_view(request):
+def updateAvailibility(request):
 	if request.method == 'POST' and request.is_ajax():
 		day = request.POST['day']
 		username = request.POST['username']
@@ -99,22 +99,4 @@ def updateSlider_view(request):
 		newAv.start_time = str(startTime) + ":00"
 		newAv.end_time = str(endTime) + ":00"
 		newAv.save()
-		return HttpResponse("")
-		# user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
-		#return HttpResponse("IT FUCKING WORKS! " + username + " " + day + " " + startTime + " " + endTime)
-
-def submitAvailability_view(request):
-	if request.method == 'POST' and request.is_ajax():
-		day = request.POST['day']
-		username = request.POST['username']
-		startTime = request.POST['newStartTime']
-		endTime = request.POST['newEndTime']
-		availability = Availibity.objects.get(user__username=username,AvailibleDay=day)
-		availability.start_time = startTime+":00:00"
-		availability.end_time = endTime+":00:00"
-		availability.save()
-
-		return HttpResponse( username + " " + day + " " + startTime + " " + endTime)
-		
-
-
+		return HttpResponse()
