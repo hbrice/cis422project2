@@ -32,7 +32,6 @@
               </div>
               <div class="panel-body">
                 <div class="well well-lg">
-                  {% csrf_token %}
                   <div id="slider{{ hour.AvailibleDay }}"></div>
                 </div>
               </div>
@@ -143,12 +142,6 @@
               $('#paginator').datepaginator();
           });
 
-          $('#myPopover').popover();
-
-          function calculate() {
-            Dajaxice.examples.multiply.process(Dajax.process,{'a':$('#a').val(), 'b':$('#b').val()})
-          }
-
           function  convertSymbolToDay(day) {
             if (day == 'M') {
               return 'Monday'
@@ -197,7 +190,7 @@
               type: "POST",
               url: "update/slider{{ i.AvailibleDay }}",
               data: {
-                csrfmiddlewaretoken: document.getElementByName('csrfmiddlewaretoken')[0].value,
+                csrfmiddlewaretoken: '{{ csrf_token }}',
                 newStartTime: data.values.min,
                 newEndTime: data.values.max,
               },
