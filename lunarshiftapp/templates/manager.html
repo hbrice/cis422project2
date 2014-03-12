@@ -26,7 +26,7 @@
             {% for hour in hoursToCover %}
             <div class="panel panel-info">
               <div class="panel-heading clearfix">
-                <button type="button" id="{{ hour.get_AvailibleDay_display }}" class="btn btn-danger pull-right" onclick="delete()">
+                <button type="button" id="{{ hour.get_AvailibleDay_display }}" class="btn btn-danger pull-right">
                   <i class="fa fa-trash-o fa-lg"></i> Delete
                 </button>
                 <h3 class="panel-title">{{ hour.get_AvailibleDay_display }}</h3>
@@ -190,10 +190,6 @@
             } else {
               return val - 12 + ":00 PM";
             }
-          }
-
-          function delete() {
-            alert("delete");
           }
 
           $("#submit").click(function() {
