@@ -156,6 +156,7 @@
 	  {% for hour in scheduledHours %}
 		 document.getElementById("{{ hour.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ hour.AvailibleDay }}");
 		 var shiftID = "shift"+"{{ hour.AvailibleDay }}";
+		document.getElementById(shiftID).innerHTML="{{ hour.start_time }}";
 		 alert(shiftID);
 	  {% endfor %}
         });
