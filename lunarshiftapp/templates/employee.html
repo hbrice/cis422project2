@@ -156,8 +156,8 @@
 		      data: {
 		        csrfmiddlewaretoken: '{{ csrf_token }}',
 		        day: "{{ day.AvailibleDay }}",
-		        newStartTime: data.values.min,
-		        newEndTime: data.values.max,
+		        newStartTime: data.values.min.hour,
+		        newEndTime: data.values.max.hour,
 		      },
 		      succes: function(data) {
 		        alert("congratulations");
