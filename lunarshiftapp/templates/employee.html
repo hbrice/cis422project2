@@ -35,13 +35,6 @@
               </div>
             </div>
             {% endfor %}
-
-	    <!--<button type="button" class="btn btn-primary btn-lg">Update Availability</button>--->
-	    <form method='post' id='jsSubmitAvailability'>
-		{% csrf_token %}
-		<input type="submit" value="Update Availability"/>
-		<div id = 'returnMessage'>Initial text</div>
-            </form>
             <!--<a class="btn btn-danger" id="myPopover" href="#" data-toggle="popover" data-placement="bottom" data-html="true" data-original-title="Fast Editing" data-content="<div> This <b>is</b> your div content</div>"><i class="fa fa-bolt fa-lg"></i></a>-->
             
           </div>
@@ -159,7 +152,7 @@
 		    console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
 		    $.ajax({
 		      type: "POST",
-		      url: "/updateslider",
+		      url: "/submit_Availability",
 		      data: {
 		        csrfmiddlewaretoken: '{{ csrf_token }}',
 		        day: "{{ day.AvailibleDay }}",

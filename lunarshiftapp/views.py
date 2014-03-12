@@ -11,15 +11,6 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-def submitAvailability(request):
-	if request.is_ajax():
-		returnMessage = "Yes, AJAX!"
-		sunStart = request.POST['sunStart']
-		sunEnd = request.POST['sunEnd']
-	else:
-		returnMessage = "Not AJAX"
-	return HttpResponse(returnMessage)
-
 def index(request, auth_form=None, user_form=None):
 	return render(request,'login.html')
 	# This was for testing
@@ -100,4 +91,12 @@ def updateSlider_view(request):
 	if request.method == 'POST' and request.is_ajax():
 		# user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
 		return HttpResponse("IT FUCKING WORKS!")
+
+def submitAvailability_view(request):
+	if request.method == 'POST' and request.is_ajax():
+		returnMessage = "Yes, AJAX!"
+	else:
+		returnMessage = "Not AJAX"
+	return HttpResponse(returnMessage)
+
 
