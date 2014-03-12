@@ -97,9 +97,12 @@ def updateSlider_view(request):
 
 def submitAvailability_view(request):
 	if request.method == 'POST' and request.is_ajax():
-		returnMessage = "Yes, AJAX!"
+		returnMessage = ""
+		day = request.POST['day']
+		newStartTime = request.POST['newStartTime']
+		newEndTime = request.POST['newEndTime']
 	else:
 		returnMessage = "Not AJAX"
-	return HttpResponse(returnMessage)
+	return HttpResponse(day + " " + newStartTime + " " + newEndTime + " " )
 
 
