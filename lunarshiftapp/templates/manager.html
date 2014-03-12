@@ -226,10 +226,10 @@
             });
           });
 
-         function getusername() {
-            var id = $(this).closest('tr').attr('id');
+         $("tr input[type=button]").click(function(){
+            var id = $(this).closest("tr").attr("id");
             alert(id);
-          }
+          });
 
           {% for i in hoursToCover %}
           $("#slider{{ i.AvailibleDay }}").dateRangeSlider({
