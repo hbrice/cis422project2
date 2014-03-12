@@ -139,8 +139,8 @@
 		        csrfmiddlewaretoken: '{{ csrf_token }}',
 		        username: "{{ username }}",
 		        day: "{{ day.AvailibleDay }}",
-		        newStartTime: data.values.min,
-		        newEndTime: data.values.max,
+		        newStartTime: data.values.min.getHours(),
+		        newEndTime: data.values.max.getHours(),
 		      },
 		      succes: function(data) {
 		        alert("congratulations");
