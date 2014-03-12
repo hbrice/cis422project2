@@ -200,10 +200,11 @@
             alert(username);
             alert("Submit button clicked!");
             $("#employeeTable tr:last").after("<tr>" +
-              "<td><div class='well well-sm'>...</div></td>" +
-              "<td><div class='well well-sm'>...</div></td>" +
+              "<td><div class='well well-sm'>" + firstname + " " + lastname + "</div></td>" +
+              "<td><div class='well well-sm'>" + username + "</div></td>" +
               "<td class='text-align'><div class='well well-sm'><i class='fa fa-thumbs-o-down'></i></div></td>" +
               "<td class='text-align'><div class='well well-sm'><input type='checkbox'></div></td>" +
+              "<td class='vert-align'><button type='button' class='btn btn-danger'><i class='fa fa-trash-o fa-lg'></i> Delete</button></td>" +
               "</tr>");
           });
 
