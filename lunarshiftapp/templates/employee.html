@@ -140,6 +140,7 @@
 		 document.getElementById(shiftID).innerHTML="{{ Shift.start_time }} - {{ Shift.end_time }}";
 		 document.getElementById(deltaID).innerHTML=deltaHours;
 		 var time = "{{ hour.start_time }}";
+		 alert(time);
 		 alert(convertTo24(time));
 	  {% endfor %}
 
