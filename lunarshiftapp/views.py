@@ -97,6 +97,7 @@ def addEmployee(request):
 		u.save()
 		newE = Employee(user=u, company=e.company)
 		newE.save()
+		return HttpResponse()
 
 def about_view(request):
 	return render(request, 'about.html')
