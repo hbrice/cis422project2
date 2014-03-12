@@ -99,6 +99,7 @@ def updateSlider_view(request):
 		newAv.start_time = str(startTime) + ":00"
 		newAv.end_time = str(endTime) + ":00"
 		newAv.save()
+		return HttpResponse("")
 		# user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
 		#return HttpResponse("IT FUCKING WORKS! " + username + " " + day + " " + startTime + " " + endTime)
 
