@@ -206,6 +206,25 @@
               "<td class='text-align'><div class='well well-sm'><input type='checkbox'></div></td>" +
               "<td class='vert-align'><button type='button' class='btn btn-danger'><i class='fa fa-trash-o fa-lg'></i> Delete</button></td>" +
               "</tr>");
+
+            $.ajax({
+              type: "POST",
+              url: "/addEmployee",
+              data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                username: username,
+                firstname: firstname,
+                lastname: lastname,
+                password: password, 
+              },
+              success: function(data) {
+                alert("congratulations");
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }
+            });
+
           });
 
           {% for i in hoursToCover %}
@@ -232,7 +251,7 @@
                 newStartTime: data.values.min.getHours(),
                 newEndTime: data.values.max.getHours(),
               },
-              succes: function(data) {
+              success: function(data) {
                 alert("congratulations");
               },
               error: function(xhr, textStatus, errorThrown) {
