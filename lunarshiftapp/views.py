@@ -91,6 +91,7 @@ def delete_view(request):
 def updateSlider_view(request):
 	if request.method == 'POST' and request.is_ajax():
 		day = request.POST['day']
+		username = request.POST['username']
 		startTime = request.POST['newStartTime']
 		endTime = request.POST['newEndTime']
 		# user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
