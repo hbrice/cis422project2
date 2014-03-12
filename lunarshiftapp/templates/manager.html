@@ -226,8 +226,8 @@
             });
           });
 
-         $("#employeeTable").on("click","input[type='button']",function(){
-            var id = $(this).closest('table').attr('id');
+         $('#delete').click(function(){
+            var id = $(this).closest("tr").attr("id");
             alert(id);
           });
 
