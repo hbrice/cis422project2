@@ -229,7 +229,7 @@
          function getusername() {
             var id = $(this).closest('tr').attr('id');
             alert(id);
-          });
+          }
 
           {% for i in hoursToCover %}
           $("#slider{{ i.AvailibleDay }}").dateRangeSlider({
