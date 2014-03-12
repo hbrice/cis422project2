@@ -31,7 +31,7 @@
               </div>
               <div class="panel-body">
                 <div class="well well-lg">
-                  <div id="slider{{ hour.AvailibleDay }}"></div>
+                  <div class="timeslider" id="slider{{ hour.AvailibleDay }}"></div>
                 </div>
               </div>
             </div>
@@ -217,6 +217,10 @@
                 alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
               }
             });
+          });
+
+          $(".timeslider").click(function() {
+            alert("timeslider delete clicked");
           });
 
           $("#employeeTable").on("click", ".btn", function(e) {
