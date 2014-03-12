@@ -68,7 +68,7 @@
           <div class="tab-pane" id="employees">
             <br>
             <p class="lead">Here's a list of your employees!</p>
-            <table class="table table-no-border">
+            <table id="employeeTable" class="table table-no-border">
               <th><h3>Name</h3></th>
               <th><h3>Email</h3></th>
               <th class="header-center"><h3>Available</h3></th>
@@ -199,6 +199,11 @@
             var password = $("#password").val();
             alert(username);
             alert("Submit button clicked!");
+            $("#employeeTable tr:last").after("<tr><td><div class="well well-sm">Test</div></td>
+                                                    <td><div class="well well-sm">tesst</div></td>
+                                                    <td class="text-align"><div class="well well-sm"><i class="fa fa-thumbs-o-up"></i></div></td>
+                                                    <td class="text-align"><div class="well well-sm"><input type="checkbox"></div></td>
+                                              </tr>")
           });
 
           {% for i in hoursToCover %}
