@@ -192,6 +192,10 @@
             }
           }
 
+          $("#submit").click(function() {
+            alert("Submit button clicked!")!
+          });
+
           {% for i in hoursToCover %}
           $("#slider{{ i.AvailibleDay }}").dateRangeSlider({
             step:{hours: 1},
