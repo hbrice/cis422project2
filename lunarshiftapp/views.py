@@ -60,7 +60,8 @@ def home_view(request, employee_type, username):
 			context = {'name': e.user.first_name + " " + e.user.last_name, 
 									'username': e.user.username,
 									'company': e.company, 'employees': Employee.objects.filter(isManager=False),
-									'scheduled': scheduled, 'hoursToCover': Availibity.objects.filter(user__username=e.user.username)}
+									'scheduled': scheduled, 'hoursToCover': Availibity.objects.filter(user__username=e.user.username),
+									'schedules': Schedule.objects.all()}
 			return render(request, 'manager.html', context)
 	else:
 		if e.isManager == False:
