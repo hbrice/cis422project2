@@ -51,10 +51,10 @@
 	      <th><h3>Day</h3></th>
               <th><h3>Time</h3></th>
               <th><h3>Shift Length</h3></th>
-	      {% for hour in scheduledHours %}
+	      {% for shifts in scheduledHours %}
               <tr>
 		<td><div class="well well-sm" id="{{ hour.AvailibleDay }}"></div></td>
-                <td><div class="well well-sm">{{ hour.start_time }} - {{ hour.end_time }}</div></td>
+                <td><div class="well well-sm">{{ shifts.start_time }} - {{ shifts.end_time }}</div></td>
                 <td><div class="well well-sm" id="{{ hour.AvailibleDay }}Delta"></div></td>
               </tr>
 	      {% endfor %}
