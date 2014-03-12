@@ -226,8 +226,7 @@
             tr.fadeOut(400, function(){
               tr.remove();
             });
-            alert(id);
-            /*$.ajax({
+            $.ajax({
               type: "POST",
               url: "/deleteEmployee",
               data: {
@@ -237,7 +236,7 @@
               error: function(xhr, textStatus, errorThrown) {
                 alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
               }
-            }); */
+            });
           });
 
           {% for i in hoursToCover %}
