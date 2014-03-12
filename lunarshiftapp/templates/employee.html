@@ -152,11 +152,9 @@
 
 		document.getElementById("{{ day.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ day.AvailibleDay }}");
 	  {% endfor %}
-	var deltaHours = "";
+	var deltaHours = "10";
 	  {% for hour in scheduledHours %}
-		 document.getElementById("{{ hour.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ hour.AvailibleDay }}");
-		
-		deltaHours = "10";		
+		 document.getElementById("{{ hour.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ hour.AvailibleDay }}");	
 		document.getElementById("{{ hour.AvailibleDay }}Delta").innerHTML=deltaHours);
 	  {% endfor %}
         });
