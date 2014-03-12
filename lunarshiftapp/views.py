@@ -80,6 +80,22 @@ def home_view(request, employee_type, username):
 			#return render_to_response('employee.html', context)
 			return render(request, 'employee.html', context)
 
+def addEmployee(request):
+	if request.method == 'POST':
+		username = request.POST['username']
+		firstname = request.POST['firstname']
+		lastname = request.POST['lastname']
+		password = request.POST['password']
+
+		e = Employee.objects.get(isManager=True)
+		u = User(
+			username = username,
+			first_name = firstname,
+			last_name = lastname, 
+			password = password
+		)
+		u.save()
+
 def about_view(request):
 	return render(request, 'about.html')
 
