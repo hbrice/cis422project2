@@ -196,9 +196,7 @@
             var firstname = $("#firstname").val();
             var lastname = $("#lastname").val();
             var password = $("#password").val();
-            alert(username);
-            alert("Submit button clicked!");
-            $("#employeeTable tr:last").after("<tr>" +
+            $("#employeeTable tr:last").after("<tr id=" + username + ">" +
               "<td><div class='well well-sm'>" + firstname + " " + lastname + "</div></td>" +
               "<td><div class='well well-sm'>" + username + "</div></td>" +
               "<td class='text-align'><div class='well well-sm'><i class='fa fa-thumbs-o-down'></i></div></td>" +
