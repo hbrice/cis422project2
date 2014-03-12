@@ -101,10 +101,10 @@ def submitAvailability_view(request):
 	if request.method == 'POST' and request.is_ajax():
 		day = request.POST['day']
 		username = request.POST['username']
-		newStartTime = request.POST['newStartTime']
-		newEndTime = request.POST['newEndTime']
+		startTime = request.POST['newStartTime']
+		endTime = request.POST['newEndTime']
 		
-
-		return HttpResponse("test:" + username + " " + day + " " + newStartTime + " " + newEndTime + " " )
+		return HttpResponse("IT FUCKING WORKS! " + username + " " + day + " " + startTime + " " + endTime)
+		
 
 
