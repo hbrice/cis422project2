@@ -98,5 +98,5 @@ def delete_view(request):
 
 def updateSlider_view(request):
 	if request.method == 'POST' and request.is_ajax():
-		return("IT FUCKING WORKS!")
+		return HttpResponse("IT FUCKING WORKS!")
 
