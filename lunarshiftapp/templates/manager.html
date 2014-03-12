@@ -74,7 +74,7 @@
               <th class="header-center"><h3>Available</h3></th>
               <th class="header-center"><h3>Schedule</h3></th>
               {% for employee in employees %}
-              <tr>
+              <tr id="{{ employee.user.username }}">
                 <td><div class="well well-sm">{{ employee.user.first_name }} {{ employee.user.last_name }}</div></td>
                 <td><div class="well well-sm">{{ employee.user.username }}</div></td>
                 {% if employee.setAvailibity %}
