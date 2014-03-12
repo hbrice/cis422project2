@@ -22,11 +22,11 @@
           <div class="tab-pane active" id="availability">
             <br>
             <p class="lead">Specify your availability here!</p>
-            {% for day in days %}
+            {% for day in currentAvailability %}
             <div class="panel panel-info">
               <div class="panel-heading clearfix">
                 <h3 class="panel-title" id="{{ day }}">
-		    {{ day }}
+		    {{ day.AvailibleDay }}
 		</h3>
               </div>
               <div class="panel-body">
