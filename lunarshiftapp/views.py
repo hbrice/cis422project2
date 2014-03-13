@@ -179,5 +179,5 @@ def computeSchedule(request):
 		manager = request.POST['manager']
 		
 		compute = ComputeSchedule(employeesSet,manager)
-		#compute.produceSchedules([],{'M':[],'T':[],'W':[],'TH':[],'F':[],'S':[],'SU':[]},compute.k)
+		compute.produceSchedules([],{'M':[],'T':[],'W':[],'TH':[],'F':[],'S':[],'SU':[]},compute.k)
 	return HttpResponse("Schedules!")
