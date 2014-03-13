@@ -177,13 +177,14 @@ def computeSchedule(request):
 		poolCounter = 0
 		#loop through each day that has coverage
 		for day in daysNeedingCoverage:
+			#return HttpResponse(day)
 			#loop through each hour of coverage in the day
 			for hour in range(day.start_time.hour, day.end_time.hour):
 				#get the number of total hours in the schedule that need coverage
 				numberOfHours += 1
 				poolOfEmployees = []
 				#get the set of employees who can cover this hour
-				for e in Availibity.objects.filter(AvailibleDay=day):
+				for e in Availibity.objects.filter(AvailibleDay=day.AvailibleDay):
 					#if e.start_time.hour<= hour and e.end_time.hour < hour:
 						#poolOfEmployees.append(e)
 						poolCounter += 1
