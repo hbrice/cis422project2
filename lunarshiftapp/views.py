@@ -193,7 +193,7 @@ def computeSchedule(request):
 				#		tmpSet.remove(x)
 				if len(tmpSet) == 0:
 					return None
-				#else:
+				else:
 		
 					newStart = str(hour) + ":00" 
 					newEnd = str(hour+1) + ":00" 
