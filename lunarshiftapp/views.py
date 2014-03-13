@@ -187,7 +187,7 @@ def computeSchedule(request):
 					#	poolOfEmployees.append(e)
 				poolOfEmployees =  Availibity.objects.filter(AvailibleDay=day)
 				tmpSet = employeesSet
-				return HttpResponse("day: " + day.AvailibleDay + ", hour: " + "" + ", pool: " + len(Availibity.objects.filter(AvailibleDay=day)))
+				return HttpResponse("day: " + "day.AvailibleDay" + ", hour: " + "hour" + ", pool: " + len(Availibity.objects.filter(AvailibleDay=day)))
 				for x in poolOfEmployees:
 					if x.name not in tmpSet:
 						tmpSet.remove(x)
