@@ -405,7 +405,6 @@
             if ((username === "") || (firstname === "") || (lastname === "") || (password === "")) {
               return false;
             }
-            tmp = true;
             $.ajax({
               type: "POST",
               url: "/addEmployee",
@@ -419,10 +418,9 @@
               error: function(xhr, textStatus, errorThrown) {
                 //alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
                 return false;
-                tmp = false;
+                alert("theres and error");
               }
             });
-            if (tmp === true) {
             $("#employeeTable tr:last").after("<tr id='" + username + "'>" +
               "<td><div class='well well-sm'>" + firstname + " " + lastname + "</div></td>" +
               "<td><div class='well well-sm'>" + username + "</div></td>" +
@@ -430,7 +428,6 @@
               "<td class='text-align'><div class='well well-sm'><input class='check' type='checkbox' disabled></div></td>" +
               "<td class='vert-align'><button type='button' class='btn btn-danger'><i class='fa fa-trash-o fa-lg'></i> Delete</button></td>" +
               "</tr>");
-          }
           });
 
           $("#employeeTable").on("click", ".check", function(e) {
