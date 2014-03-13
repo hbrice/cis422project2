@@ -290,7 +290,7 @@
               data: {
                 csrfmiddlewaretoken: '{{ csrf_token }}',
                 employees: '["mrpig", "hbrice"]',
-		manager:  '{{ username }}',
+		            manager:  '{{ username }}',
               },
               /*error: function(xhr, textStatus, errorThrown) {
                 alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
@@ -345,7 +345,7 @@
 
               $(slider).dateRangeSlider({
                 step:{hours: 1},
-                bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
+                bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 23, 59, 59)},
                 defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 17)},
                 formatter: function(value){
                   var hours = value.getHours(),
@@ -369,7 +369,7 @@
             
             $("#"+slider).dateRangeSlider({
               step:{hours: 1},
-              bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
+              bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 23, 59, 59)},
               defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 17)},
               formatter: function(value){
                 var hours = value.getHours(),
@@ -481,7 +481,7 @@
           daysScheduled[dayToNum("{{ i.get_AvailibleDay_display }}")] = 1;
           $("#slider{{ i.AvailibleDay }}").dateRangeSlider({
             step:{hours: 1},
-            bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
+            bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 23, 59, 59)},
             defaultValues: {min: new Date(2013, 0, 1, {{ i.start_time.hour }}), max: new Date(2013, 0, 1, {{ i.end_time.hour }})},
             formatter: function(value){
               var hours = value.getHours(),
