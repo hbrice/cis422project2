@@ -55,7 +55,7 @@ class ScheduleStruct:
 			#loop through each hour of coverage in the day
 			for hour in range(day.start_time.hour, day.end_time.hour):
 				#get the number of total hours in the schedule that need coverage
-				numberOfHours += 1
+				numberOfHours = 1
 				#get the set of employees who can cover this hour
 				poolOfEmployees=Availibity.objects.filter(AvailibleDay=day,date_range=[start_time,end_time])
 				tmpSet = employeesSet
