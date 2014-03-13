@@ -154,7 +154,7 @@
           }
 
           function TwoDigits(val){
-            if (val == 0) {
+            if (val == 0) || (val == 23) {
               return "12:00 AM";
             } else if (val < 12){
               return "0" + val + ":00 AM";
@@ -307,8 +307,8 @@
           {% for i in hoursToCover %}
           daysScheduled[dayToNum("{{ i.get_AvailibleDay_display }}")] = 1;
           $("#slider{{ i.AvailibleDay }}").dateRangeSlider({
-            step:{hours: 1},
-            bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 23, 59, 0)},
+            //step:{hours: 1},
+            bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 23, 59, 59)},
             defaultValues: {min: new Date(2013, 0, 1, {{ i.start_time.hour }}), max: new Date(2013, 0, 1, {{ i.end_time.hour }})},
             formatter: function(value){
               var hours = value.getHours(),
