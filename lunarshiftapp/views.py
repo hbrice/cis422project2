@@ -185,7 +185,7 @@ def computeSchedule(request):
 				poolOfEmployees = []
 				#get the set of employees who can cover this hour
 				for e in Availibity.objects.filter(AvailibleDay=day.AvailibleDay):
-					if e.start_time.hour<= hour and e.end_time.hour < hour:
+					if e.start_time.hour<= hour and hour < e.end_time.hour:
 						#poolOfEmployees.append(e)
 						#return HttpResponse(tmpSet)
 						newStart = str(hour) + ":00" 
