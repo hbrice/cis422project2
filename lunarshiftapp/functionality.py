@@ -35,7 +35,7 @@ class ScheduleStruct:
 		"""
 		
 		self.sched = {'M':[],'T':[],'W':[],'TH':[],'F':[],'S':[],'SU':[]}
-		self.numberofHours = 0
+		self.numberOfHours = 0
 	
 	def determineHours(self, employeesSet, manager):
 		#daysNeedingCoverage return a list of Schedule records, each representing a day that needs coverage
@@ -55,9 +55,9 @@ class ScheduleStruct:
 			#loop through each hour of coverage in the day
 			for hour in range(day.start_time.hour, day.end_time.hour):
 				#get the number of total hours in the schedule that need coverage
-				numberOfHours = 1
+				numberOfHours += 1
 				#get the set of employees who can cover this hour
-				poolOfEmployees=Availibity.objects.filter(AvailibleDay=day,date_range=[start_time,end_time])
+				poolOfEmployees=Availibity.objects.filter(AvailibleDay=day,date_range=[day.start_time.hour,day.end_time.hour])
 				tmpSet = employeesSet
 				for x in poolOfEmployees:
 					if x.name not in tmpSet:
@@ -108,7 +108,7 @@ class Alternative:
 				#get the number of total hours in the schedule that need coverage
 				numberOfHours += 1
 				#get the set of employees who can cover this hour
-				poolOfEmployees=Availibity.objects.filter(AvailibleDay=day,date_range=[start_time,end_time])
+				poolOfEmployees=Availibity.objects.filter(AvailibleDay=day,date_range=[day.start_time.hour,day.end_time.hour])
 				tmpSet = employeeSet
 				for x in tmpSet:
 					if x.name not in tmpSet:
