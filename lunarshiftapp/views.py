@@ -158,8 +158,49 @@ def addTime(request):
 		newAv.save()
 		return HttpResponse()
 
-
 def computeSchedule(request):
+	if request.method == 'POST' and request.is_ajax():
+		employeesSet = request.POST['employees']
+		manager = request.POST['manager']
+		#daysNeedingCoverage return a list of Schedule records, each representing a day that needs coverage
+		daysNeedingCoverage = Availibity.objects.filter(user__username=manager) # manager availability is coverage	
+		
+			
+		#store the number of days that are in the schedule
+		numberOfdays = len([Availibity.objects.filter(user__username=manager)])
+		#variable to store the number of hour chunks needing to be covered
+		
+		#variable for returning messages (testing)
+		returnMsg = ""
+		numberOfHours = 0
+
+		#loop through each day that has coverage
+		for day in daysNeedingCoverage:
+			#loop through each hour of coverage in the day
+			for hour in range(day.start_time.hour, day.end_time.hour):
+				#get the number of total hours in the schedule that need coverage
+				numberOfHours += 1
+				poolOfEmployees = []
+				#get the set of employees who can cover this hour
+				for e in Availibity.objects.filter(AvailibleDay=day):
+					if e.start_time.hour>= hour and e.end_time.hour < hour:
+						poolOfEmployees.append(e)
+				tmpSet = employeesSet
+				for x in poolOfEmployees:
+					if x.name not in tmpSet:
+						tmpSet.remove(x)
+				if len(tmpSet) == 0:
+					return None
+				else
+					newSchedule = Schedule(user=tmpSet[0].user,AvailibleDay=day,start_time=hour,end_time=hour+1)
+					newSchedule.Save()
+		return HttpResponse("Schedules!")
+				
+				
+	return HttpResponse("No schedules!")
+
+
+def altComputeSchedule(request):
 	if request.method == 'POST' and request.is_ajax():
 		employeesSet = request.POST['employees']
 		manager = request.POST['manager']
