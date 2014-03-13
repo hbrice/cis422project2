@@ -198,8 +198,8 @@ def computeSchedule(request):
 					return None
 				else:
 					#return HttpResponse(tmpSet)
-					newStart = hour + ":00" 
-					newEnd = hour+1 + ":00" 
+					newStart = str(hour) + ":00" 
+					newEnd = str(hour+1) + ":00" 
 					newSchedule = Schedule(user=User.objects.get(username='schmidtj'),AvailibleDay=day.AvailibleDay,start_time=newStart,end_time=newEnd)
 					newSchedule.save()
 					return HttpResponse()
