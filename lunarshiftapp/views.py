@@ -5,7 +5,9 @@ from django.contrib.auth.models import User
 from lunarshiftapp.models import Employee, Availibity, Schedule
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.context_processors import csrf
+
 from django.contrib.auth.hashers import make_password
+from lunarshiftapp.functionality import *
 
 # mainly for testing routing using
 from django.http import HttpResponse
@@ -144,34 +146,16 @@ def addTime(request):
 		newAv.save()
 		return HttpResponse()
 
-'''
-def calculateSchedule(request):
+
+def computeSchedule(request):
 	if request.method == 'POST' and request.is_ajax():
 		employeesSet = request.POST['employees']
 		manager = request.POST['manager']
-		#daysNeedingCoverage return a list of Schedule records, each representing a day that needs coverage
-		daysNeedingCoverage = Availibity.objects.get(user__username=manager) # manager availability is coverage	
-		#store the number of days that are in the schedule
-		numberOfdays = daysNeedingCoverage.length
-		#variable to store the number of hour chunks needing to be covered
-		numberofHours = 0;
-		#variable for returning messages (testing)
-		returnMsg = ""
-
-
-		#loop through each day that has coverage
-		for day in daysNeedingCoverage
-			#loop through each hour of coverage in the day
-			for hour in range(day.start_time, day.end_time)
-				#get the number of total hours in the schedule that need coverage
-				numberOfHours += 1
-				#get the set of employees who can cover this hour
-				poolOfEmployees=Availibity.objects.get(interval.AvailibleDay=day, start_time<=hour<=end_time))
 		
+		compute = ComputeSchedule(employeesSet,employeesSet)
+		compute.produceSchedules([],{'M':[],'T':[],'W':[],'TH':[],'F':[],'S':[],'SU':[]},compute.k)
+	return HttpResponse()
 
-
-	return HttpResponse(returnMsg)
-'''
 
 
 
