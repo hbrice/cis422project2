@@ -277,19 +277,14 @@
             }
           }
 
-          $('#myModalTime').modal({
-            alert("FUCCCC");
-          });
-
-          /*$("#addDaytest").click(function() {
-            alert("FUCCCC");
+          $("#addDaytest").click(function() {
             for (var i = 0; i < 7; i++) {
               if (daysScheduled[i] == 0){
-                alert(numToDay(i));
+                console.log(numToDay(i));
                 $("#days").append(new Option(numToDay(i), numToDay(i)));
               }
             }
-          });*/
+          });
 
           $("#availability").on("click", "#addday", function(e) {
             var day = $("#days :selected").text();
