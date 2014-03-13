@@ -16,7 +16,7 @@ class ComputeSchedule:
 		
 	def produceSchedules(self, list, template, k):
 		if queue.empty():
-			return
+			return 
 		
 		node = queue.get_nowait()
 		for x in range(node[0]):
@@ -36,7 +36,7 @@ class ComputeSchedule:
 					dict[hours[0]] = 1
 		
 		l = []
-		for val in dict.values()
+		for val in dict.values():
 			l.append(val)
 		return sum(l)/len(l)
 	
