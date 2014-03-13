@@ -1,4 +1,4 @@
-This document will show you how to first use the lunarshift webapp. This information is copied from the Assembla pages of Team 110.
+This document will show you how to first use the lunarshift webapp. This information is copied from the Assembla pages of Team 110. For a version with images and displays please visit the assembla software documentation. https://www.assembla.com/spaces/cis422w14_team6_p2/wiki/Software_Documentation
 
 Open your favorite browser and navigate to our page at http://lunarshift.herokuapp.com/
 
@@ -28,7 +28,6 @@ If you do not have chrome installed then you will need to install it.
 ---------------------
 
 Open a web brower and type 'https://www.google.com/intl/en/chrome/browser/' in the url bar. 
-.. image:: images/google_1.png
 
 Click the 'Download Chrome' button on that page.
         
@@ -56,9 +55,9 @@ Type "http://lunarshift.herokuapp.com/" in the browser bar.
 
 The user can logo by inputing their credentials into the login page. The username will be the email address that the employer has set up for the user. The password will be one that the user has chosen when their account was created.After entering correct credentials, click 'Submit'. If the user decides they do not want to proceed after entering credentials, click 'Cancel'. This will leave the user at the login page.
 
-Ex. --insert pic?--
-USERNAME: holly@gmail.com
-PASSWORD: flyingPigs
+Ex.
+USERNAME: AstroPig
+PASSWORD: oink2345
 
 ---------------------
 2.1.1 Manager login: 
@@ -104,16 +103,9 @@ The manager can select 'Add Day' ie (Monday - Sunday) and use the blue slider ba
 At the admin page, the manger can add and remove employees from the schedule by navigating to the 'Employees' tab. 
 
 Thumbs up icon indicated the employee has submitted their availability; Thumbs down icon  indicates that the employee has not submitted their availability. If an employee's Schedule check box is not 'checked' when the schedule is built, then that employee will not be added to the next month's schedule. 
-        
-----------------------------        
-2.1.1.3 View past schedules
-----------------------------
-
-At the admin page, the manger can view the past months schedules. The manager selects the "view past schedules" button at the top. At this point the manager can choose which month of past schedules they would like to view. 
---insert picture--
 
 ----------------------------------------
-2.1.1.4 Deactivate/Activate an employee
+2.1.1.3 Deactivate/Activate an employee
 ----------------------------------------
 
 
@@ -141,11 +133,6 @@ At the employee page the user can view the current schedule.
 
 At the employee page the user can set available hours. This is done by typing in the hours in the text boxes under the day that the user is available to work. After all available hours have been entered the user can leave this page and their information will be updated.
 
------------------------------
-2.1.2.3 View past schedule
------------------------------
-
-At the employee page the user can view past schedules by selecting the month and year they wish to view.
  
 =========================
 3. FAQ
