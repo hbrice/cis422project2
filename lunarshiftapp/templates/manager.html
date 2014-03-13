@@ -24,7 +24,7 @@
             <br>
             <p class="lead">Specify the hours you want covered here!</p>
             {% for hour in hoursToCover %}
-            <div id="THIS IS A TEST" class="panel panel-info">
+            <div class="panel panel-info">
               <div class="panel-heading clearfix">
                 <button type="button" id="{{ hour.AvailibleDay }}" class="btn btn-danger pull-right">
                   <i class="fa fa-trash-o fa-lg"></i> Delete
@@ -213,6 +213,7 @@
 
           $("#availability").on("click", ".btn-primary", function(e) {
             alert("add");
+            $(this).append('<h1>SUPPPP</h1>');
           });
 
           $("#submit").click(function() {
