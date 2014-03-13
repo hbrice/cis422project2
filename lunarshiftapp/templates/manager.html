@@ -290,8 +290,9 @@
             var day = $("#days :selected").text();
             if (daysScheduled[dayToNum(day)] == 1) {
               //alert("already scheduled");
-              $(this).parent().effect("shake");
+              $(this).parent().parent().effect("shake");
             } else {
+              daysScheduled[dayToNum(day)] = 1;
               $("#addslider").append("<div class='panel panel-info'>" +
                                     "<div class='panel-heading clearfix'>" + 
                                       "<button type='button' class='btn btn-danger pull-right'>" +
