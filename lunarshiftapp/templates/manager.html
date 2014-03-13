@@ -289,7 +289,8 @@
           $("#availability").on("click", "#addday", function(e) {
             var day = $("#days :selected").text();
             if (daysScheduled[dayToNum(day)] == 1) {
-              alert("already scheduled");
+              //alert("already scheduled");
+              $(this).parent().effect("shake");
             } else {
               $("#addslider").append("<div class='panel panel-info'>" +
                                     "<div class='panel-heading clearfix'>" + 
