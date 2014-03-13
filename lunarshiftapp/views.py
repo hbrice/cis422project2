@@ -81,17 +81,20 @@ def addEmployee(request):
 		firstname = request.POST['firstname']
 		lastname = request.POST['lastname']
 		password = request.POST['password']
-
-		e = Employee.objects.get(isManager=True)
-		u = User(
-			username = username,
-			first_name = firstname,
-			last_name = lastname, 
-			password = make_password(password)
-		)
-		u.save()
-		newE = Employee(user=u, company=e.company)
-		newE.save()
+		try:
+			u = User.objects.get(username=username)
+		except ObjectDoesNotExist:
+			e = Employee.objects.get(isManager=True)
+			u = User(
+				username = username,
+				first_name = firstname,
+				last_name = lastname, 
+				password = make_password(password)
+			)
+			u.save()
+			newE = Employee(user=u, company=e.company)
+			newE.save()
+			return HttpResponse()
 		return HttpResponse()
 
 def deleteEmployee(request):
