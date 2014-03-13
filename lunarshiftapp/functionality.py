@@ -57,7 +57,7 @@ class ScheduleStruct:
 				#get the number of total hours in the schedule that need coverage
 				numberOfHours += 1
 				#get the set of employees who can cover this hour
-				poolOfEmployees=Availibity.objects.get(AvailibleDay=day).filter(date_range=[start_time,end_time])
+				poolOfEmployees=Availibity.objects.filter(AvailibleDay=day,date_range=[start_time,end_time])
 				tmpSet = employeesSet
 				for x in poolOfEmployees:
 					if x.name not in tmpSet:
@@ -108,7 +108,7 @@ class Alternative:
 				#get the number of total hours in the schedule that need coverage
 				numberOfHours += 1
 				#get the set of employees who can cover this hour
-				poolOfEmployees=Availibity.objects.get(AvailibleDay=day).filter(date_range=[start_time,end_time])
+				poolOfEmployees=Availibity.objects.filter(AvailibleDay=day,date_range=[start_time,end_time])
 				tmpSet = employeeSet
 				for x in tmpSet:
 					if x.name not in tmpSet:
