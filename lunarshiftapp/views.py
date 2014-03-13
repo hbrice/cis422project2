@@ -198,7 +198,7 @@ def computeSchedule(request):
 				#	if x.user not in tmpSet:
 				#		tmpSet.remove(x)
 				if len(tmpSet) == 0 or len(poolOfEmployees)==0:
-					return HttpResponse("None")
+					return HttpResponse("None " + str(managerCounter))
 				else:		
 					newStart = str(hour) + ":00" 
 					newEnd = str(hour+1) + ":00" 
