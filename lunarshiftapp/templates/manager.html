@@ -38,6 +38,7 @@
               </div>
             </div>
             {% endfor %}
+            <div id="addslider"></div>
             <button type="button" class="btn btn-primary btn-lg">Add Day</button>
           </div>
         
@@ -213,7 +214,7 @@
 
           $("#availability").on("click", ".btn-primary", function(e) {
             alert("add");
-            $(this).append('<h1>SUPPPP</h1>');
+            $("#addslider").append('<h1>SUPPPP</h1>');
           });
 
           $("#submit").click(function() {
