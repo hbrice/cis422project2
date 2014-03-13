@@ -58,13 +58,14 @@ class ScheduleStruct:
 				numberOfHours += 1
 				#get the set of employees who can cover this hour
 				poolOfEmployees=Availibity.objects.get(AvailibleDay=day).filter(date_range=[start_time,end_time])
+				tmpSet = employeesSet
 				for x in poolOfEmployees:
-					if x.name not in employeesSet:
-						employeeSet.remove(x)
-				if poolOfEmployees.len == 0:
+					if x.name not in tmpSet:
+						tmpSet.remove(x)
+				if tmpSet.len == 0:
 					return None
 				
-				self.sched[day].insert(hour.hour,poolOfEmployees) #(num, emp[])
+				self.sched[day].insert(hour.hour,tmpSet) #(num, emp[])
 				
 		return numberOfHours
 		
@@ -76,4 +77,46 @@ class ScheduleStruct:
 				queue.put_nowait((self.sched[day][hour].len,self.sched[day][hour], day, hour)) #(num emps, emps[], day, hour)
 				
 		return queue
+		
+class Alternative:
+	def __init__(self):
+		"""
+			schedule is a dictionary with a key being the 0 indexed day of the week
+			and a 0 indexed hour of the day in military time.
+		"""
+		
+		self.sched = {'M':[],'T':[],'W':[],'TH':[],'F':[],'S':[],'SU':[]}
+		
+	
+	def determineHours(self, employeesSet, manager):
+		#daysNeedingCoverage return a list of Schedule records, each representing a day that needs coverage
+		daysNeedingCoverage = Availibity.objects.get(user__username=manager) # manager availability is coverage	
+		
+			
+		#store the number of days that are in the schedule
+		numberOfdays = daysNeedingCoverage.length
+		#variable to store the number of hour chunks needing to be covered
+		numberofHours = 0
+		#variable for returning messages (testing)
+		returnMsg = ""
+
+
+		#loop through each day that has coverage
+		for day in daysNeedingCoverage:
+			#loop through each hour of coverage in the day
+			for hour in range(day.start_time.hour, day.end_time.hour):
+				#get the number of total hours in the schedule that need coverage
+				numberOfHours += 1
+				#get the set of employees who can cover this hour
+				poolOfEmployees=Availibity.objects.get(AvailibleDay=day).filter(date_range=[start_time,end_time])
+				tmpSet = employeeSet
+				for x in tmpSet:
+					if x.name not in tmpSet:
+						tmpSet.remove(x)
+				if tmpSet.len == 0:
+					return None
+				
+				self.sched[day].insert(hour.hour,tmpSet) #(num, emp[])
+				
+		return numberOfHours
 		
