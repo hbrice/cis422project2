@@ -405,13 +405,6 @@
             if ((username === "") || (firstname === "") || (lastname === "") || (password === "")) {
               return false;
             }
-            $("#employeeTable tr:last").after("<tr id='" + username + "'>" +
-              "<td><div class='well well-sm'>" + firstname + " " + lastname + "</div></td>" +
-              "<td><div class='well well-sm'>" + username + "</div></td>" +
-              "<td class='text-align'><div class='well well-sm'><i class='fa fa-thumbs-o-down'></i></div></td>" +
-              "<td class='text-align'><div class='well well-sm'><input class='check' type='checkbox' disabled></div></td>" +
-              "<td class='vert-align'><button type='button' class='btn btn-danger'><i class='fa fa-trash-o fa-lg'></i> Delete</button></td>" +
-              "</tr>");
 
             $.ajax({
               type: "POST",
@@ -428,6 +421,14 @@
                 return false;
               }
             });
+            
+            $("#employeeTable tr:last").after("<tr id='" + username + "'>" +
+              "<td><div class='well well-sm'>" + firstname + " " + lastname + "</div></td>" +
+              "<td><div class='well well-sm'>" + username + "</div></td>" +
+              "<td class='text-align'><div class='well well-sm'><i class='fa fa-thumbs-o-down'></i></div></td>" +
+              "<td class='text-align'><div class='well well-sm'><input class='check' type='checkbox' disabled></div></td>" +
+              "<td class='vert-align'><button type='button' class='btn btn-danger'><i class='fa fa-trash-o fa-lg'></i> Delete</button></td>" +
+              "</tr>");
           });
 
           $("#employeeTable").on("click", ".check", function(e) {
