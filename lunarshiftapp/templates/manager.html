@@ -280,6 +280,7 @@
           $("#addDay").click(function() {
             for (var i = 0; i < 7; i++) {
               if (daysScheduled[i] == 0){
+                alert(numToDay(i));
                 $("#days").append(new Option(numToDay(i), numToDay(i)));
               }
             }
