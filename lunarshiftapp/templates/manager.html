@@ -405,6 +405,7 @@
             if ((username === "") || (firstname === "") || (lastname === "") || (password === "")) {
               //return false;
               $(this).parent().parent().effect("shake");
+              return false;
             }
             $.ajax({
               type: "POST",
