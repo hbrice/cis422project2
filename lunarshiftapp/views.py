@@ -171,6 +171,7 @@ def computeSchedule(request):
 		returnMsg = ""
 		numberOfHours = 0
 		poolCounter = 0
+		managerCounter = 0
 		#loop through each day that has coverage
 		for day in daysNeedingCoverage:
 			#return HttpResponse(day)
@@ -179,12 +180,15 @@ def computeSchedule(request):
 				#get the number of total hours in the schedule that need coverage
 				numberOfHours += 1
 				poolOfEmployees = []
+				
 				#get the set of employees who can cover this hour
 				for e in Availibity.objects.filter(AvailibleDay=day.AvailibleDay):
-					if e.start_time.hour<= hour and hour < e.end_time.hour and not e.user=='test':#Employee.objects.get(user=e.user).isManager:
-						poolOfEmployees.append(e)
-						#return HttpResponse(tmpSet)
-						poolCounter += 1
+					if e.start_time.hour<= hour and hour < e.end_time.hour:
+						if  Employee.objects.get(user=e.user).isManager:						
+							managerCounter += 1
+						else:
+							poolOfEmployees.append(e)
+							poolCounter += 1
 				#poolOfEmployees =  Availibity.objects.filter(AvailibleDay=day.AvailibleDay)
 				tmpSet = employeesSet
 				#return HttpResponse(Availibity.objects.filter(AvailibleDay=day).count())
@@ -198,7 +202,7 @@ def computeSchedule(request):
 					newEnd = str(hour+1) + ":00" 
 					newSchedule = Schedule(user=User.objects.get(username=poolOfEmployees[0].user),AvailibleDay=day.AvailibleDay,start_time=newStart,end_time=newEnd)
 					newSchedule.save()
-		return HttpResponse(poolCounter)
+		return HttpResponse(str(poolCounter) + " " + str(managerCounter))
 				
 	return HttpResponse("No schedules!")
 

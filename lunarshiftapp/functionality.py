@@ -22,11 +22,23 @@ class ComputeSchedule:
 		for x in range(node[0]):
 			template[node[2]][node[3]] = node[1][x].user.username
 			if k <= 0:
-				list.append()
+				list.append(template)
 			produceSchedules(self, list, template, k)
 		k -= 1
 		
+	def determineAvgHours(self, s):
+		dict = {} # this will hold employee : #num hours for the week
+		for day in s.keys():
+			for hours in s[day]:
+				if hours[0] in dict:              #hours[0] ==> username
+					dict[hours[0]] += 1
+				else
+					dict[hours[0]] = 1
 		
+		l = []
+		for val in dict.values()
+			l.append(val)
+		return sum(l)/len(l)
 	
 class ScheduleStruct:
 	def __init__(self):
