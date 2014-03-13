@@ -21,4 +21,6 @@ urlpatterns = patterns('',
     url(r'^deleteEmployee$', 'lunarshiftapp.views.deleteEmployee'),
     url(r'^deleteDayToCover$', 'lunarshiftapp.views.deleteDayToCover'),
     url(r'^addTime$', 'lunarshiftapp.views.addTime'),
+	url(r'^computeSched$', 'lunarshiftapp.views.computeSchedule'),
+	
 )
