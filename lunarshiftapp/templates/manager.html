@@ -427,7 +427,8 @@
               },
               error: function(xhr, textStatus, errorThrown) {
                 //alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
-                alert("username already exists");
+                //alert("username already exists");
+                return false;
               }
             });
             
