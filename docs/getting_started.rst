@@ -61,7 +61,7 @@ PASSWORD: oink2345
 2.1.1 Manager login: 
 ---------------------
 
-After credentials have been verified, if they match admin permissions it'll lead to the Admin page.        
+After credentials have been verified, if they match admin permissions it'll lead to the Managerial page.        
 
 ------------------------   
 2.1.1.1 View schedule
@@ -73,7 +73,7 @@ At the managerial page the user can view the current schedule by selecting the t
 2.1.1.2 Build a schedule
 -------------------------
 
-At the admin page, the manager will navigate to the "Employees" tab from the navigation bar to begin building a schedule. This will instruct the user how to build a schedule as well as add and remove employees to and from the schedule.
+At the managerial page, the user will navigate to the "Employees" tab from the navigation bar to begin building a schedule. This will instruct the user how to build a schedule as well as add and remove employees to and from the schedule.
 
 This page will list the employees, their email address, whether they have submitted their availability: Thumbs up icon indicated the employee has submitted their availability; Thumbs down icon  indicates that the employee has not submitted their availability.
 
