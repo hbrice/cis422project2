@@ -3,6 +3,7 @@ from models import Employee, Availibity, Schedule
 from datetime import time
 from Queue import PriorityQueue
 from django.contrib.auth.models import User
+import sys
 
 class ComputeSchedule:
 	def __init__(self, employeeSet, manager):
@@ -32,14 +33,21 @@ class ComputeSchedule:
 			for hours in s[day]:
 				if hours[0] in dict:              #hours[0] ==> username
 					dict[hours[0]] += 1
-				else
+				else:
 					dict[hours[0]] = 1
 		
 		l = []
-		for val in dict.values()
+		for val in dict.values():
 			l.append(val)
 		return sum(l)/len(l)
 	
+	def findBestSchedule(self):
+		best = (-1,None) #tuple (hours, schedule)
+		for s in list:
+			hours = determineAvgHours(s)
+			if hours > best[0]:
+				best = (hours,s) 
+		return best[1] # returns the best schedule
 class ScheduleStruct:
 	def __init__(self):
 		"""
