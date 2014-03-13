@@ -284,7 +284,17 @@
           }
 
           $("#sched").click(function() {
-            alert("SUPPP");
+            $.ajax({
+              type: "POST",
+              url: "/computeSched",
+              data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                day: employeeScheduled, 
+              },
+              /*error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }*/
+            });
           });
 
           $("#availability").on("click", ".btn-danger", function(e) {
