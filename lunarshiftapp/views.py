@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from lunarshiftapp.models import Employee, Availibity, Schedule
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.context_processors import csrf
-
 from django.contrib.auth.hashers import make_password
 from lunarshiftapp.functionality import *
 
@@ -103,6 +102,20 @@ def deleteEmployee(request):
 		e = Employee.objects.get(user__username=username)
 		u = User.objects.get(username=username)
 		e.delete()
+		try:
+			s = Schedule.objects.get(user__username=username)
+		except ObjectDoesNotExist:
+			pass
+		else:
+			s.delete()
+
+		try:
+			av = Availibity.objects.get(user__username=username)
+		except ObjectDoesNotExist:
+			pass
+		else:
+			av.delete()
+			
 		u.delete()
 	return HttpResponse()
 
