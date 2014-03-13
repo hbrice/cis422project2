@@ -403,7 +403,6 @@
             var lastname = $("#lastname").val();
             var password = $("#password").val();
             if ((username === "") || (firstname === "") || (lastname === "") || (password === "")) {
-              alert(false);
               return false;
             }
             $("#employeeTable tr:last").after("<tr id='" + username + "'>" +
