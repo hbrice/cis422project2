@@ -325,6 +325,7 @@
             var day = $("#days :selected").text();
             if (daysScheduled[dayToNum(day)] == 1) {
               $(this).parent().parent().effect("shake");
+              return false;
             } else {
               var symbol = convertDayToSymbol(day);
               daysScheduled[dayToNum(day)] = 1;
@@ -429,8 +430,8 @@
               error: function(xhr, textStatus, errorThrown) {
                 //alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
                 //alert("username already exists");
-                $(this).parent().parent().effect("shake");
-                return false;
+                //$(this).parent().parent().effect("shake");
+                //return false;
                 //return false;
               }
             });

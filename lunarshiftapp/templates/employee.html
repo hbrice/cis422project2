@@ -230,6 +230,7 @@
             var day = $("#days :selected").text();
             if (daysScheduled[dayToNum(day)] == 1) {
               $(this).parent().parent().effect("shake");
+              return false;
             } else {
               var symbol = convertDayToSymbol(day);
               daysScheduled[dayToNum(day)] = 1;

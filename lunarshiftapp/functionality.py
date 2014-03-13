@@ -17,7 +17,7 @@ class ComputeSchedule:
 		
 	def produceSchedules(self, list, template, k):
 		if queue.empty():
-			return
+			return 
 		
 		node = queue.get_nowait()
 		for x in range(node[0]):
