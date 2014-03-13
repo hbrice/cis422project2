@@ -181,7 +181,7 @@ def computeSchedule(request):
 				poolOfEmployees = []
 				#get the set of employees who can cover this hour
 				for e in Availibity.objects.filter(AvailibleDay=day.AvailibleDay):
-					if e.start_time.hour<= hour and hour < e.end_time.hour and not e.isManager:
+					if e.start_time.hour<= hour and hour < e.end_time.hour and not User.objects.get(username=e.user).isManager:
 						poolOfEmployees.append(e)
 						#return HttpResponse(tmpSet)
 						poolCounter += 1
