@@ -340,9 +340,6 @@
                                       "</div>" +
                                     "</div>" +
                                   "</div>");
-            $("#"+slider).bind("userValuesChanged", function(e, data){
-                console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
-              });
             
             $("#"+slider).dateRangeSlider({
             step:{hours: 1},
@@ -354,6 +351,10 @@
               return TwoDigits(hours);
             }
           });
+
+            $("#"+slider).bind("userValuesChanged", function(e, data){
+                console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
+              });
 
             }
           });
