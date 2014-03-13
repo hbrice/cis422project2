@@ -402,6 +402,10 @@
             var firstname = $("#firstname").val();
             var lastname = $("#lastname").val();
             var password = $("#password").val();
+            if ((username === "") or (firstname === "") or (lastname === "") or (password === "")) {
+              alert(false);
+              return false;
+            }
             $("#employeeTable tr:last").after("<tr id='" + username + "'>" +
               "<td><div class='well well-sm'>" + firstname + " " + lastname + "</div></td>" +
               "<td><div class='well well-sm'>" + username + "</div></td>" +
