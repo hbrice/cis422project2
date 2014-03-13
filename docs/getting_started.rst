@@ -145,22 +145,22 @@ After credentials have been verified, if they match employee permissions it'll l
 
 On the "Employees" page, it will display a list of employees. If an employee hasn't submitted their availability for the month, then it will display a thumbs down icon. If the employee doesn't submit their availability by the time the manager builds the schedule, they will not be on the schedule.
 
-++++++++++++++++++++++++++++++++    
+-------------------------------- 
 3.2 Questions for Employee Use:
-++++++++++++++++++++++++++++++++
+--------------------------------
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 3.2.1 How do I create my login info?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The manager will create login information (ie username/password) for you and supply you with the credentials before you can login.
 
-+++++++++++++++++++++++
+-----------------------------
 3.3 General Questions:
-+++++++++++++++++++++++
+-----------------------------
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 3.3.1 How do I contact LunarShift?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 At the top of the LunarShift webpage there is a tab called 'Contact'. Select 'Contact' and it will display LunarShifts contact information.  Including: contact help-desk phone number; contact by email address; contact my mail address.

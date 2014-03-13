@@ -42,6 +42,7 @@ Developer Documentation
 .. toctree::
    :maxdepth: 2
 
+   developer_docs
    install
    architecture
    tests
@@ -54,6 +55,7 @@ Designer Documentation
 .. toctree::
    :maxdepth: 2
 
+   design_docs
    Layouts
    Theme
 
@@ -65,6 +67,7 @@ About lunarshift
 .. toctree::
    :maxdepth: 2
 
+   about_us
    Developers
 
 .. _contr-report-docs:
