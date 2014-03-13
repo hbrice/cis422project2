@@ -289,7 +289,7 @@
               url: "/computeSched",
               data: {
                 csrfmiddlewaretoken: '{{ csrf_token }}',
-                day: employeeScheduled, 
+                employees: {employeeScheduled: employeeScheduled}, 
               },
               /*error: function(xhr, textStatus, errorThrown) {
                 alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
