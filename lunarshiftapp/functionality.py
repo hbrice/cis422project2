@@ -2,6 +2,22 @@ import models
 from models import Employee, Availibity, Schedule
 from datetime import time
 
+class ScheduleStruct:
+	def __init__(self):
+	"""
+		schedule is a dictionary with a key being the 0 indexed day of the week
+		and a 0 indexed hour of the day in military time.
+	"""
+		self.sched = {0:[],1:[],2:[],3:[],4:[],5:[],6:[]}
+		
+	def access(self, day, hour
+	
+	def importEmployee(self, emp):
+		pass
+	
+	def 
+
+
 class DateTimeRange:
 	def __init__(self, day, start, end):
 		"""
