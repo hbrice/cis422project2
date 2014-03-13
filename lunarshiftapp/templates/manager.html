@@ -250,7 +250,19 @@
           $("#availability").on("click", "#addday", function(e) {
             var day = $("#days :selected").text();
             alert(day);
-            $("#addslider").append('<h1>SUPPPP</h1>');
+            $("#addslider").append('<div class="panel panel-info">
+                                    <div class="panel-heading clearfix">
+                                      <button type="button" id="{{ hour.AvailibleDay }}" class="btn btn-danger pull-right">
+                                      <i class="fa fa-trash-o fa-lg"></i> Delete
+                                      </button>
+                                      <h3 class="panel-title">{{ hour.get_AvailibleDay_display }}</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                      <div class="well well-lg">
+                                        <div id="slider{{ hour.AvailibleDay }}"></div>
+                                      </div>
+                                    </div>
+                                  </div>');
           });
 
           $("#submit").click(function() {
