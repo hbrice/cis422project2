@@ -182,12 +182,8 @@ def computeSchedule(request):
 				#get the set of employees who can cover this hour
 				for e in Availibity.objects.filter(AvailibleDay=day.AvailibleDay):
 					if e.start_time.hour<= hour and hour < e.end_time.hour:
-						#poolOfEmployees.append(e)
+						poolOfEmployees.append(e)
 						#return HttpResponse(tmpSet)
-						newStart = str(hour) + ":00" 
-						newEnd = str(hour+1) + ":00" 
-						newSchedule = Schedule(user=User.objects.get(username=e.user),AvailibleDay=day.AvailibleDay,start_time=newStart,end_time=newEnd)
-						newSchedule.save()
 						poolCounter += 1
 				#poolOfEmployees =  Availibity.objects.filter(AvailibleDay=day.AvailibleDay)
 				tmpSet = employeesSet
@@ -199,6 +195,10 @@ def computeSchedule(request):
 					return None
 				#else:
 		
+					newStart = str(hour) + ":00" 
+					newEnd = str(hour+1) + ":00" 
+					newSchedule = Schedule(user=User.objects.get(username=poolOfEmployees[0].user),AvailibleDay=day.AvailibleDay,start_time=newStart,end_time=newEnd)
+					newSchedule.save()
 		return HttpResponse(poolCounter)
 				
 	return HttpResponse("No schedules!")
