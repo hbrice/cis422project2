@@ -185,7 +185,7 @@ def computeSchedule(request):
 				#for e in Availibity.objects.filter(AvailibleDay=day):
 					#if e.start_time.hour<= hour and e.end_time.hour < hour:
 					#	poolOfEmployees.append(e)
-				poolOfEmployees =  Availibity.objects.filter(AvailibleDay=day)
+				poolOfEmployees =  Availibity.objects.filter(AvailibleDay=day.AvailibleDay)
 				tmpSet = employeesSet
 				return HttpResponse(Availibity.objects.filter(AvailibleDay=day).count())
 				for x in poolOfEmployees:
