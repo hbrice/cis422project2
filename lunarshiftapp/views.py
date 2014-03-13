@@ -186,7 +186,7 @@ def computeSchedule(request):
 					if e.start_time.hour>= hour and e.end_time.hour < hour:
 						poolOfEmployees.append(e)
 				tmpSet = employeesSet
-				return HttpResponse(poolOfEmployees)
+				return HttpResponse(len(poolOfEmployees))
 				for x in poolOfEmployees:
 					if x.name not in tmpSet:
 						tmpSet.remove(x)
