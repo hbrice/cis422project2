@@ -109,6 +109,12 @@ def deleteDayToCover(request):
 		username = request.POST['username']
 		a = Availibity.objects.get(user__username=username, AvailibleDay=day)
 		a.delete()
+		try:
+			tmp = Availibity.objects.get(user__username=username)
+		except ObjectDoesNotExist:
+			e = Employee.objects.get(user__username=username)
+			e.setAvailibity = False
+			e.save()
 		return HttpResponse()
 
 def about_view(request):
