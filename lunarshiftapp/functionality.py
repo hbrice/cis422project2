@@ -116,7 +116,7 @@ class Alternative:
 				if tmpSet.len == 0:
 					return None
 				
-				self.sched[day].insert(hour.hour,tmpSet) #(num, emp[])
+				self.sched[day].insert(hour.hour,tmpSet[0]) #(num, emp)
 				
-		return numberOfHours
+		return self.sched
 		
