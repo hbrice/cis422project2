@@ -269,7 +269,10 @@
 
           $("#availability").on("click", "#addday", function(e) {
             var day = $("#days :selected").text();
-            alert(dayToNum("M"));
+            if (daysScheduled[dayToNum(day)] == 1) {
+              alert("already scheduled");
+            }
+            //alert(dayToNum("Monday"));
 
             /*$("#slider").dateRangeSlider({
               step:{hours: 1},
