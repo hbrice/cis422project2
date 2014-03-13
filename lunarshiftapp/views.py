@@ -129,8 +129,7 @@ def updateAvailibility(request):
 		newAv.save()
 		return HttpResponse()
 
-
-
+'''
 def calculateSchedule(request):
 	if request.method == 'POST' and request.is_ajax():
 		employeesSet = request.POST['employees']
@@ -157,8 +156,7 @@ def calculateSchedule(request):
 
 
 	return HttpResponse(returnMsg)
-
-
+'''
 
 
 
