@@ -1,107 +1,158 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-    <!-- ***** Display Employee Contact Information  ***** -->
+    
     <div class="container">
+      <!-- ***** Begin: Manager Information  ***** -->
       <div class="page-header">
         <h1>{{ name }} <small>{{ company }}</small></h1>
       </div>
+      <!-- ***** End: Manager Information  ***** -->
 
-      <!-- ***** Begin: Employee Nav Bar  ***** -->
+      <!-- ***** Begin: Manager Navigation Bar  ***** -->
       <div id="content">
         <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
           <li class="active"><a href="#availability" data-toggle="tab"><i class="fa fa-clock-o"></i> Availability</a></li>
+          <li><a href="#employees" data-toggle="tab"><i class="fa fa-users"></i> Employees</a></li>
           <li><a href="#schedule" data-toggle="tab"><i class="fa fa-calendar"></i> Schedule</a></li>
-        </ul>        
-        <!-- ***** End: Employee Nav Bar  ***** -->
-
-        <!-- ***** Begin: Employee Set Available Time  ***** -->
+        </ul>
+        <!-- ***** End: Manager Navigation Bar  ***** -->
+        
+        <!-- ***** Begin: Manager Set Coverage  ***** -->
         <div id="my-tab-content" class="tab-content">
           <div class="tab-pane active" id="availability">
             <br>
-            <p class="lead">Specify your availability here!</p>
-            {% for day in currentAvailability %}
+            <p class="lead">Specify the hours you want covered here!</p>
+            {% for hour in hoursToCover %}
             <div class="panel panel-info">
               <div class="panel-heading clearfix">
-                <h3 class="panel-title" id="{{ day.AvailibleDay }}">
-		</h3>
+                <button type="button" id="{{ hour.AvailibleDay }}" class="btn btn-danger pull-right">
+                  <i class="fa fa-trash-o fa-lg"></i> Delete
+                </button>
+                <h3 class="panel-title">{{ hour.get_AvailibleDay_display }}</h3>
               </div>
               <div class="panel-body">
                 <div class="well well-lg">
-                  <div id="slider{{ day.AvailibleDay }}"></div>
+                  <div id="slider{{ hour.AvailibleDay }}"></div>
                 </div>
               </div>
             </div>
             {% endfor %}
-            <!--<a class="btn btn-danger" id="myPopover" href="#" data-toggle="popover" data-placement="bottom" data-html="true" data-original-title="Fast Editing" data-content="<div> This <b>is</b> your div content</div>"><i class="fa fa-bolt fa-lg"></i></a>-->
-            
+            <div id="addslider"></div>
+
+            <div class="modal fade" id="myModalTime" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h1 class="modal-title" id="myModalLabel" align="center">
+                      <i class="fa fa-clock-o fa-5x"></i>
+                      <p>New Time Interval</p>
+                    </h1>
+                  </div>
+          
+                  <div class="modal-body">
+                      <div class="form-group">
+                        <h2>Choose a Day:</h2>
+                          <select id="days" class="form-control">
+                            <option>Monday</option>
+                            <option>Tuesday</option>
+                            <option>Wednesday</option>
+                            <option>Thursday</option>
+                            <option>Friday</option>
+                            <option>Saturday</option>
+                            <option>Sunday</option>
+                          </select>
+                          <span class="help-block">Choose a day you have not specified your availability yet.</span>
+                      </div>
+                  </div>
+          
+                  <div class="modal-footer">
+                    <button class="btn btn-lg" data-dismiss="modal">Cancel</button>
+                    <button id="addday" type="submit" data-dismiss="modal" class="btn btn-lg btn-primary">Add</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button id="addDaytest" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalTime">Add Day</button>
           </div>
-          <!-- ***** END: Employee Set Available Time  ***** -->
+        
+          <!-- ***** End: Manager Set Coverage  ***** -->
 
-
-          <!-- ***** Begin: Employee view Schedule  ***** -->
+          <!-- ***** Begin: Manager View Schedule  ***** -->
           <div class="tab-pane" id="schedule">
             <br>
-            <p class="lead">Here's your work schedule!</p>
-<!--            <div id="paginator"></div> -->
-	    <!--{% schedulesHours = Schedule.objects.filter(user__username=e.user.username).filter(monthForSched-->
-            <br>
+            <p class="lead">Here's the work schedule!</p>
             <table class="table table-no-border">
-	      <th><h3>Day</h3></th>
+              <th><h3>Day</h3></th>
+              <th><h3>Employee</h3></th>
               <th><h3>Time</h3></th>
-              <th><h3>Shift Length</h3></th>
-	      {% for hour in scheduledHours %}
+              <th><h3>Hours</h3></th>
+              {% for sched in schedules %}
               <tr>
-		<td><div class="well well-sm" id="day{{ hour.AvailibleDay }}"></div></td>
-                <td><div class="well well-sm" id="shift{{ hour.AvailibleDay }}"></div></td>
-                <td><div class="well well-sm" id="delta{{ hour.AvailibleDay }}"></div></td>
+                <td><div class="well well-sm">{{ sched.get_AvailibleDay_display }}</div></td>
+                <td><div class="well well-sm">{{ sched.user.first_name }} {{ sched.user.last_name }}</div></td>
+                <td><div class="well well-sm">{{ sched.start_time }} - {{ sched.end_time }}</div></td>
+                <td><div class="well well-sm">2 hrs</div></td>
               </tr>
-	      {% endfor %}
-              </tr>
-            </table>	
+              {% endfor %}
+            </table>
           </div>
+          <!-- ***** End: Manager View Schedule  ***** -->
 
-	  
-          <!-- ***** End: Employee view Schedule  ***** -->
+          <!-- ***** Begin: Manager View Availability/ Deactivate Employee ***** -->
+          
 
+          </div>
         </div>
-      </div>
+    </div>
 
- 
-         
-    </div> 
+
 {% endblock %}
-
 {% block scripts %}
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
-         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+          $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
               $('#paginator').datepaginator();
           });
 
-          $('#myPopover').popover();
-
-
-          function  convertSymbolToDay(day) {
+          function convertSymbolToDay(day) {
             if (day == 'M') {
-              return 'Monday'
+              return 'Monday';
             } else if (day == 'T') {
-              return 'Tuesday'
+              return 'Tuesday';
             } else if (day == 'W') {
-              return 'Wednesday'
+              return 'Wednesday';
             } else if (day == 'TH') {
-              return 'Thursday'
+              return 'Thursday';
             } else if (day == 'F') {
-              return 'Friday'
+              return 'Friday';
             } else if (day == 'S') {
-              return 'Saturday'
+              return 'Saturday';
             } else {
               return 'Sunday';
+            }
+          }
+
+          function convertDayToSymbol(day) {
+            if (day == 'Monday') {
+              return 'M';
+            } else if (day == 'Tuesday') {
+              return 'T';
+            } else if (day == 'Wednesday') {
+              return 'W';
+            } else if (day == 'Thursday') {
+              return 'TH';
+            } else if (day == 'Friday') {
+              return 'F';
+            } else if (day == 'Saturday') {
+              return 'S';
+            } else {
+              return 'SU';
             }
           }
 
@@ -117,77 +168,225 @@
             }
           }
 
-	  function convertTo24(val){
-		var result = 0;
-		if(val.substring(val.length-4) == 'p.m.'){
-			result = 12;
-		}
-		var time = val.substring(0,2);
-		if(time.substring(1,2) == ':'){
-			time = time.substring(0,1)
-		}
-		return parseInt(time)+result;
-	  }
+          var daysScheduled = new Array(7);
 
-	  function deltaHours(start, end){
-		var delta = end - start;
-		if(delta == 1){
-			return delta + " Hour";
-		}
-		return delta + " Hours";
-	  }
+          function dayToNum(day) {
+            if (day == "Monday"){
+              return 0;
+            } else if (day == "Tuesday") {
+              return 1;
+            } else if (day == "Wednesday") {
+              return 2;
+            } else if (day == "Thursday") {
+              return 3;
+            } else if (day == "Friday") {
+              return 4;
+            } else if (day == "Saturday") {
+              return 5;
+            } else {
+              return 6;
+            }
+          }
 
-	  {% for Shift in scheduledHours %}
-		 var dayID = "day{{ Shift.AvailibleDay }}";		 
-		 var shiftID = "shift{{ Shift.AvailibleDay }}";
-		 var deltaID = "delta{{ Shift.AvailibleDay }}";
-		 var delta = deltaHours(convertTo24("{{ Shift.start_time }}"), convertTo24("{{ Shift.end_time }}"));
-		 document.getElementById(dayID).innerHTML=convertSymbolToDay("{{ Shift.AvailibleDay }}");		
-		 document.getElementById(shiftID).innerHTML="{{ Shift.start_time }} - {{ Shift.end_time }}";
-		 document.getElementById(deltaID).innerHTML=delta;
-		 var time = "{{ Shift.start_time }}";
+          function numToDay(day) {
+            if (day == 0){
+              return "Monday";
+            } else if (day == 1) {
+              return "Tuesday";
+            } else if (day == 2) {
+              return "Wednesday";
+            } else if (day == 3) {
+              return "Thursday";
+            } else if (day == 4) {
+              return "Friday";
+            } else if (day == 5) {
+              return "Saturday";
+            } else {
+              return "Sunday";
+            }
+          }
 
-	  {% endfor %}
+          $("#availability").on("click", ".btn-danger", function(e) {
+            var day = this.id;
+            var dayNotSym = convertSymbolToDay(day);
+            var num = dayToNum(dayNotSym);
+            daysScheduled[num] = 0;
+            var panel = $(this).parent().parent();
+            panel.fadeOut(400, function(){
+              panel.remove();
+            });
+            $.ajax({
+              type: "POST",
+              url: "/deleteDayToCover",
+              data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                day: day, 
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }
+            });
+          });
 
-	  {% for day in currentAvailability %}
-		  $("#slider{{ day.AvailibleDay }}").dateRangeSlider({
-		    step:{hours: 1},
-		    bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},           
-		      defaultValues: {min: new Date(2013, 0, 1, {{ day.start_time.hour }}), max: new Date(2013, 0, 1, {{ day.end_time.hour }})},
-		      formatter: function(value){
-		      var hours = value.getHours(),
-		      minutes = value.getMinutes();
-		      return TwoDigits(hours);
-		    }
-		  });
+          $("#availability").on("click", "#addday", function(e) {
+            var day = $("#days :selected").text();
+            if (daysScheduled[dayToNum(day)] == 1) {
+              $(this).parent().parent().effect("shake");
+            } else {
+              var symbol = convertDayToSymbol(day);
+              daysScheduled[dayToNum(day)] = 1;
+              slider = "slider" + symbol;
+              alert(slider);
 
-		  $("#slider{{ day.AvailibleDay }}").bind("userValuesChanged", function(e, data){
-		    console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
-		    $.ajax({
-		      type: "POST",
-		      url: "/updateslider",
-		      data: {
-		        csrfmiddlewaretoken: '{{ csrf_token }}',
-		        username: "{{ username }}",
-		        day: "{{ day.AvailibleDay }}",
-		        newStartTime: data.values.min.getHours(),
-		        newEndTime: data.values.max.getHours(),
-		      },
-		      succes: function(data) {
-		        alert("congratulations");
-		      },
-		      error: function(xhr, textStatus, errorThrown) {
-		        alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
-		      }
-            	   });
-		  });
+              $.ajax({
+                type: "POST",
+                url: "/addTime",
+                data: {
+                  csrfmiddlewaretoken: '{{ csrf_token }}',
+                  username: "{{ username }}",
+                  day: symbol,
+                },
+                /*error: function(xhr, textStatus, errorThrown) {
+                  alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+                }*/
+              });
 
-		document.getElementById("{{ day.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ day.AvailibleDay }}");
-	  {% endfor %}
+              $(slider).dateRangeSlider({
+                step:{hours: 1},
+                bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
+                defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 17)},
+                formatter: function(value){
+                  var hours = value.getHours(),
+                  minutes = value.getMinutes();
+                  return TwoDigits(hours);
+                }
+              });
 
+              $("#addslider").append("<div class='panel panel-info'>" +
+                                    "<div class='panel-heading clearfix'>" + 
+                                      "<button type='button'" + "id='" + symbol + "' class='btn btn-danger pull-right'>" +
+                                        "<i class='fa fa-trash-o fa-lg'></i> Delete" +
+                                      "</button>" +
+                                      "<h3 class='panel-title'>" + day + "</h3>" +
+                                    "</div>" +
+                                    "<div class='panel-body'>" +
+                                      "<div class='well well-lg'>" + "<div id='" + slider + "'></div>" +
+                                      "</div>" +
+                                    "</div>" +
+                                  "</div>");
+            
+            $("#"+slider).dateRangeSlider({
+              step:{hours: 1},
+              bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
+              defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 17)},
+              formatter: function(value){
+                var hours = value.getHours(),
+                minutes = value.getMinutes();
+                return TwoDigits(hours);
+              }
+            });
 
-        });
+            $("#"+slider).bind("userValuesChanged", function(e, data){
+              console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
+              $.ajax({
+                type: "POST",
+                url: "/updateslider",
+                data: {
+                  csrfmiddlewaretoken: '{{ csrf_token }}',
+                  username: "{{ username }}",
+                  day: symbol,
+                  newStartTime: data.values.min.getHours(),
+                  newEndTime: data.values.max.getHours(),
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }
+             });
+            });
+
+            } // end else
+          });
+            
+          $("#submit").click(function() {
+            var username = $("#username").val();
+            var firstname = $("#firstname").val();
+            var lastname = $("#lastname").val();
+            var password = $("#password").val();
+            $("#employeeTable tr:last").after("<tr id='" + username + "'>" +
+              "<td><div class='well well-sm'>" + firstname + " " + lastname + "</div></td>" +
+              "<td><div class='well well-sm'>" + username + "</div></td>" +
+              "<td class='text-align'><div class='well well-sm'><i class='fa fa-thumbs-o-down'></i></div></td>" +
+              "<td class='text-align'><div class='well well-sm'><input type='checkbox' disabled></div></td>" +
+              "<td class='vert-align'><button type='button' class='btn btn-danger'><i class='fa fa-trash-o fa-lg'></i> Delete</button></td>" +
+              "</tr>");
+
+            $.ajax({
+              type: "POST",
+              url: "/addEmployee",
+              data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                username: username,
+                firstname: firstname,
+                lastname: lastname,
+                password: password, 
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }
+            });
+          });
+
+          $("#employeeTable").on("click", ".btn", function(e) {
+            var id = $(this).closest("tr").attr("id");
+            var tr = $(this).closest("tr");
+            tr.fadeOut(400, function(){
+              tr.remove();
+            });
+            $.ajax({
+              type: "POST",
+              url: "/deleteEmployee",
+              data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                username: id,
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }
+            });
+          });
+
+          {% for i in hoursToCover %}
+          daysScheduled[dayToNum("{{ i.get_AvailibleDay_display }}")] = 1;
+          $("#slider{{ i.AvailibleDay }}").dateRangeSlider({
+            step:{hours: 1},
+            bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
+            defaultValues: {min: new Date(2013, 0, 1, {{ i.start_time.hour }}), max: new Date(2013, 0, 1, {{ i.end_time.hour }})},
+            formatter: function(value){
+              var hours = value.getHours(),
+              minutes = value.getMinutes();
+              return TwoDigits(hours);
+            }
+          });
+
+          $("#slider{{ i.AvailibleDay }}").bind("userValuesChanged", function(e, data){
+            console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
+            $.ajax({
+              type: "POST",
+              url: "/updateslider",
+              data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                username: "{{ username }}",
+                day: "{{ i.AvailibleDay }}",
+                newStartTime: data.values.min.getHours(),
+                newEndTime: data.values.max.getHours(),
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }
+            });
+          });
+          {% endfor %}
+      });
       </script> 
-{% endblock %}
     
-
+{% endblock %}

@@ -3,7 +3,6 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from lunarshiftapp.models import Employee, Availibity, Schedule
-from lunarshuftapp.functionality import DateTimeRange
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.context_processors import csrf
 
@@ -127,6 +126,20 @@ def updateAvailibility(request):
 		newAv = Availibity.objects.get(user__username=username, AvailibleDay=day)
 		newAv.start_time = str(startTime) + ":00"
 		newAv.end_time = str(endTime) + ":00"
+		newAv.save()
+		return HttpResponse()
+
+def addTime(request):
+	if request.method == 'POST' and request.is_ajax():
+		day = request.POST['day']
+		username = request.POST['username']
+		u = User.objects.get(username=username)
+		newAv = Availibity(
+			user = u,
+			AvailibleDay = day,
+			start_time = "8:00",
+			end_time = "17:00",
+		)
 		newAv.save()
 		return HttpResponse()
 

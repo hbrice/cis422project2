@@ -116,14 +116,10 @@
                 <td><div class="well well-sm">{{ employee.user.username }}</div></td>
                 {% if employee.setAvailibity %}
                   <td class="text-align"><div class="well well-sm"><i class="fa fa-thumbs-o-up"></i></div></td>
-                  {% if employee.user.username in scheduled %}
-                    <td class="text-align"><div class="well well-sm"><input type="checkbox" checked></div></td>
-                  {% else %}
-                    <td class="text-align"><div class="well well-sm"><input type="checkbox"></div></td>
-                  {% endif %}
+                  <td class="text-align"><div class="well well-sm"><input class="check" type="checkbox"></div></td>
                 {% else %}
                   <td class="text-align"><div class="well well-sm"><i class="fa fa-thumbs-o-down"></i></div></td>
-                  <td class="text-align"><div class="well well-sm"><input type="checkbox" disabled></div></td>
+                  <td class="text-align"><div class="well well-sm"><input class="check" type="checkbox" disabled></div></td>
                 {% endif %} 
                 <td class="vert-align"><button type="button" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i> Delete</button></td>
               </tr>
@@ -133,6 +129,7 @@
 
             <!-- ***** Begin: Manager Activate Employee ***** -->
             <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Add Employee</button>
+            <button id="sched" type="button" class="btn btn-primary btn-lg">Compute Schedule</button>
             <!-- ***** End: Manager Activate Employee ***** -->
 
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -201,19 +198,37 @@
 
           function convertSymbolToDay(day) {
             if (day == 'M') {
-              return 'Monday'
+              return 'Monday';
             } else if (day == 'T') {
-              return 'Tuesday'
+              return 'Tuesday';
             } else if (day == 'W') {
-              return 'Wednesday'
+              return 'Wednesday';
             } else if (day == 'TH') {
-              return 'Thursday'
+              return 'Thursday';
             } else if (day == 'F') {
-              return 'Friday'
+              return 'Friday';
             } else if (day == 'S') {
-              return 'Saturday'
+              return 'Saturday';
             } else {
               return 'Sunday';
+            }
+          }
+
+          function convertDayToSymbol(day) {
+            if (day == 'Monday') {
+              return 'M';
+            } else if (day == 'Tuesday') {
+              return 'T';
+            } else if (day == 'Wednesday') {
+              return 'W';
+            } else if (day == 'Thursday') {
+              return 'TH';
+            } else if (day == 'Friday') {
+              return 'F';
+            } else if (day == 'Saturday') {
+              return 'S';
+            } else {
+              return 'SU';
             }
           }
 
@@ -229,26 +244,8 @@
             }
           }
 
-          $("#availability").on("click", ".btn-danger", function(e) {
-            var day = this.id;
-            var panel = $(this).parent().parent();
-            panel.fadeOut(400, function(){
-              panel.remove();
-            });
-            $.ajax({
-              type: "POST",
-              url: "/deleteDayToCover",
-              data: {
-                csrfmiddlewaretoken: '{{ csrf_token }}',
-                day: day, 
-              },
-              error: function(xhr, textStatus, errorThrown) {
-                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
-              }
-            });
-          });
-
           var daysScheduled = new Array(7);
+          var employeeScheduled = new Array();
 
           function dayToNum(day) {
             if (day == "Monday"){
@@ -286,29 +283,90 @@
             }
           }
 
+          $("#sched").click(function() {
+            $.ajax({
+              type: "POST",
+              url: "/computeSched",
+              data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                employees: {employeeScheduled: employeeScheduled}, 
+              },
+              /*error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }*/
+            });
+          });
+
+          $("#availability").on("click", ".btn-danger", function(e) {
+            var day = this.id;
+            var dayNotSym = convertSymbolToDay(day);
+            var num = dayToNum(dayNotSym);
+            daysScheduled[num] = 0;
+            var panel = $(this).parent().parent();
+            panel.fadeOut(400, function(){
+              panel.remove();
+            });
+            $.ajax({
+              type: "POST",
+              url: "/deleteDayToCover",
+              data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                day: day, 
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }
+            });
+          });
+
           $("#availability").on("click", "#addday", function(e) {
             var day = $("#days :selected").text();
             if (daysScheduled[dayToNum(day)] == 1) {
-              //alert("already scheduled");
-              $(this).parent().effect("shake");
+              $(this).parent().parent().effect("shake");
             } else {
+              var symbol = convertDayToSymbol(day);
+              daysScheduled[dayToNum(day)] = 1;
+              slider = "slider" + symbol;
+              alert(slider);
+
+              $.ajax({
+                type: "POST",
+                url: "/addTime",
+                data: {
+                  csrfmiddlewaretoken: '{{ csrf_token }}',
+                  username: "{{ username }}",
+                  day: symbol,
+                },
+                /*error: function(xhr, textStatus, errorThrown) {
+                  alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+                }*/
+              });
+
+              $(slider).dateRangeSlider({
+                step:{hours: 1},
+                bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
+                defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 17)},
+                formatter: function(value){
+                  var hours = value.getHours(),
+                  minutes = value.getMinutes();
+                  return TwoDigits(hours);
+                }
+              });
+
               $("#addslider").append("<div class='panel panel-info'>" +
                                     "<div class='panel-heading clearfix'>" + 
-                                      "<button type='button' class='btn btn-danger pull-right'>" +
+                                      "<button type='button'" + "id='" + symbol + "' class='btn btn-danger pull-right'>" +
                                         "<i class='fa fa-trash-o fa-lg'></i> Delete" +
                                       "</button>" +
                                       "<h3 class='panel-title'>" + day + "</h3>" +
                                     "</div>" +
                                     "<div class='panel-body'>" +
-                                      "<div class='well well-lg'>" +
+                                      "<div class='well well-lg'>" + "<div id='" + slider + "'></div>" +
                                       "</div>" +
                                     "</div>" +
                                   "</div>");
-            }
-          });
-            //alert(dayToNum("Monday"));
-
-            /*$("#slider").dateRangeSlider({
+            
+            $("#"+slider).dateRangeSlider({
               step:{hours: 1},
               bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
               defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 17)},
@@ -317,11 +375,29 @@
                 minutes = value.getMinutes();
                 return TwoDigits(hours);
               }
-            });*/
+            });
 
+            $("#"+slider).bind("userValuesChanged", function(e, data){
+              console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
+              $.ajax({
+                type: "POST",
+                url: "/updateslider",
+                data: {
+                  csrfmiddlewaretoken: '{{ csrf_token }}',
+                  username: "{{ username }}",
+                  day: symbol,
+                  newStartTime: data.values.min.getHours(),
+                  newEndTime: data.values.max.getHours(),
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }
+             });
+            });
+
+            } // end else
+          });
             
-          
-
           $("#submit").click(function() {
             var username = $("#username").val();
             var firstname = $("#firstname").val();
@@ -331,7 +407,7 @@
               "<td><div class='well well-sm'>" + firstname + " " + lastname + "</div></td>" +
               "<td><div class='well well-sm'>" + username + "</div></td>" +
               "<td class='text-align'><div class='well well-sm'><i class='fa fa-thumbs-o-down'></i></div></td>" +
-              "<td class='text-align'><div class='well well-sm'><input type='checkbox' disabled></div></td>" +
+              "<td class='text-align'><div class='well well-sm'><input class='check' type='checkbox' disabled></div></td>" +
               "<td class='vert-align'><button type='button' class='btn btn-danger'><i class='fa fa-trash-o fa-lg'></i> Delete</button></td>" +
               "</tr>");
 
@@ -349,6 +425,33 @@
                 alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
               }
             });
+          });
+
+          $("#employeeTable").on("click", ".check", function(e) {
+            var id = $(this).closest("tr").attr("id");
+            var isChecked = $(this).is(':checked');
+            if (isChecked) {
+              employeeScheduled.push(id);
+            } else {
+              var idx = employeeScheduled.indexOf(id);
+              employeeScheduled.splice(idx, 1);
+            }
+            console.log(employeeScheduled);
+            //var tr = $(this).closest("tr");
+            /*tr.fadeOut(400, function(){
+              tr.remove();
+            });*
+            /*$.ajax({
+              type: "POST",
+              url: "/deleteEmployee",
+              data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                username: id,
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }
+            });*/
           });
 
           $("#employeeTable").on("click", ".btn", function(e) {

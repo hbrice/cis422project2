@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <!-- ***** Display Employee Contact Information  ***** -->
+    <div class="container">
+      <div class="page-header">
+        <h1>{{ name }} <small>{{ company }}</small></h1>
+      </div>
+
+      <!-- ***** Begin: Employee Nav Bar  ***** -->
+      <div id="content">
+        <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+          <li class="active"><a href="#availability" data-toggle="tab"><i class="fa fa-clock-o"></i> Availability</a></li>
+          <li><a href="#schedule" data-toggle="tab"><i class="fa fa-calendar"></i> Schedule</a></li>
+        </ul>        
+        <!-- ***** End: Employee Nav Bar  ***** -->
+
+        <!-- ***** Begin: Employee Set Available Time  ***** -->
+        <div id="my-tab-content" class="tab-content">
+          <div class="tab-pane active" id="availability">
+            <br>
+            <p class="lead">Specify your availability here!</p>
+            {% for day in currentAvailability %}
+            <div class="panel panel-info">
+              <div class="panel-heading clearfix">
+                <h3 class="panel-title" id="{{ day.AvailibleDay }}">
+		</h3>
+              </div>
+              <div class="panel-body">
+                <div class="well well-lg">
+                  <div id="slider{{ day.AvailibleDay }}"></div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            <!--<a class="btn btn-danger" id="myPopover" href="#" data-toggle="popover" data-placement="bottom" data-html="true" data-original-title="Fast Editing" data-content="<div> This <b>is</b> your div content</div>"><i class="fa fa-bolt fa-lg"></i></a>-->
+            
+          </div>
+          <!-- ***** END: Employee Set Available Time  ***** -->
+
+
+          <!-- ***** Begin: Employee view Schedule  ***** -->
+          <div class="tab-pane" id="schedule">
+            <br>
+            <p class="lead">Here's your work schedule!</p>
+<!--            <div id="paginator"></div> -->
+	    <!--{% schedulesHours = Schedule.objects.filter(user__username=e.user.username).filter(monthForSched-->
+            <br>
+            <table class="table table-no-border">
+	      <th><h3>Day</h3></th>
+              <th><h3>Time</h3></th>
+              <th><h3>Shift Length</h3></th>
+	      {% for hour in scheduledHours %}
+              <tr>
+		<td><div class="well well-sm" id="day{{ hour.AvailibleDay }}"></div></td>
+                <td><div class="well well-sm" id="shift{{ hour.AvailibleDay }}"></div></td>
+                <td><div class="well well-sm" id="delta{{ hour.AvailibleDay }}"></div></td>
+              </tr>
+	      {% endfor %}
+              </tr>
+            </table>	
+          </div>
+
+	  
+          <!-- ***** End: Employee view Schedule  ***** -->
+
+        </div>
+      </div>
+
+ 
+         
+    </div> 
+{% endblock %}
+
+{% block scripts %}
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+              $('#paginator').datepaginator();
+          });
+
+          $('#myPopover').popover();
+
+
+          function  convertSymbolToDay(day) {
+            if (day == 'M') {
+              return 'Monday'
+            } else if (day == 'T') {
+              return 'Tuesday'
+            } else if (day == 'W') {
+              return 'Wednesday'
+            } else if (day == 'TH') {
+              return 'Thursday'
+            } else if (day == 'F') {
+              return 'Friday'
+            } else if (day == 'S') {
+              return 'Saturday'
+            } else {
+              return 'Sunday';
+            }
+          }
+
+          function TwoDigits(val){
+            if (val == 0) {
+              return "12:00 AM";
+            } else if (val < 12){
+              return "0" + val + ":00 AM";
+            } else if (val == 12) {
+              return "12:00 PM"
+            } else {
+              return val - 12 + ":00 PM";
+            }
+          }
+
+	  function convertTo24(val){
+		var result = 0;
+		if(val.substring(val.length-4) == 'p.m.'){
+			result = 12;
+		}
+		var time = val.substring(0,2);
+		if(time.substring(1,2) == ':'){
+			time = time.substring(0,1)
+		}
+		return parseInt(time)+result;
+	  }
+
+	  function deltaHours(start, end){
+		var delta = end - start;
+		if(delta == 1){
+			return delta + " Hour";
+		}
+		return delta + " Hours";
+	  }
+
+	  {% for Shift in scheduledHours %}
+		 var dayID = "day{{ Shift.AvailibleDay }}";		 
+		 var shiftID = "shift{{ Shift.AvailibleDay }}";
+		 var deltaID = "delta{{ Shift.AvailibleDay }}";
+		 var delta = deltaHours(convertTo24("{{ Shift.start_time }}"), convertTo24("{{ Shift.end_time }}"));
+		 document.getElementById(dayID).innerHTML=convertSymbolToDay("{{ Shift.AvailibleDay }}");		
+		 document.getElementById(shiftID).innerHTML="{{ Shift.start_time }} - {{ Shift.end_time }}";
+		 document.getElementById(deltaID).innerHTML=delta;
+		 var time = "{{ Shift.start_time }}";
+
+	  {% endfor %}
+
+	  {% for day in currentAvailability %}
+		  $("#slider{{ day.AvailibleDay }}").dateRangeSlider({
+		    step:{hours: 1},
+		    bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},           
+		      defaultValues: {min: new Date(2013, 0, 1, {{ day.start_time.hour }}), max: new Date(2013, 0, 1, {{ day.end_time.hour }})},
+		      formatter: function(value){
+		      var hours = value.getHours(),
+		      minutes = value.getMinutes();
+		      return TwoDigits(hours);
+		    }
+		  });
+
+		  $("#slider{{ day.AvailibleDay }}").bind("userValuesChanged", function(e, data){
+		    console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
+		    $.ajax({
+		      type: "POST",
+		      url: "/updateslider",
+		      data: {
+		        csrfmiddlewaretoken: '{{ csrf_token }}',
+		        username: "{{ username }}",
+		        day: "{{ day.AvailibleDay }}",
+		        newStartTime: data.values.min.getHours(),
+		        newEndTime: data.values.max.getHours(),
+		      },
+		      succes: function(data) {
+		        alert("congratulations");
+		      },
+		      error: function(xhr, textStatus, errorThrown) {
+		        alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+		      }
+            	   });
+		  });
+
+		document.getElementById("{{ day.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ day.AvailibleDay }}");
+	  {% endfor %}
+
+
+        });
+      </script> 
+{% endblock %}
+    
+
