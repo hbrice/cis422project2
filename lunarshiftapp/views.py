@@ -71,7 +71,7 @@ def home_view(request, employee_type, username):
 									'username': e.user.username,
 									'company': e.company, 
 									'hoursToCover': Availibity.objects.filter(user__username=e.user.username),
-									'schedules': Schedule.objects.get(user__username=e.user.username)}
+									'schedules': Schedule.objects.all()}
 			return render(request, 'employee.html', context)
 
 def addEmployee(request):
