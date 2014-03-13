@@ -48,7 +48,7 @@ class ScheduleStruct:
 		
 		#variable for returning messages (testing)
 		returnMsg = ""
-
+		numberOfHours = 0
 
 		#loop through each day that has coverage
 		for day in daysNeedingCoverage:
@@ -96,7 +96,7 @@ class Alternative:
 		#store the number of days that are in the schedule
 		numberOfdays = len([Availibity.objects.filter(user__username=manager)])
 		#variable to store the number of hour chunks needing to be covered
-		numberofHours = 0
+		numberOfHours = 0
 		#variable for returning messages (testing)
 		returnMsg = ""
 
