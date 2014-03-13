@@ -195,11 +195,10 @@
           $("#availability").on("click", ".btn-danger", function(e) {
             var day = this.id;
             var panel = $(this).parent().parent();
-            //alert(id);
             panel.fadeOut(400, function(){
               panel.remove();
             });
-            /*$.ajax({
+            $.ajax({
               type: "POST",
               url: "/deleteDayToCover",
               data: {
@@ -210,6 +209,10 @@
                 alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
               }
             });*/
+          });
+
+          $("#availability").on("click", ".btn", function(e) {
+            alert("add");
           });
 
           $("#submit").click(function() {
