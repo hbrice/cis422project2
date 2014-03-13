@@ -12,7 +12,7 @@
       <!-- ***** Begin: Manager Navigation Bar  ***** -->
       <div id="content">
         <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-          <li class="active"><a href="#availability" data-toggle="tab"><i class="fa fa-clock-o"></i> Coverage</a></li>
+          <li class="active"><a href="#availability" data-toggle="tab"><i class="fa fa-clock-o"></i> Availability</a></li>
           <li><a href="#schedule" data-toggle="tab"><i class="fa fa-calendar"></i> Schedule</a></li>
         </ul>
         <!-- ***** End: Manager Navigation Bar  ***** -->
@@ -100,89 +100,11 @@
           </div>
           <!-- ***** End: Manager View Schedule  ***** -->
 
-          <!-- ***** Begin: Manager View Availability/ Deactivate Employee ***** -->
-          <div class="tab-pane" id="employees">
-            <br>
-            <p class="lead">Here's a list of your employees!</p>
-            <table id="employeeTable" class="table table-no-border">
-              <th><h3>Name</h3></th>
-              <th><h3>Username</h3></th>
-              <th class="header-center"><h3>Available</h3></th>
-              <th class="header-center"><h3>Schedule</h3></th>
-              {% for employee in employees %}
-              <tr id="{{ employee.user.username }}">
-                <td><div class="well well-sm">{{ employee.user.first_name }} {{ employee.user.last_name }}</div></td>
-                <td><div class="well well-sm">{{ employee.user.username }}</div></td>
-                {% if employee.setAvailibity %}
-                  <td class="text-align"><div class="well well-sm"><i class="fa fa-thumbs-o-up"></i></div></td>
-                  <td class="text-align"><div class="well well-sm"><input class="check" type="checkbox"></div></td>
-                {% else %}
-                  <td class="text-align"><div class="well well-sm"><i class="fa fa-thumbs-o-down"></i></div></td>
-                  <td class="text-align"><div class="well well-sm"><input class="check" type="checkbox" disabled></div></td>
-                {% endif %} 
-                <td class="vert-align"><button type="button" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i> Delete</button></td>
-              </tr>
-              {% endfor %}
-            </table>
-            <!-- ***** End: Manager View Availability ***** -->
 
-            <!-- ***** Begin: Manager Activate Employee ***** -->
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Add Employee</button>
-            <button id="sched" type="button" class="btn btn-primary btn-lg">Compute Schedule</button>
-            <!-- ***** End: Manager Activate Employee ***** -->
-
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h1 class="modal-title" id="myModalLabel" align="center">
-                      <i class="fa fa-user fa-5x"></i>
-                      <p>New Employee</p>
-                    </h1>
-                  </div>
           
-                  <div class="modal-body">
-                    <form id="newEmployeeForm" class="form-horizontal" role="form" action="/addEmployee" method="post">{% csrf_token %}
-                      <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
-                          <div class="col-sm-10">
-                            <input id="username" type="username" name="username" class="form-control" placeholder="Username">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">First Name</label>
-                          <div class="col-sm-10">
-                            <input id="firstname" type="username" name="firstname" class="form-control" placeholder="Firstname">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Last Name</label>
-                          <div class="col-sm-10">
-                            <input id="lastname" type="username" name="lastname" class="form-control" placeholder="Lastname">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                          <div class="col-sm-10">
-                            <input id="password" type="password" name="password" class="form-control" placeholder="Password">
-                          </div>
-                      </div>
-                  </div>
-          
-                  <div class="modal-footer">
-                    <button class="btn btn-lg btn-danger" data-dismiss="modal">Cancel</button>
-                    <button id="submit" type="submit" data-dismiss="modal" class="btn btn-lg btn-primary">Add</button>
-                  </div>
-                </form>
-                </div>
-              </div>
-            </div>
-
-          </div>
         </div>
       </div>
- </div> 
+    </div> 
 
 {% endblock %}
 {% block scripts %}
@@ -244,7 +166,6 @@
           }
 
           var daysScheduled = new Array(7);
-          var employeeScheduled = new Array();
 
           function dayToNum(day) {
             if (day == "Monday"){
@@ -281,20 +202,6 @@
               return "Sunday";
             }
           }
-
-          $("#sched").click(function() {
-            $.ajax({
-              type: "POST",
-              url: "/computeSched",
-              data: {
-                csrfmiddlewaretoken: '{{ csrf_token }}',
-                employees: {employeeScheduled: employeeScheduled}, 
-              },
-              /*error: function(xhr, textStatus, errorThrown) {
-                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
-              }*/
-            });
-          });
 
           $("#availability").on("click", ".btn-danger", function(e) {
             var day = this.id;
@@ -394,81 +301,6 @@
             });
 
             } // end else
-          });
-            
-          $("#submit").click(function() {
-            var username = $("#username").val();
-            var firstname = $("#firstname").val();
-            var lastname = $("#lastname").val();
-            var password = $("#password").val();
-            $("#employeeTable tr:last").after("<tr id='" + username + "'>" +
-              "<td><div class='well well-sm'>" + firstname + " " + lastname + "</div></td>" +
-              "<td><div class='well well-sm'>" + username + "</div></td>" +
-              "<td class='text-align'><div class='well well-sm'><i class='fa fa-thumbs-o-down'></i></div></td>" +
-              "<td class='text-align'><div class='well well-sm'><input class='check' type='checkbox' disabled></div></td>" +
-              "<td class='vert-align'><button type='button' class='btn btn-danger'><i class='fa fa-trash-o fa-lg'></i> Delete</button></td>" +
-              "</tr>");
-
-            $.ajax({
-              type: "POST",
-              url: "/addEmployee",
-              data: {
-                csrfmiddlewaretoken: '{{ csrf_token }}',
-                username: username,
-                firstname: firstname,
-                lastname: lastname,
-                password: password, 
-              },
-              error: function(xhr, textStatus, errorThrown) {
-                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
-              }
-            });
-          });
-
-          $("#employeeTable").on("click", ".check", function(e) {
-            var id = $(this).closest("tr").attr("id");
-            var isChecked = $(this).is(':checked');
-            if (isChecked) {
-              employeeScheduled.push(id);
-            } else {
-              var idx = employeeScheduled.indexOf(id);
-              employeeScheduled.splice(idx, 1);
-            }
-            console.log(employeeScheduled);
-            //var tr = $(this).closest("tr");
-            /*tr.fadeOut(400, function(){
-              tr.remove();
-            });*
-            /*$.ajax({
-              type: "POST",
-              url: "/deleteEmployee",
-              data: {
-                csrfmiddlewaretoken: '{{ csrf_token }}',
-                username: id,
-              },
-              error: function(xhr, textStatus, errorThrown) {
-                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
-              }
-            });*/
-          });
-
-          $("#employeeTable").on("click", ".btn", function(e) {
-            var id = $(this).closest("tr").attr("id");
-            var tr = $(this).closest("tr");
-            tr.fadeOut(400, function(){
-              tr.remove();
-            });
-            $.ajax({
-              type: "POST",
-              url: "/deleteEmployee",
-              data: {
-                csrfmiddlewaretoken: '{{ csrf_token }}',
-                username: id,
-              },
-              error: function(xhr, textStatus, errorThrown) {
-                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
-              }
-            });
           });
 
           {% for i in hoursToCover %}
