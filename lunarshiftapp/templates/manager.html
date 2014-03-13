@@ -367,7 +367,7 @@
 
             $("#"+slider).bind("userValuesChanged", function(e, data){
               console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
-              /*$.ajax({
+              $.ajax({
                 type: "POST",
                 url: "/updateslider",
                 data: {
@@ -380,7 +380,7 @@
               error: function(xhr, textStatus, errorThrown) {
                 alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
               }
-             });*/
+             });
             });
 
             } // end else
