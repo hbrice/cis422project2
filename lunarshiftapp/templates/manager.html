@@ -66,7 +66,7 @@
               </div>
             </div>
 
-            <button id="addDay" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalTime">Add Day</button>
+            <button id="addDaytest" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalTime">Add Day</button>
           </div>
         
           <!-- ***** End: Manager Set Coverage  ***** -->
@@ -277,7 +277,8 @@
             }
           }
 
-          $("#addDay").click(function() {
+          $("#addDaytest").click(function() {
+            alert("FUCCCC");
             for (var i = 0; i < 7; i++) {
               if (daysScheduled[i] == 0){
                 alert(numToDay(i));
