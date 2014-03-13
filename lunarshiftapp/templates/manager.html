@@ -54,7 +54,15 @@
                   <div class="modal-body">
                       <div class="form-group">
                         <h2>Choose a Day:</h2>
-                          <select id="days" class="form-control"></select>
+                          <select id="days" class="form-control">
+                            <option>Monday</option>
+                            <option>Tuesday</option>
+                            <option>Wednesday</option>
+                            <option>Thursday</option>
+                            <option>Friday</option>
+                            <option>Saturday</option>
+                            <option>Sunday</option>
+                          </select>
                       </div>
                   </div>
           
@@ -277,20 +285,25 @@
             }
           }
 
-          $("#addDaytest").click(function() {
-            for (var i = 0; i < 7; i++) {
-              if (daysScheduled[i] == 0){
-                console.log(numToDay(i));
-                $("#days").append(new Option(numToDay(i), numToDay(i)));
-              }
-            }
-          });
-
           $("#availability").on("click", "#addday", function(e) {
             var day = $("#days :selected").text();
             if (daysScheduled[dayToNum(day)] == 1) {
               alert("already scheduled");
+            } else {
+              $("#addslider").append("<div class='panel panel-info'>" +
+                                    "<div class='panel-heading clearfix'>" + 
+                                      "<button type='button' class='btn btn-danger pull-right'>" +
+                                        "<i class='fa fa-trash-o fa-lg'></i> Delete" +
+                                      "</button>" +
+                                      "<h3 class='panel-title'>" + day + "</h3>" +
+                                    "</div>" +
+                                    "<div class='panel-body'>" +
+                                      "<div class='well well-lg'>" +
+                                      "</div>" +
+                                    "</div>" +
+                                  "</div>");
             }
+          });
             //alert(dayToNum("Monday"));
 
             /*$("#slider").dateRangeSlider({
@@ -304,19 +317,8 @@
               }
             });*/
 
-            $("#addslider").append("<div class='panel panel-info'>" +
-                                    "<div class='panel-heading clearfix'>" + 
-                                      "<button type='button' class='btn btn-danger pull-right'>" +
-                                        "<i class='fa fa-trash-o fa-lg'></i> Delete" +
-                                      "</button>" +
-                                      "<h3 class='panel-title'>" + day + "</h3>" +
-                                    "</div>" +
-                                    "<div class='panel-body'>" +
-                                      "<div class='well well-lg'>" +
-                                      "</div>" +
-                                    "</div>" +
-                                  "</div>");
-          });
+            
+          
 
           $("#submit").click(function() {
             var username = $("#username").val();
