@@ -373,7 +373,7 @@
                 data: {
                   csrfmiddlewaretoken: '{{ csrf_token }}',
                   username: "{{ username }}",
-                  day: day,
+                  day: symbol,
                   newStartTime: data.values.min.getHours(),
                   newEndTime: data.values.max.getHours(),
               },
