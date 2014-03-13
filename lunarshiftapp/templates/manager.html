@@ -117,13 +117,13 @@
                 {% if employee.setAvailibity %}
                   <td class="text-align"><div class="well well-sm"><i class="fa fa-thumbs-o-up"></i></div></td>
                   {% if employee.user.username in scheduled %}
-                    <td class="text-align"><div class="well well-sm"><input type="checkbox" checked></div></td>
+                    <td class="text-align"><div class="well well-sm"><input class="check" type="checkbox" checked></div></td>
                   {% else %}
-                    <td class="text-align"><div class="well well-sm"><input type="checkbox"></div></td>
+                    <td class="text-align"><div class="well well-sm"><input class="check" type="checkbox"></div></td>
                   {% endif %}
                 {% else %}
                   <td class="text-align"><div class="well well-sm"><i class="fa fa-thumbs-o-down"></i></div></td>
-                  <td class="text-align"><div class="well well-sm"><input type="checkbox" disabled></div></td>
+                  <td class="text-align"><div class="well well-sm"><input class="check" type="checkbox" disabled></div></td>
                 {% endif %} 
                 <td class="vert-align"><button type="button" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i> Delete</button></td>
               </tr>
@@ -248,6 +248,7 @@
           }
 
           var daysScheduled = new Array(7);
+          var employeeScheduled = new Array();
 
           function dayToNum(day) {
             if (day == "Monday"){
@@ -395,7 +396,7 @@
               "<td><div class='well well-sm'>" + firstname + " " + lastname + "</div></td>" +
               "<td><div class='well well-sm'>" + username + "</div></td>" +
               "<td class='text-align'><div class='well well-sm'><i class='fa fa-thumbs-o-down'></i></div></td>" +
-              "<td class='text-align'><div class='well well-sm'><input type='checkbox' disabled></div></td>" +
+              "<td class='text-align'><div class='well well-sm'><input class='check' type='checkbox' disabled></div></td>" +
               "<td class='vert-align'><button type='button' class='btn btn-danger'><i class='fa fa-trash-o fa-lg'></i> Delete</button></td>" +
               "</tr>");
 
