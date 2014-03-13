@@ -288,7 +288,7 @@
           $("#availability").on("click", ".btn-danger", function(e) {
             var day = this.id;
             var dayNotSym = convertSymbolToDay(day);
-            var num = dayToNum(dayNotNum);
+            var num = dayToNum(dayNotSym);
             daysScheduled[num] = 0;
             var panel = $(this).parent().parent();
             panel.fadeOut(400, function(){
