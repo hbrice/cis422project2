@@ -39,7 +39,7 @@ class ScheduleStruct:
 	
 	def determineHours(self, employeesSet, manager):
 		#daysNeedingCoverage return a list of Schedule records, each representing a day that needs coverage
-		daysNeedingCoverage = Availibity.objects.get(user__username=manager).values() # manager availability is coverage	
+		daysNeedingCoverage = Availibity.objects.get(user__username=manager) # manager availability is coverage	
 		
 			
 		#store the number of days that are in the schedule
@@ -57,7 +57,7 @@ class ScheduleStruct:
 				#get the number of total hours in the schedule that need coverage
 				numberOfHours += 1
 				#get the set of employees who can cover this hour
-				poolOfEmployees=Availibity.objects.get(AvailibleDay=day).filter(date_range=[start_time,end_time]).values()
+				poolOfEmployees=Availibity.objects.get(AvailibleDay=day).filter(date_range=[start_time,end_time])
 				tmpSet = employeesSet
 				for x in poolOfEmployees:
 					if x.name not in tmpSet:
@@ -90,11 +90,11 @@ class Alternative:
 	
 	def determineHours(self, employeesSet, manager):
 		#daysNeedingCoverage return a list of Schedule records, each representing a day that needs coverage
-		daysNeedingCoverage = Availibity.objects.get(user__username=manager).values() # manager availability is coverage	
+		daysNeedingCoverage = Availibity.objects.get(user__username=manager) # manager availability is coverage	
 		
 			
 		#store the number of days that are in the schedule
-		numberOfdays = len([Availibity.objects.get(user__username=manager)]).values()
+		numberOfdays = len([Availibity.objects.get(user__username=manager)])
 		#variable to store the number of hour chunks needing to be covered
 		numberofHours = 0
 		#variable for returning messages (testing)
@@ -108,7 +108,7 @@ class Alternative:
 				#get the number of total hours in the schedule that need coverage
 				numberOfHours += 1
 				#get the set of employees who can cover this hour
-				poolOfEmployees=Availibity.objects.get(AvailibleDay=day).filter(date_range=[start_time,end_time]).values()
+				poolOfEmployees=Availibity.objects.get(AvailibleDay=day).filter(date_range=[start_time,end_time])
 				tmpSet = employeeSet
 				for x in tmpSet:
 					if x.name not in tmpSet:
