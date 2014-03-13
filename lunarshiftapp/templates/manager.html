@@ -289,7 +289,8 @@
               url: "/computeSched",
               data: {
                 csrfmiddlewaretoken: '{{ csrf_token }}',
-                employees: '["mrpig", "hbrice"]', 
+                employees: '["mrpig", "hbrice"]',
+		manager:  '{{ username }}',
               },
               /*error: function(xhr, textStatus, errorThrown) {
                 alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
