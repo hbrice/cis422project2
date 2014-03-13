@@ -8,10 +8,11 @@ THURSDAY = 'TH'
 FRIDAY = 'F'
 SATURDAY = 'S'
 SUNDAY = 'SU'
-AVAIL_DAY_CHOICES = ((MONDAY, 'M'),
-	(TUESDAY, 'T'), (WEDNESDAY, 'W'),
-	(THURSDAY, 'TH'), (FRIDAY, 'F'),
-	(SATURDAY, 'S'), (SUNDAY, 'SU'))
+AVAIL_DAY_CHOICES = ((MONDAY, 'Monday'),
+	(TUESDAY, 'Tuesday'), (WEDNESDAY, 'Wednesday'),
+	(THURSDAY, 'Thursday'), (FRIDAY, 'Friday'),
+	(SATURDAY, 'Saturday'), (SUNDAY, 'Sunday'),
+	)
 
 class Employee(models.Model):
 	"""

@@ -53,7 +53,7 @@
               <th><h3>Shift Length</h3></th>
 	      {% for hour in scheduledHours %}
               <tr>
-		<td><div class="well well-sm" id="{{ hour.AvailibleDay }}"></div></td>
+		<td><div class="well well-sm" id="day{{ hour.AvailibleDay }}"></div></td>
                 <td><div class="well well-sm" id="shift{{ hour.AvailibleDay }}"></div></td>
                 <td><div class="well well-sm" id="delta{{ hour.AvailibleDay }}"></div></td>
               </tr>
@@ -117,6 +117,38 @@
             }
           }
 
+	  function convertTo24(val){
+		var result = 0;
+		if(val.substring(val.length-4) == 'p.m.'){
+			result = 12;
+		}
+		var time = val.substring(0,2);
+		if(time.substring(1,2) == ':'){
+			time = time.substring(0,1)
+		}
+		return parseInt(time)+result;
+	  }
+
+	  function deltaHours(start, end){
+		var delta = end - start;
+		if(delta == 1){
+			return delta + " Hour";
+		}
+		return delta + " Hours";
+	  }
+
+	  {% for Shift in scheduledHours %}
+		 var dayID = "day{{ Shift.AvailibleDay }}";		 
+		 var shiftID = "shift{{ Shift.AvailibleDay }}";
+		 var deltaID = "delta{{ Shift.AvailibleDay }}";
+		 var delta = deltaHours(convertTo24("{{ Shift.start_time }}"), convertTo24("{{ Shift.end_time }}"));
+		 document.getElementById(dayID).innerHTML=convertSymbolToDay("{{ Shift.AvailibleDay }}");		
+		 document.getElementById(shiftID).innerHTML="{{ Shift.start_time }} - {{ Shift.end_time }}";
+		 document.getElementById(deltaID).innerHTML=delta;
+		 var time = "{{ Shift.start_time }}";
+
+	  {% endfor %}
+
 	  {% for day in currentAvailability %}
 		  $("#slider{{ day.AvailibleDay }}").dateRangeSlider({
 		    step:{hours: 1},
@@ -153,11 +185,7 @@
 		document.getElementById("{{ day.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ day.AvailibleDay }}");
 	  {% endfor %}
 
-	  {% for hour in scheduledHours %}
-		 document.getElementById("{{ hour.AvailibleDay }}").innerHTML=convertSymbolToDay("{{ hour.AvailibleDay }}");
-		 var shiftID = "shift"+"{{ hour.AvailibleDay }}";
-		 alert(shiftID);
-	  {% endfor %}
+
         });
       </script> 
 {% endblock %}
