@@ -185,7 +185,7 @@ def computeSchedule(request):
 				for e in Availibity.objects.filter(AvailibleDay=day.AvailibleDay):
 					if e.start_time.hour<= hour and hour < e.end_time.hour:
 						#if  len(Employee.objects.filter(user=e.user,isManager=True)) > 0:						
-						if e.user=='test':
+						if e.user.username=='test':
 							managerCounter += 1
 							#return HttpResponse(e.user)
 						else:
