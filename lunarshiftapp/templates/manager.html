@@ -247,25 +247,6 @@
             }
           }
 
-          $("#availability").on("click", ".btn-danger", function(e) {
-            var day = this.id;
-            var panel = $(this).parent().parent();
-            panel.fadeOut(400, function(){
-              panel.remove();
-            });
-            $.ajax({
-              type: "POST",
-              url: "/deleteDayToCover",
-              data: {
-                csrfmiddlewaretoken: '{{ csrf_token }}',
-                day: day, 
-              },
-              error: function(xhr, textStatus, errorThrown) {
-                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
-              }
-            });
-          });
-
           var daysScheduled = new Array(7);
 
           function dayToNum(day) {
@@ -303,6 +284,28 @@
               return "Sunday";
             }
           }
+
+          $("#availability").on("click", ".btn-danger", function(e) {
+            var day = this.id;
+            var dayNotSym = convertSymbolToDay(day);
+            var num = dayToNum(dayNotNum);
+            daysScheduled[num] = 0;
+            var panel = $(this).parent().parent();
+            panel.fadeOut(400, function(){
+              panel.remove();
+            });
+            $.ajax({
+              type: "POST",
+              url: "/deleteDayToCover",
+              data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                day: day, 
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }
+            });
+          });
 
           $("#availability").on("click", "#addday", function(e) {
             var day = $("#days :selected").text();
