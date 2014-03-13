@@ -310,9 +310,9 @@
               $(this).parent().parent().effect("shake");
             } else {
               var symbol = convertDayToSymbol(day);
-              alert(symbol);
               daysScheduled[dayToNum(day)] = 1;
-              $("#slider").dateRangeSlider({
+              slider = "slider" + symbol
+              $(slider).dateRangeSlider({
                 step:{hours: 1},
                 bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
                 defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 17)},
@@ -323,22 +323,8 @@
                 }
               });
 
-              $("#slider").bind("userValuesChanged", function(e, data){
+              $(slider).bind("userValuesChanged", function(e, data){
                 console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
-                $.ajax({
-                  type: "POST",
-                  url: "/updateslider",
-                  data: {
-                    csrfmiddlewaretoken: '{{ csrf_token }}',
-                    username: "{{ username }}",
-                    day: "{{ i.AvailibleDay }}",
-                    newStartTime: data.values.min.getHours(),
-                    newEndTime: data.values.max.getHours(),
-                  },
-                  error: function(xhr, textStatus, errorThrown) {
-                    alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
-                  }
-                });
               });
 
               $("#addslider").append("<div class='panel panel-info'>" +
@@ -349,7 +335,7 @@
                                       "<h3 class='panel-title'>" + day + "</h3>" +
                                     "</div>" +
                                     "<div class='panel-body'>" +
-                                      "<div class='well well-lg'>" +
+                                      "<div class='well well-lg'>" + "<div id=" + slider + "></div>" +
                                       "</div>" +
                                     "</div>" +
                                   "</div>");
