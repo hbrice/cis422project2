@@ -114,6 +114,7 @@ def deleteDayToCover(request):
 		except ObjectDoesNotExist:
 			e = Employee.objects.get(user__username=username)
 			e.setAvailibity = False
+			e.save()
 		return HttpResponse()
 
 def about_view(request):
