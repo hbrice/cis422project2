@@ -247,8 +247,7 @@
             });
           });
 
-          var daysScheduled = new Array();
-          var counter = 0;
+          var daysScheduled = new Array(7);
 
           function dayToNum(day) {
             if (day == "M"){
@@ -268,6 +267,7 @@
             }
           }
 
+          var counter = 0;
           $("#availability").on("click", "#addday", function(e) {
             counter = counter + 1;
             var day = $("#days :selected").text();
@@ -347,6 +347,7 @@
           });
 
           {% for i in hoursToCover %}
+          daysScheduled[dayToNum("{{ i.AvailibleDay }}")] = 1;
           $("#slider{{ i.AvailibleDay }}").dateRangeSlider({
             step:{hours: 1},
             bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
