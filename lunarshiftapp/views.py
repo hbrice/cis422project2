@@ -174,7 +174,7 @@ def computeSchedule(request):
 		#variable for returning messages (testing)
 		returnMsg = ""
 		numberOfHours = 0
-
+		poolCounter = 0
 		#loop through each day that has coverage
 		for day in daysNeedingCoverage:
 			#loop through each hour of coverage in the day
@@ -186,6 +186,7 @@ def computeSchedule(request):
 				for e in Availibity.objects.filter(AvailibleDay=day):
 					if e.start_time.hour<= hour and e.end_time.hour < hour:
 						poolOfEmployees.append(e)
+						poolCounter += 1
 				poolOfEmployees =  Availibity.objects.filter(AvailibleDay=day.AvailibleDay)
 				tmpSet = employeesSet
 				#return HttpResponse(Availibity.objects.filter(AvailibleDay=day).count())
@@ -198,7 +199,7 @@ def computeSchedule(request):
 					#return HttpResponse(tmpSet)
 					#newSchedule = Schedule(user=tmpSet[0].user,AvailibleDay=day,start_time=hour,end_time=hour+1)
 					#newSchedule.Save()
-		return HttpResponse(numberOfHours)
+		return HttpResponse(poolCounter)
 				
 				
 	return HttpResponse("No schedules!")
