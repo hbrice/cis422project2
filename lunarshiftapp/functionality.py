@@ -43,7 +43,7 @@ class ScheduleStruct:
 		
 			
 		#store the number of days that are in the schedule
-		numberOfdays = Availibity.objects.get(user__username=manager).count()
+		numberOfdays = len(Availibity.objects.get(user__username=manager))
 		#variable to store the number of hour chunks needing to be covered
 		numberofHours = 0
 		#variable for returning messages (testing)
@@ -71,7 +71,7 @@ class ScheduleStruct:
 		
 
 	def getQueue(self):
-		queue = PriorityQueue(Employees.objects.all().count())
+		queue = PriorityQueue(len(Employees.objects.all()))
 		for day in self.sched.keys():
 			for hour in self.sched.values():
 				queue.put_nowait((len(self.sched[day][hour]),self.sched[day][hour], day, hour)) #(num emps, emps[], day, hour)
@@ -94,7 +94,7 @@ class Alternative:
 		
 			
 		#store the number of days that are in the schedule
-		numberOfdays = Availibity.objects.get(user__username=manager).count()
+		numberOfdays = len(Availibity.objects.get(user__username=manager))
 		#variable to store the number of hour chunks needing to be covered
 		numberofHours = 0
 		#variable for returning messages (testing)
