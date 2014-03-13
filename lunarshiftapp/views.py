@@ -198,11 +198,12 @@ def computeSchedule(request):
 					return None
 				else:
 					#return HttpResponse(tmpSet)
-					newSchedule = Schedule(user=User.objects.get(username='schmidtj'),AvailibleDay=day.AvailibleDay,start_time="10:00",end_time="17:00")
+					newStart = hour + ":00" 
+					newEnd = hour+1 + ":00" 
+					newSchedule = Schedule(user=User.objects.get(username='schmidtj'),AvailibleDay=day.AvailibleDay,start_time=newStart,end_time=newEnd)
 					newSchedule.save()
 					return HttpResponse()
 		return HttpResponse(poolCounter)
-				
 				
 	return HttpResponse("No schedules!")
 
