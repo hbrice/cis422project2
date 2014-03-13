@@ -102,20 +102,6 @@ def deleteEmployee(request):
 		e = Employee.objects.get(user__username=username)
 		u = User.objects.get(username=username)
 		e.delete()
-		try:
-			s = Schedule.objects.get(user__username=username)
-		except ObjectDoesNotExist:
-			pass
-		else:
-			s.delete()
-
-		try:
-			av = Availibity.objects.get(user__username=username)
-		except ObjectDoesNotExist:
-			pass
-		else:
-			av.delete()
-			
 		u.delete()
 	return HttpResponse()
 
