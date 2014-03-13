@@ -12,7 +12,7 @@
       <!-- ***** Begin: Manager Navigation Bar  ***** -->
       <div id="content">
         <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-          <li class="active"><a href="#availability" data-toggle="tab"><i class="fa fa-clock-o"></i> Availability</a></li>
+          <li class="active"><a href="#availability" data-toggle="tab"><i class="fa fa-clock-o"></i> Coverage</a></li>
           <li><a href="#employees" data-toggle="tab"><i class="fa fa-users"></i> Employees</a></li>
           <li><a href="#schedule" data-toggle="tab"><i class="fa fa-calendar"></i> Schedule</a></li>
         </ul>
@@ -327,7 +327,6 @@
               var symbol = convertDayToSymbol(day);
               daysScheduled[dayToNum(day)] = 1;
               slider = "slider" + symbol;
-              alert(slider);
 
               $.ajax({
                 type: "POST",
