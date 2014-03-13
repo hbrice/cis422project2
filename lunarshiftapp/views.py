@@ -200,6 +200,7 @@ def computeSchedule(request):
 					#return HttpResponse(tmpSet)
 					newSchedule = Schedule(user=poolOfEmployees[0].user,AvailibleDay=day,start_time=hour,end_time=hour)
 					newSchedule.save()
+					return HttpResponse()
 		return HttpResponse(poolCounter)
 				
 				
