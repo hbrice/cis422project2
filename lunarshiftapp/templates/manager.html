@@ -54,15 +54,7 @@
                   <div class="modal-body">
                       <div class="form-group">
                         <h2>Choose a Day:</h2>
-                          <select id="days" class="form-control">
-                            <option>Monday</option>
-                            <option>Tuesday</option>
-                            <option>Wednesday</option>
-                            <option>Thursday</option>
-                            <option>Friday</option>
-                            <option>Saturday</option>
-                            <option>Sunday</option>
-                          </select>
+                          <select id="days" class="form-control"></select>
                       </div>
                   </div>
           
@@ -74,7 +66,7 @@
               </div>
             </div>
 
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalTime">Add Day</button>
+            <button id="addDay" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalTime">Add Day</button>
           </div>
         
           <!-- ***** End: Manager Set Coverage  ***** -->
@@ -266,6 +258,32 @@
               return 6;
             }
           }
+
+          function numToDay(day) {
+            if (day == 0){
+              return "Monday";
+            } else if (day == 1) {
+              return "Tuesday";
+            } else if (day == 2) {
+              return "Wednesday";
+            } else if (day == 3) {
+              return "Thursday";
+            } else if (day == 4) {
+              return "Friday";
+            } else if (day == 5) {
+              return "Saturday";
+            } else {
+              return "Sunday";
+            }
+          }
+
+          $("#addDay").on("click", function(e) {
+            for (int i = 0; i < daysScheduled; i++) {
+              if (daysScheduled[i] == 0){
+                $("#days").append(new Option(numToDay(i), numToDay(i)));
+              }
+            }
+          });
 
           $("#availability").on("click", "#addday", function(e) {
             var day = $("#days :selected").text();
