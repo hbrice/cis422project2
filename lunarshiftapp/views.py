@@ -182,7 +182,8 @@ def computeSchedule(request):
 				poolOfEmployees = []
 				
 				#get the set of employees who can cover this hour
-				for e in Availibity.objects.filter(AvailibleDay=day.AvailibleDay):
+				a = Availibity.objects.filter(AvailibleDay=day.AvailibleDay).exclude(user.username="test")
+				for e in a:
 					if e.start_time.hour<= hour and hour < e.end_time.hour:
 						#if  len(Employee.objects.filter(user=e.user,isManager=True)) > 0:						
 						#if e.user.username=='test':
