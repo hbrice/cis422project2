@@ -191,7 +191,7 @@ def computeSchedule(request):
 				#for x in poolOfEmployees:
 				#	if x.user not in tmpSet:
 				#		tmpSet.remove(x)
-				if len(tmpSet) == 0:
+				if len(tmpSet) == 0 or len(poolOfEmployees)==0:
 					return None
 				else:
 		
