@@ -186,6 +186,7 @@ def computeSchedule(request):
 					if e.start_time.hour<= hour and hour < e.end_time.hour:
 						if  Employee.objects.get(user=e.user).isManager:						
 							managerCounter += 1
+							return HttpResponse(e.user)
 						else:
 							poolOfEmployees.append(e)
 							poolCounter += 1
