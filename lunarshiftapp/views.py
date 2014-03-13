@@ -129,6 +129,20 @@ def updateAvailibility(request):
 		newAv.save()
 		return HttpResponse()
 
+def addTime(request):
+	if request.method == 'POST' and request.is_ajax():
+		day = request.POST['day']
+		username = request.POST['username']
+		u = User.objects.get(username=username)
+		newAv = Availibity(
+			user = u,
+			AvailibleDay = day,
+			start_time = "8:00",
+			end_time = "17:00",
+		)
+		newAv.save()
+		return HttpResponse()
+
 '''
 def calculateSchedule(request):
 	if request.method == 'POST' and request.is_ajax():
