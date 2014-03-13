@@ -47,13 +47,13 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h1 class="modal-title" id="myModalLabel" align="center">
                       <i class="fa fa-clock-o fa-5x"></i>
-                      <p>New Time</p>
+                      <p>New Time Interval</p>
                     </h1>
                   </div>
           
                   <div class="modal-body">
                       <div class="form-group">
-                        <label>Day</label>
+                        <h2>Day</h2>
                           <select class="form-control">
                             <option>Monday</option>
                             <option>Tuesday</option>
@@ -67,7 +67,7 @@
                   </div>
           
                   <div class="modal-footer">
-                    <button class="btn btn-lg btn-danger" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-lg" data-dismiss="modal">Cancel</button>
                     <button id="addday" type="submit" data-dismiss="modal" class="btn btn-lg btn-primary">Add</button>
                   </div>
                 </div>
@@ -248,7 +248,6 @@
           });
 
           $("#availability").on("click", "#addday", function(e) {
-
             $("#addslider").append('<h1>SUPPPP</h1>');
           });
 
