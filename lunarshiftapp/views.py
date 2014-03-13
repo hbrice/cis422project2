@@ -189,16 +189,16 @@ def computeSchedule(request):
 				poolOfEmployees =  Availibity.objects.filter(AvailibleDay=day.AvailibleDay)
 				tmpSet = employeesSet
 				#return HttpResponse(Availibity.objects.filter(AvailibleDay=day).count())
-				for x in poolOfEmployees:
-					if x.user not in tmpSet:
-						tmpSet.remove(x)
+				#for x in poolOfEmployees:
+				#	if x.user not in tmpSet:
+				#		tmpSet.remove(x)
 				if len(tmpSet) == 0:
 					return None
 				else:
 					#return HttpResponse(tmpSet)
-					newSchedule = Schedule(user=tmpSet[0].user,AvailibleDay=day,start_time=hour,end_time=hour+1)
-					newSchedule.Save()
-		return HttpResponse("Schedules!")
+					#newSchedule = Schedule(user=tmpSet[0].user,AvailibleDay=day,start_time=hour,end_time=hour+1)
+					#newSchedule.Save()
+		return HttpResponse("Schedules!" + numberOfHours)
 				
 				
 	return HttpResponse("No schedules!")
