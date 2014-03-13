@@ -140,6 +140,7 @@ def addTime(request):
 		e = Employee.objects.get(user__username=username)
 		if e.setAvailibity == False:
 			e.setAvailibity = True
+		e.save()
 		newAv = Availibity(
 			user = u,
 			AvailibleDay = day,
