@@ -218,7 +218,7 @@
               data: {
                 csrfmiddlewaretoken: '{{ csrf_token }}',
                 day: day, 
-                username: {{ username }},
+                username: "{{ username }}",
               },
               /*error: function(xhr, textStatus, errorThrown) {
                 alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
