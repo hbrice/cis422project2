@@ -35,7 +35,7 @@ class ScheduleStruct:
 		"""
 		
 		self.sched = {'M':[],'T':[],'W':[],'TH':[],'F':[],'S':[],'SU':[]}
-		
+		self.numberofHours = 0
 	
 	def determineHours(self, employeesSet, manager):
 		#daysNeedingCoverage return a list of Schedule records, each representing a day that needs coverage
@@ -45,7 +45,7 @@ class ScheduleStruct:
 		#store the number of days that are in the schedule
 		numberOfdays = len([Availibity.objects.filter(user__username=manager)])
 		#variable to store the number of hour chunks needing to be covered
-		numberofHours = 0
+		
 		#variable for returning messages (testing)
 		returnMsg = ""
 
