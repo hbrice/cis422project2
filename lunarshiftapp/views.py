@@ -192,6 +192,7 @@ def computeSchedule(request):
 				if len(tmpSet) == 0:
 					return None
 				else:
+					return HttpResponse(tmpSet)
 					newSchedule = Schedule(user=tmpSet[0].user,AvailibleDay=day,start_time=hour,end_time=hour+1)
 					newSchedule.Save()
 		return HttpResponse("Schedules!")
