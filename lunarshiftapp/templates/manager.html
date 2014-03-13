@@ -418,8 +418,9 @@
 
           $("#employeeTable").on("click", ".check", function(e) {
             var id = $(this).closest("tr").attr("id");
-            alert(id);
-            var tr = $(this).closest("tr");
+            var isChecked = $(this).is(':checked');
+            alert(isChecked);
+            //var tr = $(this).closest("tr");
             /*tr.fadeOut(400, function(){
               tr.remove();
             });*
