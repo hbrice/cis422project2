@@ -7,7 +7,8 @@ from django.contrib.auth.models import User
 class ComputeSchedule:
 	def __init__(self, employeeSet, manager):
 		self.sched = {'M':[],'T':[],'W':[],'TH':[],'F':[],'S':[],'SU':[]}
-		struct = ScheduleStruct()
+		#struct = ScheduleStruct()
+		struct = Alternative
 		self.k = struct.determineHours(employeeSet, manager)
 		self.queue = struct.getQueue()
 		
