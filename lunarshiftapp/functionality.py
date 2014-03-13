@@ -43,7 +43,7 @@ class ScheduleStruct:
 		
 			
 		#store the number of days that are in the schedule
-		numberOfdays = daysNeedingCoverage.length
+		numberOfdays = daysNeedingCoverage.len
 		#variable to store the number of hour chunks needing to be covered
 		numberofHours = 0
 		#variable for returning messages (testing)
@@ -94,7 +94,7 @@ class Alternative:
 		
 			
 		#store the number of days that are in the schedule
-		numberOfdays = daysNeedingCoverage.length
+		numberOfdays = daysNeedingCoverage.len
 		#variable to store the number of hour chunks needing to be covered
 		numberofHours = 0
 		#variable for returning messages (testing)
