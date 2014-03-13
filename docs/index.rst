@@ -55,7 +55,7 @@ Designer Documentation
 .. toctree::
    :maxdepth: 2
 
-   design_docs
+   design_doc
    Layouts
    Theme
 
