@@ -106,8 +106,8 @@ def deleteEmployee(request):
 def deleteDayToCover(request):
 	if request.method == 'POST' and request.is_ajax():
 		day = request.POST['day']
-		manager = Employee.objects.get(isManager=True)
-		a = Availibity.objects.get(user__username=manager.user.username, AvailibleDay=day)
+		username = request.POST['username']
+		a = Availibity.objects.get(user__username=username, AvailibleDay=day)
 		a.delete()
 		return HttpResponse()
 
