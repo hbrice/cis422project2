@@ -43,7 +43,7 @@ class ScheduleStruct:
 		
 			
 		#store the number of days that are in the schedule
-		numberOfdays = daysNeedingCoverage.len
+		numberOfdays = len(daysNeedingCoverage)
 		#variable to store the number of hour chunks needing to be covered
 		numberofHours = 0
 		#variable for returning messages (testing)
@@ -62,7 +62,7 @@ class ScheduleStruct:
 				for x in poolOfEmployees:
 					if x.name not in tmpSet:
 						tmpSet.remove(x)
-				if tmpSet.len == 0:
+				if len(tmpSet) == 0:
 					return None
 				
 				self.sched[day].insert(hour.hour,tmpSet) #(num, emp[])
@@ -71,10 +71,10 @@ class ScheduleStruct:
 		
 
 	def getQueue(self):
-		queue = PriorityQueue(Employees.objects.all().len)
+		queue = PriorityQueue(len(Employees.objects.all()))
 		for day in self.sched.keys():
 			for hour in self.sched.values():
-				queue.put_nowait((self.sched[day][hour].len,self.sched[day][hour], day, hour)) #(num emps, emps[], day, hour)
+				queue.put_nowait((len(self.sched[day][hour]),self.sched[day][hour], day, hour)) #(num emps, emps[], day, hour)
 				
 		return queue
 		
@@ -94,7 +94,7 @@ class Alternative:
 		
 			
 		#store the number of days that are in the schedule
-		numberOfdays = daysNeedingCoverage.len
+		numberOfdays = len(daysNeedingCoverage)
 		#variable to store the number of hour chunks needing to be covered
 		numberofHours = 0
 		#variable for returning messages (testing)
@@ -113,7 +113,7 @@ class Alternative:
 				for x in tmpSet:
 					if x.name not in tmpSet:
 						tmpSet.remove(x)
-				if tmpSet.len == 0:
+				if len(tmpSet) == 0:
 					return None
 				
 				self.sched[day].insert(hour.hour,tmpSet[0]) #(num, emp)
