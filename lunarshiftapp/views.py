@@ -198,7 +198,7 @@ def computeSchedule(request):
 					return None
 				else:
 					#return HttpResponse(tmpSet)
-					newSchedule = Schedule(user=poolOfEmployees[0].user,AvailibleDay=day.AvailibleDay,start_time="10:00",end_time="17:00")
+					newSchedule = Schedule(user=User.objects.get(username='schmidtj'),AvailibleDay=day.AvailibleDay,start_time="10:00",end_time="17:00")
 					newSchedule.save()
 					return HttpResponse()
 		return HttpResponse(poolCounter)
