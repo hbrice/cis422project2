@@ -416,6 +416,26 @@
             });
           });
 
+          $("#employeeTable").on("click", ".check", function(e) {
+            var id = $(this).closest("tr").attr("id");
+            alert(id);
+            var tr = $(this).closest("tr");
+            /*tr.fadeOut(400, function(){
+              tr.remove();
+            });*
+            /*$.ajax({
+              type: "POST",
+              url: "/deleteEmployee",
+              data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                username: id,
+              },
+              error: function(xhr, textStatus, errorThrown) {
+                alert("Please report this error: "+errorThrown+xhr.status+xhr.responseText);
+              }
+            });*/
+          });
+
           $("#employeeTable").on("click", ".btn", function(e) {
             var id = $(this).closest("tr").attr("id");
             var tr = $(this).closest("tr");
