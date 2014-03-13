@@ -182,7 +182,7 @@ def computeSchedule(request):
 				poolOfEmployees = []
 				
 				#get the set of employees who can cover this hour
-				for e in Availibity.objects.filter(AvailibleDay=day.AvailibleDay).Employee.objects.filter(isManager=False):
+				for e in Availibity.objects.filter(AvailibleDay=day.AvailibleDay):
 					if e.start_time.hour<= hour and hour < e.end_time.hour:
 						if  len(Employee.objects.get(user=e.user).filter(isManager=True) > 0):						
 							managerCounter += 1
