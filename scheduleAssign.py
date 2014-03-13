@@ -3,6 +3,13 @@ def nurseScheduling(Wanted, employeeInfo):
     return pickOne(candidates)
 
 def isAvailable(employee, shift):
+    i = 0
+    for row in employee.availability:
+        for column in employee.availability:
+            if i = shift:
+                return employee.availability[row][column]
+            else:
+                i = i + 1
 
 def scheduleCandidates(shifts, employees):
     candidates = list()
