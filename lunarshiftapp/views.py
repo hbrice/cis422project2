@@ -184,8 +184,8 @@ def computeSchedule(request):
 				poolOfEmployees = []
 				#get the set of employees who can cover this hour
 				for e in Availibity.objects.filter(AvailibleDay=day):
-					if e.start_time.hour<= hour and e.end_time.hour < hour:
-						poolOfEmployees.append(e)
+					#if e.start_time.hour<= hour and e.end_time.hour < hour:
+						#poolOfEmployees.append(e)
 						poolCounter += 1
 				poolOfEmployees =  Availibity.objects.filter(AvailibleDay=day.AvailibleDay)
 				tmpSet = employeesSet
