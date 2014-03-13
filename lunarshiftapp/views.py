@@ -169,7 +169,7 @@ def computeSchedule(request):
 		#store the number of days that are in the schedule
 		numberOfdays = len([Availibity.objects.filter(user__username=manager)])
 		#variable to store the number of hour chunks needing to be covered
-		print >>sys.stderr, 'test!'		
+		print 'test!'		
 		return HttpResponse(numberOfdays)
 		#variable for returning messages (testing)
 		returnMsg = ""
