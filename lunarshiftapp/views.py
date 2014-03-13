@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from lunarshiftapp.models import Employee, Availibity, Schedule
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.context_processors import csrf
+from django.contrib.auth.hashers import make_password
 
 # mainly for testing routing using
 from django.http import HttpResponse
@@ -84,7 +85,7 @@ def addEmployee(request):
 			username = username,
 			first_name = firstname,
 			last_name = lastname, 
-			password = password
+			password = make_password(password)
 		)
 		u.save()
 		newE = Employee(user=u, company=e.company)
