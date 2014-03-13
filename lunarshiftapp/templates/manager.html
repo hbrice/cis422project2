@@ -311,7 +311,8 @@
             } else {
               var symbol = convertDayToSymbol(day);
               daysScheduled[dayToNum(day)] = 1;
-              slider = "slider" + symbol
+              slider = "slider" + symbol;
+              alert(slider);
               $(slider).dateRangeSlider({
                 step:{hours: 1},
                 bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 24, 0, 0)},
