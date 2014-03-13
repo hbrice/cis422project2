@@ -32,7 +32,7 @@ class ComputeSchedule:
 			for hours in s[day]:
 				if hours[0] in dict:              #hours[0] ==> username
 					dict[hours[0]] += 1
-				else
+				else:
 					dict[hours[0]] = 1
 		
 		l = []
