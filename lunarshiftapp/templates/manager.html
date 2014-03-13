@@ -419,7 +419,13 @@
           $("#employeeTable").on("click", ".check", function(e) {
             var id = $(this).closest("tr").attr("id");
             var isChecked = $(this).is(':checked');
-            alert(isChecked);
+            if (isChecked) {
+              employeeScheduled.push(id);
+            } else {
+              var idx = employeeScheduled.indexOf(id);
+              employeeScheduled.splice(idx, 1);
+            }
+            console.log(employeeScheduled);
             //var tr = $(this).closest("tr");
             /*tr.fadeOut(400, function(){
               tr.remove();
