@@ -149,7 +149,7 @@ def addTime(request):
 
 def computeSchedule(request):
 	if request.method == 'POST' and request.is_ajax():
-		employeesSet = request.POST.get['employees', False]
+		employeesSet = request.POST.get['employees']
 		manager = request.POST['manager']
 		
 		compute = ComputeSchedule(employeesSet,employeesSet)
