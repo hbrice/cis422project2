@@ -247,11 +247,31 @@
             });
           });
 
+          var daysScheduled = new Array();
           var counter = 0;
+
+          funtion dayToNum(val) {
+            if (val == "M"){
+              return 0;
+            } else if (val == "T") {
+              return 1;
+            } else if (val == "W") {
+              return 2;
+            } else if (val == "Th") {
+              return 3;
+            } else if (val == "F") {
+              return 4;
+            } else if (val == "S") {
+              return 5;
+            } else {
+              return 6;
+            }
+          }
+
           $("#availability").on("click", "#addday", function(e) {
             counter = counter + 1;
             var day = $("#days :selected").text();
-            alert(counter);
+            alert(daytoNum("M"));
 
             /*$("#slider").dateRangeSlider({
               step:{hours: 1},
