@@ -67,7 +67,7 @@ After credentials have been verified, if they match admin permissions it'll lead
 2.1.1.1 View schedule
 ------------------------
 
-At the managerial page the user can view the current schedule by selecting the tab "Schedule". This page will display the schedule that has been built. It will display the schedule in a list format, displaying the Employee name, Time of shift, and hours of shift, for each employee on the schedule. 
+At the managerial page the user can view the current schedule by selecting the tab "Schedule". This page will display the schedule that has been built. It will display the schedule in a list format: Day the employee works, the Employee name, Time of shift, and total hours for the shift, for each employee on the schedule. 
        
 -------------------------            
 2.1.1.2 Build a schedule
@@ -82,25 +82,27 @@ To build a schedule the user must first set the hours that need to be covered.
 See section 2.1.1.2.1 Set hours that need to be covered.
     
 The user will then need to add employees to the schedule.
-See section 2.1.1.2.2 Add/ Remove employees from schedule.
+See section 2.1.1.2.2 Add/Remove employees from schedule.
  
-After all desired employees are selected for the next month's schedule, the user can click "Build Schedule" and LunarShift will automatically calculate a schedule based on "the fairest algorithm in all the land" algorithm (defined in the SRS  section 8.1 under definitions), this schedule will be displayed when you then navigate to the "Schedule" tab. 
+After all desired employees are selected for the next month's schedule, the user can click "Compute Schedule" and LunarShift will automatically calculate a schedule based on "the fairest algorithm in all the land" algorithm, this schedule will be displayed when you then navigate to the "Schedule" tab. 
         
 ---------------------------------------------             
 2.1.1.2.1 Set hours that need to be covered
 ---------------------------------------------
 
-At the admin page, the manger can set the hours that need to be covered for the next months schedule by navigating to the 'Availability' tab. 
+At the managerial page, the manger can set the hours that need to be covered for the next months schedule by navigating to the 'Coverage' tab. The manager can select the blue 'Add Day' button and select a day from the pop-up window's list, then click Add.
+    
+ Next the user will adjust the times that need to be covered for the day.  If at any time the user does not want a certain day or shift on the schedule, the can click the red 'Delete' button at the top right of the day's table, and that day/shift will be removed.
 
-The manager can select 'Add Day' ie (Monday - Sunday) and use the blue slider bar to adjust the times that need to be covered for the day.  If at any time the user does not want a certain day or shift on the schedule, the can click 'Delete' at the top right of the day's table, and that day/shift will be removed. 
 
 ----------------------------------------------
 2.1.1.2.2 Add/ Remove employees from schedule
 ----------------------------------------------
 
-At the admin page, the manger can add and remove employees from the schedule by navigating to the 'Employees' tab. 
+At the managerial page, the manger can add and remove employees from the schedule by navigating to the 'Employees' tab. 
 
-Thumbs up icon indicated the employee has submitted their availability; Thumbs down icon indicates that the employee has not submitted their availability. If an employee's Schedule check box is not 'checked' when the schedule is built, then that employee will not be added to the next month's schedule. 
+Thumbs up icon indicated the employee has submitted their availability; Thumbs down icon  indicates that the employee has not submitted their availability. If an employee's Schedule check box is not 'checked' when the schedule is built, then that employee will not be added to the next month's schedule. 
+
 
 ----------------------------------------
 2.1.1.3 Deactivate/Activate an employee
@@ -108,9 +110,12 @@ Thumbs up icon indicated the employee has submitted their availability; Thumbs d
 
 At the managerial page, the manger can activate/deactivate an employee by navigating to the "Employees" tab. The current employees will be listed on this page. 
 
-To activate an employee to LunarShift, the manager will select "Activate Employee". This will cause a pop up window to appear where the user will fill in the new users credentials. The credentials that need to be inputed are: First Name, Last Name, and Email Address. The user will select "Submit" after all the credentials are entered and then the new user will appear in the list of employees. 
+To activate an employee to LunarShift, the manager will select "Add Employee". This will cause a pop up window to appear where the user will fill in the new users credentials. The credentials that need to be inputed are: First Name, Last Name, and Email Address. 
+    
+The user will select "Add" after all the credentials are entered and then the new user will appear in the list of employees. 
 
-To deactivate an employee the manager will click "Deactivate". The manager will be prompted with a message to verify they want to deactivate that employee from LunarShift, the manager will select "Yes" to deactivate the employee or "No" to cancel the deactivation. The employee once deactivated will be removed from the list of employees and no longer able to access to LunarShift.
+To deactivate an employee the manager will click "Delete". The employee once deactivated will be removed from the list of employees and no longer able to access to LunarShift.
+
 
 -------------------------
 2.1.2    Employee login:
