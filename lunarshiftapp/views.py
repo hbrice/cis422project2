@@ -190,7 +190,7 @@ def computeSchedule(request):
 						#	managerCounter += 1
 							#return HttpResponse(e.user)
 						#else:
-							if e.user!="test":
+							if e.user!="test test":
 								poolOfEmployees.append(e)
 								poolCounter += 1
 				#poolOfEmployees =  Availibity.objects.filter(AvailibleDay=day.AvailibleDay)
