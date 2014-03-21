@@ -160,7 +160,7 @@ def computeSchedule(request):
 		manager = request.POST['manager']
 		#daysNeedingCoverage return a list of Schedule records, each representing a day that needs coverage
 		daysNeedingCoverage = Availibity.objects.filter(user__username=manager) # manager availability is coverage	
-		
+		Schedule.objects.all().delete()
 			
 		#store the number of days that are in the schedule
 		numberOfdays = len(Availibity.objects.filter(user__username=manager))
