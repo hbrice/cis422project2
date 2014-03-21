@@ -190,7 +190,7 @@ def computeSchedule(request):
 						#	managerCounter += 1
 							#return HttpResponse(e.user)
 						#else:
-								returnUsers += e.user + ","
+								returnUsers += str(e.user) + ","
 							#if e.user!="test test":
 								poolOfEmployees.append(e)
 								poolCounter += 1
